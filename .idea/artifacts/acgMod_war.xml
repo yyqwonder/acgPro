@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="acgMod:war">
+    <output-path>$PROJECT_DIR$/acgMod/target</output-path>
+    <root id="archive" name="acgArt.war">
+      <element id="artifact" artifact-name="acgMod:war exploded" />
+    </root>
+  </artifact>
+</component>
