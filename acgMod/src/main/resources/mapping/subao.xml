@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyl.myacg.modules.subao.dao.ISubaoDao">
+
+
+    <resultMap id="subao" type="com.xyl.myacg.modules.subao.entity.Subao">
+        <result column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+
+
+    </resultMap>
+
+
+
+    <sql id="subaoColumns">
+        a.id AS "id",
+        a.content AS "content"
+    </sql>
+
+
+
+
+
+
+
+
+    <select id="findAllList" resultMap="subao">
+        SELECT
+        <include refid="subaoColumns"/>
+        FROM subao a
+
+    </select>
+
+
+
+</mapper>
