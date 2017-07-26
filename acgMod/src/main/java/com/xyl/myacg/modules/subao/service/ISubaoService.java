@@ -8,5 +8,8 @@ import java.util.List;
  * Created by yyq on 2017/7/22.
  */
 public interface ISubaoService {
-    List<Subao> getSubao();
+    List<Subao> getSubao(Subao subao);
+    int updateSubao(Subao subao);
+    int deleteSubao(Subao subao);
+    int addSubao(Subao subao);
 }

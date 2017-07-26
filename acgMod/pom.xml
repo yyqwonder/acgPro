@@ -18,6 +18,7 @@
 
     <jackson.version>2.2.3</jackson.version>
     <commons-lang3.version>3.3.2</commons-lang3.version>
+    <guava.version>17.0</guava.version>
   </properties>
 
   <dependencies>
@@ -200,6 +201,41 @@
       <artifactId>commons-lang3</artifactId>
       <version>${commons-lang3.version}</version>
     </dependency>
+
+    <!-- google java lib -->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${guava.version}</version>
+    </dependency>
+
+    <!-- CKFinder begin -->
+    <dependency>
+      <groupId>net.coobird</groupId>
+      <artifactId>thumbnailator</artifactId>
+      <version>0.4.2</version>
+    </dependency>
+    <!--<dependency>-->
+    <!--<groupId>com.ckfinder</groupId>-->
+    <!--<artifactId>apache-ant-zip</artifactId>-->
+    <!--<version>2.3</version>-->
+    <!--</dependency>-->
+    <dependency>
+      <groupId>com.ckfinder</groupId>
+      <artifactId>ckfinder</artifactId>
+      <version>2.4</version>
+    </dependency>
+    <dependency>
+      <groupId>com.ckfinder</groupId>
+      <artifactId>ckfinderplugin-fileeditor</artifactId>
+      <version>2.4</version>
+    </dependency>
+    <dependency>
+      <groupId>com.ckfinder</groupId>
+      <artifactId>ckfinderplugin-imageresize</artifactId>
+      <version>2.4</version>
+    </dependency>
+    <!-- CKFinder end -->
 
   </dependencies>
 

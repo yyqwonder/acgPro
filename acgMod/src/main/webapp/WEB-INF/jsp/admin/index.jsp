@@ -11,7 +11,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 	<!-- bootstrap & fontawesome -->
-	<link rel="stylesheet" href="${ctxStatic}/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="FF/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="${ctxStatic}/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 	<!-- page specific plugin styles -->
@@ -885,7 +885,7 @@
 			</li>
 
 			<li class="">
-				<a href="${ctxPath}/subao">
+				<a href="${ctxPath}/subao/getSubao">
 					<i class="menu-icon fa fa-picture-o"></i>
 					<span class="menu-text"> 速报 </span>
 				</a>

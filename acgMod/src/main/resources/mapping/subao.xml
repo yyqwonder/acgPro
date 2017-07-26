@@ -2,14 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xyl.myacg.modules.subao.dao.ISubaoDao">
 
-
+<!--
     <resultMap id="subao" type="com.xyl.myacg.modules.subao.entity.Subao">
         <result column="id" property="id" jdbcType="VARCHAR"/>
         <result column="content" property="content" jdbcType="VARCHAR"/>
-
-
     </resultMap>
-
+-->
 
 
     <sql id="subaoColumns">
@@ -24,13 +22,34 @@
 
 
 
-    <select id="findAllList" resultMap="subao">
+    <select id="findAllList" resultType="com.xyl.myacg.modules.subao.entity.Subao">
         SELECT
         <include refid="subaoColumns"/>
         FROM subao a
+        <where>
+            a.del_flag = #{DEL_FLAG_NORMAL}
+            <if test="content != null and content != ''">
+                AND a.content = #{content}
+            </if>
+        </where>
 
     </select>
 
+    <update id="update">
+        UPDATE subao SET
+        content = #{content}
+        WHERE id = #{id}
+    </update>
 
+    <update id="delete">
+        UPDATE subao SET
+        del_flag = #{DEL_FLAG_DELETE}
+        WHERE id = #{id}
+    </update>
+
+    <insert id="insert">
+        insert into subao(id,content,del_flag) VALUES
+        (#{id},#{content},#{delFlag})
+    </insert>
 
 </mapper>

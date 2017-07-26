@@ -1,20 +1,13 @@
 package com.xyl.myacg.modules.subao.entity;
 
+import com.xyl.myacg.common.persistence.BaseEntity;
+
 /**
  * Created by yyq on 2017/7/22.
  */
-public class Subao {
+public class Subao extends BaseEntity<Subao> {
 
-    String id;
     String content;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getContent() {
         return content;

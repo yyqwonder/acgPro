@@ -8,5 +8,8 @@ import java.util.List;
  * Created by yyq on 2017/7/22.
  */
 public interface ISubaoDao {
-    List<Subao> findAllList();
+    List<Subao> findAllList(Subao subao);
+    int update(Subao subao);
+    int delete(Subao subao);
+    int insert(Subao subao);
 }
