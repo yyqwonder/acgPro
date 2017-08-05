@@ -1008,6 +1008,13 @@
                             Please note that demo server is not configured to save the changes, therefore you may see an error message.
                         </div>
 
+                        <div>
+                            <form action="${ctxPath}/subao/getSubao">
+                                内容：<input type="text"  name="content"/>
+                                <input type="submit" value="查 询" />
+                            </form>
+                        </div>
+
                         <table id="grid-table"></table>
 
                         <div id="grid-pager"></div>
@@ -1073,6 +1080,8 @@
 <!-- ace scripts -->
 <script src="${ctxStatic}/js/ace-elements.min.js"></script>
 <script src="${ctxStatic}/js/ace.min.js"></script>
+
+
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
@@ -1149,9 +1158,11 @@
             },
             */
 
+
             url : '${ctxPath}/subao/subaoAja',
             datatype: "json",
             height: 250,
+
             colNames:[' ', '序号','内容'],
             colModel:[
                 {name:'myac',index:'', width:80, fixed:true, sortable:false, resize:false,
@@ -1450,37 +1461,35 @@
 
         jQuery("#del_grid-table").click(function(){
             var sels = $(grid_selector).jqGrid('getGridParam','selarrrow');
-            if(sels==""){
-               // $().message("请选择要删除的项！");
-            }else{
-                if(confirm("您是否确认删除？")){
+
+            alert(sels);
+
                     $.ajax({
                         type: "POST",
                         url: "${ctxPath}/subao/operation?oper=del",
-                        data: "id="+sels,
-//                        beforeSend: function() {
-//                            $().message("正在请求...");
-//                        },
-//                        error:function(){
-//                            $().message("请求失败...");
-//                        },
-                        success: function(msg){
-                            if(msg!=0){
-                                var arr = msg.split(',');
-                                $.each(arr,function(i,n){
-                                    if(arr[i]!=""){
-                                        $(grid_selector).jqGrid('delRowData',n);
-                                    }
-                                });
-                                //$().message("已成功删除!");
-                              }
+                        data: "id="+sels
+                        //data:{id:sels} 最开始多个逗号？
+//                        success: function(msg){
+//                            if(msg!=0){
+//                                var arr = msg.split(',');
+//                                $.each(arr,function(i,n){
+//                                    if(arr[i]!=""){
+//                                        $(grid_selector).jqGrid('delRowData',n);
+//                                    }
+//                                });
+//
+//                                $.message("已成功删除!");
+//
+//                              }
+//
 //                            else{
-//                                $().message("操作失败！");
+//                                $.message("操作失败！");
 //                            }
-                        }
+//
+//                        }
                     });
-                }
-            }
+
+
         });
     });
 </script>
