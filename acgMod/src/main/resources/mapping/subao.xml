@@ -29,7 +29,7 @@
         <where>
             a.del_flag = #{DEL_FLAG_NORMAL}
             <if test="content != null and content != ''">
-                AND a.content = #{content}
+                AND a.content like CONCAT(CONCAT('%', #{content}), '%')
             </if>
         </where>
 

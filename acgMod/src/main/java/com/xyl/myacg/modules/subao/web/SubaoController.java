@@ -28,17 +28,13 @@ public class SubaoController {
     }
 
     @RequestMapping(value = "operation")
-    public String editSubao(@RequestParam("id")String id , @RequestParam(value="content", required=false)String content,@RequestParam("oper")String oper){
+    public String operSubao(Subao subao,@RequestParam("oper")String oper){
         if(oper.equals("edit")){
-            Subao subao = new Subao();
-            subao.setId(id);
-            subao.setContent(content);
             subaoService.updateSubao(subao);
         }
 
         if(oper.equals("del")){
-            Subao subao = new Subao();
-            String[] strs = id.split(",");
+            String[] strs = subao.getId().split(",");
             for(int i=0;i<strs.length;i++){
                 subao.setId(strs[i]);
                 subaoService.deleteSubao(subao);
@@ -47,12 +43,9 @@ public class SubaoController {
         }
 
         if(oper.equals("add")){
-            Subao subao = new Subao();
             subao.setId(UUID.randomUUID().toString().replaceAll("-", ""));
-            subao.setContent(content);
             subaoService.addSubao(subao);
         }
-
         return "admin/subao1";
 
     }
@@ -60,23 +53,9 @@ public class SubaoController {
     @RequestMapping(value = "subaoAja")
     @ResponseBody
     public String getSubaoAja(Subao subao, HttpServletRequest request){
-        /*String page = request.getParameter("page");
-        String rows = request.getParameter("rows");
 
-        int begin = (Integer.parseInt(page) - 1) * Integer.parseInt(rows); // 开始记录数
-        int pageSize = Integer.parseInt(rows);
-        int totalRecord = 12;
-        int end = (begin+pageSize)>=totalRecord?totalRecord:(begin+pageSize);
 
-        int totalPage = totalRecord % Integer.parseInt(rows) == 0 ? totalRecord
-                / Integer.parseInt(rows) : totalRecord / Integer.parseInt(rows)
-                + 1; // 计算总页数
 
-        //List<Subao> list = subaoService.getSubao(subao);
-        Page<Subao> pageBean = new Page<Subao>();
-        pageBean.setBegin(begin);
-        pageBean.setEnd(end);
-*/
         Page<Subao> page = subaoService.findPage(new Page<Subao>(request),subao);
 
         String jsonString = JsonMapper.toJsonString(page.getList());

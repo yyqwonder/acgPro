@@ -1009,10 +1009,9 @@
                         </div>
 
                         <div>
-                            <form action="${ctxPath}/subao/getSubao">
-                                内容：<input type="text"  name="content"/>
-                                <input type="submit" value="查 询" />
-                            </form>
+                            内容：<input type="text" id="content"/>
+                            <input type="submit" id="find_btn" value="查 询" />
+
                         </div>
 
                         <table id="grid-table"></table>
@@ -1162,7 +1161,7 @@
             url : '${ctxPath}/subao/subaoAja',
             datatype: "json",
             height: 250,
-
+            mtype:"POST",
             colNames:[' ', '序号','内容'],
             colModel:[
                 {name:'myac',index:'', width:80, fixed:true, sortable:false, resize:false,
@@ -1459,12 +1458,10 @@
             $('.ui-jqdialog').remove();
         });
 
-        jQuery("#del_grid-table").click(function(){
+        /*jQuery("#del_grid-table").click(function(){
             var sels = $(grid_selector).jqGrid('getGridParam','selarrrow');
 
-            alert(sels);
-
-                    $.ajax({
+            $.ajax({
                         type: "POST",
                         url: "${ctxPath}/subao/operation?oper=del",
                         data: "id="+sels
@@ -1490,7 +1487,23 @@
                     });
 
 
+        });*/
+
+
+
+
+
+        jQuery("#find_btn").click(function(){
+            //此处可以添加对查询数据的合法验证
+            var content = $("#content").val();
+            jQuery(grid_selector).jqGrid('setGridParam',{
+                datatype:'json',
+                postData:{'content':content},
+                page:1
+            }).trigger("reloadGrid");
         });
+
+
     });
 </script>
 
