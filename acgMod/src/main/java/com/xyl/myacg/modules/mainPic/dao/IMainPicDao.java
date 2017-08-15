@@ -9,5 +9,9 @@ import java.util.List;
  */
 
 public interface IMainPicDao {
-    List<MainPic> findAllList();
+    int update(MainPic mainPic);
+    int delete(MainPic mainPic);
+    int insert(MainPic mainPic);
+    List<MainPic> findList(MainPic mainPic);
+    MainPic get(String id);
 }

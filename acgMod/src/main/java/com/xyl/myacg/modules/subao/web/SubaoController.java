@@ -24,7 +24,7 @@ public class SubaoController {
     ISubaoService subaoService;
     @RequestMapping(value = "getSubao")
     public String getSubao(){
-        return "admin/subao1";
+        return "admin/subao";
     }
 
     @RequestMapping(value = "operation")
@@ -46,7 +46,7 @@ public class SubaoController {
             subao.setId(UUID.randomUUID().toString().replaceAll("-", ""));
             subaoService.addSubao(subao);
         }
-        return "admin/subao1";
+        return "admin/subao";
 
     }
 

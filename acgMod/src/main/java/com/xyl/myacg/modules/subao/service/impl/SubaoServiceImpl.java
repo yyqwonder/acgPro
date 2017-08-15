@@ -44,4 +44,8 @@ public class SubaoServiceImpl implements ISubaoService{
         page.setList(list);
         return page;
     }
+
+    public List<Subao> findList(Subao subao){
+        return subaoDao.findList(subao);
+    }
 }

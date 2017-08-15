@@ -555,21 +555,28 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
-                        <div class="alert alert-info">
-                            <button class="close" data-dismiss="alert">
-                                <i class="ace-icon fa fa-times"></i>
-                            </button>
 
-                            <i class="ace-icon fa fa-hand-o-right"></i>
-                            Please note that demo server is not configured to save the changes, therefore you may see an error message.
+                        <div class="row">
+                            <div class="col-xs-3">
+                                内容：<input type="text" id="content"/>
+                            </div>
+                            <div class="col-xs-3">
+                                作者 ：<input type="text" id="author"/>
+                            </div>
+                            <div class="col-xs-3">
+                                分类：<input type="text" id="classification"/>
+                            </div>
+                            <div class="col-xs-3">
+                                <input type="submit" id="find_btn" value="查 询" />
+                            </div>
+                        </div>
+                        <div>
+                           <input type="button" id="edit_btn" value="编 辑" />
                         </div>
 
                         <div>
-                            内容：<input type="text" id="content"/>
-                            <input type="submit" id="find_btn" value="查 询1" />
+                            <input type="button" id="add_btn" value="添 加" />
                         </div>
-
-
 
                         <table id="grid-table"></table>
 
@@ -683,55 +690,18 @@
 
 
         jQuery(grid_selector).jqGrid({
-            //direction: "rtl",
-
-            //subgrid options
-            /*
-             subGrid : false,
-             subGridModel: [{ name : ['No','Item Name','Qty'], width : [55,200,80] }],
-             datatype: "xml",
-             subGridOptions : {
-             plusicon : "ace-icon fa fa-plus center bigger-110 blue",
-             minusicon  : "ace-icon fa fa-minus center bigger-110 blue",
-             openicon : "ace-icon fa fa-chevron-right center orange"
-             },
-             */
-            //for this example we are using local data
-            /*
-             subGridRowExpanded: function (subgridDivId, rowId) {
-             var subgridTableId = subgridDivId + "_t";
-             $("#" + subgridDivId).html("<table id='" + subgridTableId + "'></table>");
-             $("#" + subgridTableId).jqGrid({
-             datatype: 'local',
-             data: subgrid_data,
-             colNames: ['No','Item Name','Qty'],
-             colModel: [
-             { name: 'id', width: 50 },
-             { name: 'name', width: 150 },
-             { name: 'qty', width: 50 }
-             ]
-             });
-             },
-             */
-
-
-            url : '${ctxPath}/subao/subaoAja',
+            url : '${ctxPath}/mainPic/mainPicAja',
             datatype: "json",
             height: 250,
             mtype:"POST",
-            colNames:[' ', '序号','内容'],
+            colNames:['序号','图片','作者','分类','时间','内容'],
             colModel:[
-                {name:'myac',index:'',width:80,fixed:true, sortable:false, resize:false,
-                    formatter:'actions',
-                    formatoptions:{
-                        keys:true,
-                        //delbutton: false,//disable delete button
-                        delOptions:{recreateForm: true, beforeShowForm:beforeDeleteCallback},
-                        //editformbutton:true, editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
-                    }
-                },
-                {name:'id',index:'id',hidedlg:true,hidden:true},
-                {name:'content',index:'content',editable: true}
+                {name:'id',index:'id', hidedlg:true,hidden:true},
+                {name:'path',index:'path', width:25,formatter : showPicture},
+                {name:'author',index:'author',editable: true},
+                {name:'classification',index:'classification',editable: true},
+                {name:'time',index:'time', editable: true},
+                {name:'content',index:'content', editable: true}
             ],
 
             rownumbers:true,
@@ -740,10 +710,7 @@
             rowList:[10,20,30],
             pager : pager_selector,
             altRows: true,
-            //toppager: true,
-
             multiselect: true,
-            //multikey: "ctrlKey",
             multiboxonly: true,
 
             loadComplete : function() {
@@ -757,7 +724,7 @@
                 }, 0);
             },
 
-            editurl: '${ctxPath}/subao/operation',//nothing is saved
+            editurl: '${ctxPath}/mainPic/operation',//nothing is saved
             caption: "jqGrid with inline editing"
 
             //,autowidth: true,
@@ -1022,16 +989,30 @@
         jQuery("#find_btn").click(function(){
             //此处可以添加对查询数据的合法验证
             var content = $("#content").val();
+            var author = $("#author").val();
+            var classification = $("#classification").val();
             jQuery(grid_selector).jqGrid('setGridParam',{
                 datatype:'json',
-                postData:{'content':content},
+                postData:{'content':content,'author':author,'classification':classification},
                 page:1
             }).trigger("reloadGrid");
         });
 
+        jQuery("#edit_btn").click(function(){
+            //此处可以添加对查询数据的合法验证
+            var id = jQuery(grid_selector).jqGrid('getGridParam','selrow');
+            window.location.href="${ctxPath}/mainPic/form?id="+id;
+        });
 
+        jQuery("#add_btn").click(function(){
+            //此处可以添加对查询数据的合法验证
+            window.location.href="${ctxPath}/mainPic/form";
+        });
 
+        function showPicture(cellvalue, options, rowObject){
 
+            return "<img src='" +cellvalue + "' height='50' width='50' />";
+        }
 
     });
 </script>

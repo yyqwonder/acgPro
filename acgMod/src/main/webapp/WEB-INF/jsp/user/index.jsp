@@ -448,11 +448,11 @@
             <!--主要内容-->
             <div class="col-lg-9 allcontent">
                 <div class="row">
-                    <c:forEach items="${list}" var="p">
+                    <c:forEach items="${mainPicList}" var="p">
                         <div class="col-md-4">
                             <div class="eachcontent"><img src="${ctxStatic}${p.path}">
-                                <p class="textbox">人气MegaHobby EXPO来袭GuangZhou!</p>
-                                <p class="labelbox"><span>展会</span>馥馥酱</p>
+                                <p class="textbox">${p.content}</p>
+                                <p class="labelbox"><span>${p.classification}</span>${p.author}</p>
                             </div>
                         </div>
                     </c:forEach>

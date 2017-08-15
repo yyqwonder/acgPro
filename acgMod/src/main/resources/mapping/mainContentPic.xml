@@ -2,35 +2,60 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xyl.myacg.modules.mainPic.dao.IMainPicDao">
 
-
-    <resultMap id="MainPic" type="com.xyl.myacg.modules.mainPic.entity.MainPic">
-        <result column="id" property="id" jdbcType="VARCHAR"/>
-        <result column="path" property="path" jdbcType="VARCHAR"/>
-
-
-    </resultMap>
-
-
-
     <sql id="mainPicColumns">
         a.id AS "id",
-        a.path AS "path"
+        a.path AS "path",
+        a.author AS "author",
+        a.classification AS "classification",
+        a.time AS "time",
+        a.content AS "content"
     </sql>
 
-
-
-
-
-
-
-
-    <select id="findAllList" resultMap="MainPic">
+    <select id="get" resultType="com.xyl.myacg.modules.mainPic.entity.MainPic">
         SELECT
         <include refid="mainPicColumns"/>
         FROM main_pic a
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="findList" resultType="com.xyl.myacg.modules.mainPic.entity.MainPic">
+        SELECT
+        <include refid="mainPicColumns"/>
+        FROM main_pic a
+        <where>
+            a.del_flag = #{DEL_FLAG_NORMAL}
+            <if test="content != null and content != ''">
+                AND a.content like CONCAT(CONCAT('%', #{content}), '%')
+            </if>
+            <if test="author != null and author != ''">
+                AND a.author like CONCAT(CONCAT('%', #{author}), '%')
+            </if>
+            <if test="classification != null and classification != ''">
+                AND a.classification like CONCAT(CONCAT('%', #{classification}), '%')
+            </if>
+        </where>
 
     </select>
 
+    <insert id="insert">
+        insert into main_pic(id,path,author,classification,time,content,del_flag) VALUES
+        (#{id},#{path},#{author},#{classification},#{time},#{content},#{delFlag})
+    </insert>
 
+    <update id="update">
+        UPDATE main_pic SET
+        path = #{path},
+        author = #{author},
+        classification = #{classification},
+        time = #{time},
+        content = #{content}
+        WHERE id = #{id}
+    </update>
+
+    <update id="delete">
+        UPDATE main_pic SET
+        del_flag = #{DEL_FLAG_DELETE}
+        WHERE id = #{id}
+    </update>
 
 </mapper>
