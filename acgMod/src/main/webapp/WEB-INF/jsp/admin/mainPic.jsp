@@ -556,27 +556,28 @@
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
 
-                        <div class="row">
-                            <div class="col-xs-3">
-                                内容：<input type="text" id="content"/>
+                            <div class="row alert alert-info">
+                                <div class="col-xs-3">
+                                    内容：<input type="text" id="content"/>
+                                </div>
+                                <div class="col-xs-3">
+                                    作者 ：<input type="text" id="author"/>
+                                </div>
+                                <div class="col-xs-3">
+                                    分类：<input type="text" id="classification"/>
+                                </div>
+                                <div class="col-xs-3">
+                                    时间：<input type="text" id="time"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="submit" id="find_btn" value="查 询" />
+                                </div>
                             </div>
-                            <div class="col-xs-3">
-                                作者 ：<input type="text" id="author"/>
+                            <div>
+                                <input type="button" id="edit_btn" value="编 辑" />
                             </div>
-                            <div class="col-xs-3">
-                                分类：<input type="text" id="classification"/>
-                            </div>
-                            <div class="col-xs-3">
-                                <input type="submit" id="find_btn" value="查 询" />
-                            </div>
-                        </div>
-                        <div>
-                           <input type="button" id="edit_btn" value="编 辑" />
-                        </div>
 
-                        <div>
-                            <input type="button" id="add_btn" value="添 加" />
-                        </div>
+                            <div>
+                                <input type="button" id="add_btn" value="添 加" />
+                            </div>
 
                         <table id="grid-table"></table>
 
@@ -694,7 +695,7 @@
             datatype: "json",
             height: 250,
             mtype:"POST",
-            colNames:['序号','图片','作者','分类','时间','内容'],
+            colNames:['序号','','作者','分类','时间','内容'],
             colModel:[
                 {name:'id',index:'id', hidedlg:true,hidden:true},
                 {name:'path',index:'path', width:25,formatter : showPicture},
@@ -704,7 +705,7 @@
                 {name:'content',index:'content', editable: true}
             ],
 
-            rownumbers:true,
+            jqModal:false,
             viewrecords : true,
             rowNum:10,
             rowList:[10,20,30],
@@ -772,17 +773,17 @@
         //navButtons
         jQuery(grid_selector).jqGrid('navGrid',pager_selector,
                 { 	//navbar options
-                    edit: true,
+                    edit: false,
                     editicon : 'ace-icon fa fa-pencil blue',
-                    add: true,
+                    add: false,
                     addicon : 'ace-icon fa fa-plus-circle purple',
                     del: true,
                     delicon : 'ace-icon fa fa-trash-o red',
-                    search: true,
+                    search: false,
                     searchicon : 'ace-icon fa fa-search orange',
-                    refresh: true,
+                    refresh: false,
                     refreshicon : 'ace-icon fa fa-refresh green',
-                    view: true,
+                    view: false,
                     viewicon : 'ace-icon fa fa-search-plus grey',
                 },
                 {
@@ -1001,6 +1002,10 @@
         jQuery("#edit_btn").click(function(){
             //此处可以添加对查询数据的合法验证
             var id = jQuery(grid_selector).jqGrid('getGridParam','selrow');
+            if(id==null){
+                alert('请选择一行记录');
+                return;
+            }
             window.location.href="${ctxPath}/mainPic/form?id="+id;
         });
 

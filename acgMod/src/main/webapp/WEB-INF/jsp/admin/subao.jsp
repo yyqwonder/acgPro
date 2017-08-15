@@ -556,18 +556,15 @@
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
                         <div class="alert alert-info">
-                            <button class="close" data-dismiss="alert">
-                                <i class="ace-icon fa fa-times"></i>
-                            </button>
+                            <div>
+                                内容：<input type="text" id="content"/>&nbsp;
+                                <input type="submit" id="find_btn" value="查 询" />
+                            </div>
 
-                            <i class="ace-icon fa fa-hand-o-right"></i>
-                            Please note that demo server is not configured to save the changes, therefore you may see an error message.
+
                         </div>
 
-                        <div>
-                            内容：<input type="text" id="content"/>
-                            <input type="submit" id="find_btn" value="查 询1" />
-                        </div>
+
 
 
 
@@ -730,11 +727,11 @@
                         //editformbutton:true, editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
                     }
                 },
-                {name:'id',index:'id',hidedlg:true,hidden:true},
-                {name:'content',index:'content',editable: true}
+                {name:'id',index:'id',width:80,hidedlg:true,hidden:true},
+                {name:'content',index:'content',width:540,editable: true}
             ],
 
-            rownumbers:true,
+
             viewrecords : true,
             rowNum:10,
             rowList:[10,20,30],
@@ -811,28 +808,27 @@
                     addicon : 'ace-icon fa fa-plus-circle purple',
                     del: true,
                     delicon : 'ace-icon fa fa-trash-o red',
-                    search: true,
+                    search: false,
                     searchicon : 'ace-icon fa fa-search orange',
-                    refresh: true,
+                    refresh: false,
                     refreshicon : 'ace-icon fa fa-refresh green',
-                    view: true,
+                    view: false,
                     viewicon : 'ace-icon fa fa-search-plus grey',
                 },
                 {
                     //edit record form
                     closeAfterEdit: true,
-                    width: 600,
+                    //width: 700,
                     recreateForm: true,
                     beforeShowForm : function(e) {
                         var form = $(e[0]);
-                        //form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
+                        form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
                         style_edit_form(form);
                     }
                 },
                 {
                     //new record form
                     //width: 700,
-                    width: 600,
                     closeAfterAdd: true,
                     recreateForm: true,
                     viewPagerButtons: false,
@@ -900,14 +896,14 @@
 
             //update buttons classes
             var buttons = form.next().find('.EditButton .fm-button');
-            //buttons.addClass('btn btn-sm').find('[class*="-icon"]').hide();//ui-icon, s-icon
-            //buttons.eq(0).addClass('btn-primary').prepend('<i class="ace-icon fa fa-check"></i>');
-            //buttons.eq(1).prepend('<i class="ace-icon fa fa-times"></i>')
+            buttons.addClass('btn btn-sm').find('[class*="-icon"]').hide();//ui-icon, s-icon
+            buttons.eq(0).addClass('btn-primary').prepend('<i class="ace-icon fa fa-check"></i>');
+            buttons.eq(1).prepend('<i class="ace-icon fa fa-times"></i>')
 
             buttons = form.next().find('.navButton a');
-            //buttons.find('.ui-icon').hide();
-            //buttons.eq(0).append('<i class="ace-icon fa fa-chevron-left"></i>');
-            //buttons.eq(1).append('<i class="ace-icon fa fa-chevron-right"></i>');
+            buttons.find('.ui-icon').hide();
+            buttons.eq(0).append('<i class="ace-icon fa fa-chevron-left"></i>');
+            buttons.eq(1).append('<i class="ace-icon fa fa-chevron-right"></i>');
         }
 
         function style_delete_form(form) {
