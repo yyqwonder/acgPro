@@ -727,7 +727,7 @@
                         //editformbutton:true, editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
                     }
                 },
-                {name:'id',index:'id',width:80,hidedlg:true,hidden:true},
+                {name:'id',index:'id',width:80,hidedlg:true,hidden:true,editable: true},
                 {name:'content',index:'content',width:540,editable: true}
             ],
 
