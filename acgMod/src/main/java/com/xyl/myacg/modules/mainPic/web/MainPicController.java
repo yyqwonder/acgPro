@@ -2,6 +2,7 @@ package com.xyl.myacg.modules.mainPic.web;
 
 import com.xyl.myacg.common.mapper.JsonMapper;
 import com.xyl.myacg.common.persistence.Page;
+import com.xyl.myacg.common.utils.StringUtils;
 import com.xyl.myacg.modules.mainPic.entity.MainPic;
 import com.xyl.myacg.modules.mainPic.service.IMainPicService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class MainPicController {
     @ModelAttribute
     public MainPic get(@RequestParam(required = false) String id) {
         MainPic entity = null;
-        if (id!=null&&!id.equals("")) {
+        if (StringUtils.isNotBlank(id)) {
             entity = mainPicService.get(id);
         }
         if (entity == null) {

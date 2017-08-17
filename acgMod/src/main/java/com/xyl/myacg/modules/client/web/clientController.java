@@ -19,6 +19,7 @@ import java.util.List;
 public class clientController {
     @Autowired
     IMainPicService mainPicService;
+    @Autowired
     ISubaoService subaoService;
     @RequestMapping(value = "showWeb")
     public String showWeb(MainPic mainPic , Subao subao,Model model){
@@ -27,9 +28,9 @@ public class clientController {
             String path = mainPicList.get(i).getPath();
             mainPicList.get(i).setPath(path.replaceAll("upload","pic"));
         }
-        //List<Subao> subaoList = subaoService.findList(subao);
+        List<Subao> subaoList = subaoService.findList(subao);
         model.addAttribute("mainPicList",mainPicList);
-        //model.addAttribute("subaoList",subaoList);
+        model.addAttribute("subaoList",subaoList);
         return "user/index";
     }
 }

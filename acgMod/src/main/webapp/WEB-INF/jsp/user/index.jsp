@@ -421,20 +421,9 @@
                             style="font-size:18px;font-weight:700;">速报</span></div>
                     <div class="pre-scrollable" style="height:359px;">
                         <ul style="padding:0px;list-style:none;">
-                            <li><a> <i class="latesticon"></i> 貌似大家对萝莉武则天都褒贬不一的样子…… 趁这个机会来复习一下月球中国史！ </a></li>
-                            <li><a> <i class="latesticon"></i> 美版「黑色小本本」电影预告公开惹~ ，L全程黑脸！！！ </a></li>
-                            <li><a> <i class="latesticon"></i> 《擅长捉弄的高木同学》作者·山本崇一郎画了不夜城的assassin？？？ </a></li>
-                            <li><a> <i class="latesticon"></i> ALICE OR ALICE~妹控哥哥与双胞胎妹妹~ 将有重大发表！！！ </a></li>
-                            <li><a> <i class="latesticon"></i> 「银魂」松阳老师场面曝光，在电影中松阳老师的配音也是由山寺宏一担任！ </a></li>
-                            <li><a> <i class="latesticon"></i> 「你的名字」小说版漫画化啦！ </a></li>
-                            <li><a> <i class="latesticon"></i> 请问您今天要来点兔子吗？完全新作OVA动画确定将在今年光棍节上映！！！s </a></li>
-                            <li><a> <i class="latesticon"></i> Production I.G制作的漫改动画「寻找身体」将于7月31日配信。 </a></li>
-                            <li><a> <i class="latesticon"></i> 『舞动青春』第4弹视觉图，7月8日开播~ </a></li>
-                            <li><a> <i class="latesticon"></i> 「食戟之灵」第三季制作决定 </a></li>
-                            <li><a> <i class="latesticon"></i> 日本内衣品牌wish room推出男性用类似内衣和胖次，你们感受一下 </a></li>
-                            <li><a> <i class="latesticon"></i> 剧场版总集篇「排球少年!!概念的战斗 」视觉图公开！9月29日在日本上映！ </a></li>
-                            <li><a> <i class="latesticon"></i> 腐女心炸裂！BL动画「独占我的英雄」加长版PV公开~7月8日首播！ </a></li>
-                            <li><a> <i class="latesticon"></i> 「异世界食堂」正式曝光预告，一分30秒的视频让你打开食欲大门~ </a></li>
+                            <c:forEach items="${subaoList}" var="p">
+                                <li><a> <i class="latesticon"></i> ${p.content} </a></li>
+                            </c:forEach>
                         </ul>
                     </div>
                 </div>

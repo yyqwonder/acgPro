@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="${ctxStatic}/css/bootstrap-datepicker3.min.css" />
     <link rel="stylesheet" href="${ctxStatic}/css/ui.jqgrid.min.css" />
 
+
+
     <!-- text fonts -->
     <link rel="stylesheet" href="${ctxStatic}/css/fonts.googleapis.com.css" />
 
@@ -564,11 +566,18 @@
                                     作者 ：<input type="text" id="author"/>
                                 </div>
                                 <div class="col-xs-3">
-                                    分类：<input type="text" id="classification"/>
+                                    分类：
+                                    <select id="classification" >
+                                        <option value="">请选择</option>
+                                        <option value="科技">科技</option>
+                                        <option value="文学">文学</option>
+                                        <option value="考试">考试</option>
+                                        <option value="休闲">休闲</option>
+                                    </select>
                                 </div>
                                 <div class="col-xs-3">
-                                    时间：<input type="text" id="time"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="submit" id="find_btn" value="查 询" />
+                                    时间：<input type="text" id="time" class="date-picker" data-date-format="yyyy-mm-dd"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="button" id="find_btn" value="查 询" />
                                 </div>
                             </div>
                             <div>
@@ -640,6 +649,9 @@
 <script src="${ctxStatic}/js/bootstrap-datepicker.min.js"></script>
 <script src="${ctxStatic}/js/jquery.jqGrid.min.js"></script>
 <script src="${ctxStatic}/js/grid.locale-en.js"></script>
+
+
+
 
 <!-- ace scripts -->
 <script src="${ctxStatic}/js/ace-elements.min.js"></script>
@@ -992,9 +1004,10 @@
             var content = $("#content").val();
             var author = $("#author").val();
             var classification = $("#classification").val();
+            var time = $("#time").val();
             jQuery(grid_selector).jqGrid('setGridParam',{
                 datatype:'json',
-                postData:{'content':content,'author':author,'classification':classification},
+                postData:{'content':content,'author':author,'classification':classification,'time':time},
                 page:1
             }).trigger("reloadGrid");
         });
@@ -1022,7 +1035,11 @@
     });
 </script>
 
-
-
+    <script type="text/javascript">
+        $('.date-picker').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        })
+    </script>
 </body>
 </html>

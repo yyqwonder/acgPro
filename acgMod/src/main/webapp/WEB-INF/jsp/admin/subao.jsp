@@ -728,7 +728,7 @@
                     }
                 },
                 {name:'id',index:'id',width:80,hidedlg:true,hidden:true,editable: true},
-                {name:'content',index:'content',width:540,editable: true}
+                {name:'content',index:'content',width:540,editable: true,editoptions:{size:"70",maxlength:"70"}}
             ],
 
 
@@ -902,8 +902,8 @@
 
             buttons = form.next().find('.navButton a');
             buttons.find('.ui-icon').hide();
-            buttons.eq(0).append('<i class="ace-icon fa fa-chevron-left"></i>');
-            buttons.eq(1).append('<i class="ace-icon fa fa-chevron-right"></i>');
+            //buttons.eq(0).append('<i class="ace-icon fa fa-chevron-left"></i>');
+            //buttons.eq(1).append('<i class="ace-icon fa fa-chevron-right"></i>');
         }
 
         function style_delete_form(form) {

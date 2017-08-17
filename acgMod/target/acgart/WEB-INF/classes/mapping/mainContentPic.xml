@@ -33,8 +33,11 @@
             <if test="classification != null and classification != ''">
                 AND a.classification like CONCAT(CONCAT('%', #{classification}), '%')
             </if>
+            <if test="time != null and time != ''">
+                AND a.time = #{time}
+            </if>
         </where>
-
+        ORDER BY a.time DESC
     </select>
 
     <insert id="insert">
