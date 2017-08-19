@@ -437,15 +437,16 @@
             <!--主要内容-->
             <div class="col-lg-9 allcontent">
                 <div class="row">
-                    <c:forEach items="${mainPicList}" var="p">
+                    <c:forEach items="${mainPicInitList}" var="p">
                         <div class="col-md-4">
-                            <div class="eachcontent"><img src="${ctxStatic}${p.path}">
+                            <div class="eachcontent"><img src="${ctxPath}${p.path}">
                                 <p class="textbox">${p.content}</p>
                                 <p class="labelbox"><span>${p.classification}</span>${p.author}</p>
                             </div>
                         </div>
                     </c:forEach>
                 </div>
+                <a><span id="loadMore">加载更多</span></a>
             </div>
 
             <!--边栏-->
@@ -627,6 +628,36 @@
             $(this).html(function(i,origText){
                 return "<input type='text' value="+origText+"/>";
             });
+        });
+
+        var counter = 1;
+
+        $("#loadMore").click(function(){
+            counter++;
+            $.post("${ctxPath}/client/mainPicMoreAja",
+                    {
+                        page:counter,
+                        rows:"6"
+                    },
+                    function(data,status){
+                        var result= '';
+                        var jsonReturn = JSON.parse(data).rows;
+                        for(var i=0;i<jsonReturn.length;i++){
+                            //alert(jsonReturn[i]["author"]);
+                            result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                    jsonReturn[i]["author"]+'</p></div></div>';
+
+                            <%--<div class="col-md-4">--%>
+                                    <%--<div class="eachcontent"><img src="${ctxStatic}${p.path}">--%>
+                                    <%--<p class="textbox">${p.content}</p>--%>
+                                    <%--<p class="labelbox"><span>${p.classification}</span>${p.author}</p>--%>
+                                    <%--</div>--%>
+                                    <%--</div>--%>
+
+                        }
+                        $('.allcontent .row').append(result);
+                        //alert(result);
+                    });
         });
 
     });
