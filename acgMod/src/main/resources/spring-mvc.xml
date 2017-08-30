@@ -33,21 +33,21 @@
         <property name="maxInMemorySize" value="40960" />  
     </bean>
 
-<!--
-	<mvc:resources location="/static/pic/" mapping="/image/*"/>
-	<mvc:resources location="static/css/" mapping="/css/*"/>
-	<mvc:resources location="/static/js/" mapping="/js/*"/>-->
+<!--注解驱动-->
 	<mvc:annotation-driven >
-		<!-- 消息转换器 -->
+		<!-- 消息转换器。@responsebody到页面的中文utf-8 -->
 		<mvc:message-converters register-defaults="true">
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 				<property name="supportedMediaTypes" value="text/html;charset=UTF-8"/>
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
-	<mvc:default-servlet-handler/>
 
-	<mvc:resources mapping="/static/**" location="/static/"/>
+
+	<!--访问静态资源，css js-->
+	<mvc:default-servlet-handler/>
+<!--<mvc:resources mapping="/static/**" location="/static/"/>-->
+
 	<!--别想访问他了吧
 	<mvc:resources mapping="/admin/*" location="/WEB-INF/admin/"/>-->
 </beans>

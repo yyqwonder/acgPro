@@ -6,8 +6,6 @@ import com.xyl.myacg.modules.mainPic.entity.MainPic;
 import com.xyl.myacg.modules.mainPic.service.IMainPicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
@@ -53,6 +51,7 @@ public class MainPicServiceImpl implements IMainPicService {
 
     public int saveMainPic(MainPic mainPic, HttpServletRequest request){
         String isChange = request.getParameter("isChange");
+        //编辑
         if(null!=mainPic.getId()&&!mainPic.getId().equals("")) {
             if("false".equals(isChange)){
                 mainPic.setPath(mainPic.getPath());
@@ -71,12 +70,13 @@ public class MainPicServiceImpl implements IMainPicService {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
+                //数据库字段填值
                 mainPic.setPath("/upload/"+fileName);
             }
 
             return mainPicDao.update(mainPic);
         }
+        //添加
         if(null==mainPic.getId()||mainPic.getId().equals("")){
             mainPic.setId(UUID.randomUUID().toString().replaceAll("-", ""));
             String path = request.getSession().getServletContext().getRealPath("upload");
@@ -86,7 +86,6 @@ public class MainPicServiceImpl implements IMainPicService {
                 targetFile.mkdirs();
             }
 
-            //保存
             try {
                 mainPic.getFile().transferTo(targetFile);
             } catch (Exception e) {

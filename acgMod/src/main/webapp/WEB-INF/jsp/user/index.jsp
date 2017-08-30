@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
+<%@ page language="java"  pageEncoding="utf-8" %>
 <%@ include file="/WEB-INF/jsp/taglib.jsp" %>
 <!doctype html>
 <html lang="zh-CN">
@@ -48,6 +48,35 @@
         .nav_178 {
             background: url(${ctxStatic}/pic/nav.png) no-repeat;
             padding-left: 20px;
+        }
+
+        #bs-example-navbar-collapse-2 li > a:hover {
+            text-decoration: none;
+            cursor: pointer;
+            color: #F6F
+        }
+
+        .dropdown{
+           position: relative;
+        }
+        .dropdown-menu{
+            /*padding: 0;*/
+            display: none;
+            position: absolute;
+        }
+
+
+        .nav .dropdown:hover .dropdown-menu{
+            display: block;
+        }
+
+        #bs-example-navbar-collapse-2 .second-nav .dropdown-menu a:hover{
+            padding-left: 24px;
+            color: #000;
+        }
+
+        .first-nav >li>ul>li>a:hover{
+            color: #FF0000;
         }
 
         .myWrapper {
@@ -247,7 +276,7 @@
                 <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav first-nav">.first-nav >li>ul>li>a:hover
                 <li><a href="#">yyq首页 </a></li>
                 <li class="dropdown nav_178"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                                 aria-haspopup="true" aria-expanded="false">导航</a>
@@ -286,11 +315,11 @@
 
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-                                <ul class="nav navbar-nav">
+                                <ul class="nav navbar-nav second-nav">
                                     <li class="item"><a href="http://acg.178.com" target="_blank">首页 </a></li>
                                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"
                                                             role="button" aria-haspopup="true" aria-expanded="false">动漫情报 </a>
-                                        <ul class="dropdown-menu">
+                                        <ul class="dropdown-menu ">
                                             <li><a href="#">国产动画/漫画</a></li>
                                             <li><a href="#">动画/漫画情报</a></li>
                                             <li><a href="#">真人/舞台剧</a></li>
@@ -353,7 +382,7 @@
                 <div class="row">
                     <div class="col-xs-10 sideimggroup">
                         <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"><img
+                            <li data-target="#carousel-example-generic" data-slide-to="0"  class="active"><img
                                     class="sideimg" src="${ctxStatic}/pic/1.jpg"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="1"><img class="sideimg"
                                                                                                src="${ctxStatic}/pic/2.jpg">
@@ -489,45 +518,45 @@
                                 <div class="dtzt"
                                      style="height:120px;position:relative;overflow:hidden;margin-bottom:10px;"><a> <img
                                         src="${ctxStatic}/pic/ctlw.jpg"
-                                        style="width:100%;height:100px;position:relative;top:0px;"> </a>
+                                        style="width:100%;height:100px;position:relative;top:0px;">
                                     <p style="position:absolute;top:100px;white-space:nowrap; text-overflow:ellipsis;">
-                                        浅析成田良悟：走钢丝的黑色幽默轻小说~</p>
+                                        浅析成田良悟：走钢丝的黑色幽默轻小说~</p></a>
                                 </div>
                             </li>
                             <li>
                                 <div class="dtzt"
                                      style="height:20px;position:relative;overflow:hidden;margin-bottom:10px;"><a> <img
                                         src="${ctxStatic}/pic/xhc.jpg"
-                                        style="width:100%;height:100px;position:relative;top:-100px;"> </a>
+                                        style="width:100%;height:100px;position:relative;top:-100px;">
                                     <p style="position:absolute;top:0px;white-space:nowrap; text-overflow:ellipsis;">
-                                        【人物专题】你了解新海诚吗？</p>
+                                        【人物专题】你了解新海诚吗？</p></a>
                                 </div>
                             </li>
                             <li>
                                 <div class="dtzt"
                                      style="height:20px;position:relative;overflow:hidden;margin-bottom:10px;"><a> <img
                                         src="${ctxStatic}/pic/xf.jpg"
-                                        style="width:100%;height:100px;position:relative;top:-100px;"> </a>
+                                        style="width:100%;height:100px;position:relative;top:-100px;">
                                     <p style="position:absolute;top:0px;white-space:nowrap; text-overflow:ellipsis;">
-                                        你已经决定要追哪几部新番了吗？</p>
+                                        你已经决定要追哪几部新番了吗？</p></a>
                                 </div>
                             </li>
                             <li>
                                 <div class="dtzt"
                                      style="height:20px;position:relative;overflow:hidden;margin-bottom:10px;"><a> <img
                                         src="${ctxStatic}/pic/kjj.jpg"
-                                        style="width:100%;height:100px;position:relative;top:-100px;"> </a>
+                                        style="width:100%;height:100px;position:relative;top:-100px;">
                                     <p style="position:absolute;top:0px;white-space:nowrap;text-overflow:ellipsis;">
-                                        讲真，你想喝喝谁的「口嚼酒」啊？？？</p>
+                                        讲真，你想喝喝谁的「口嚼酒」啊？？？</p></a>
                                 </div>
                             </li>
                             <li>
                                 <div class="dtzt"
                                      style="height:20px;height:100px;position:relative;overflow:hidden;margin-bottom:10px;">
                                     <a> <img src="${ctxStatic}/pic/dadang.jpg"
-                                             style="width:100%;height:100px;position:relative;top:-100px;"> </a>
+                                             style="width:100%;height:100px;position:relative;top:-100px;">
                                     <p style="position:absolute;top:0px;white-space:nowrap;text-overflow:ellipsis;">
-                                        你愿意选谁作为你的异次元搭档呢？？</p>
+                                        你愿意选谁作为你的异次元搭档呢？？</p></a>
                                 </div>
                             </li>
                         </ul>
@@ -605,31 +634,57 @@
 <script src="${ctxStatic}/js/bootstrap.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $(".dtzt").hover(function () {
+        $(".dtzt").click(function () {
             $(this).animate({height: '120px'});
             $(this).find("img").animate({top: '0px'});
             $(this).find("p").animate({top: '100px'});
             $(this).parent().siblings().find(".dtzt").height(20);
             $(this).parent().siblings().find(".dtzt").find("img").css("top", "-100px");
             $(this).parent().siblings().find(".dtzt").find("p").css("top", "0px");
+
         });
 
-        setInterval(function () {
+        $('.carousel').carousel({
+            interval: 5000,
+            //鼠标悬浮indicator或inner都不会暂停，默认是"hover"
+            pause:null
+        });
+
+
+        /*setInterval(function () {
 
                     $("#temperature").height($("#temperature").height() - 83);
 
                     if ($("#temperature").height() == 0) {
                         $("#temperature").height(336);
                     }
-                },
-                5000);
+                }, 5000
+        );浏览器选项卡换了后，指示器和内容不同步*/
 
+
+
+        $('#carousel-example-generic').on('slide.bs.carousel', function () {
+            //this就是#carousel-example-generic
+            //var ii = parseInt($(this).find('.carousel-indicators').find('.active').attr("data-slide-to"));
+            var ii = parseInt(relatedTarget.attr("data-slide-to"));
+            $("#temperature").height(336 - 83*ii);
+
+            var height = $("#temperature").height();
+
+            if (height == 0) {
+                $("#temperature").height(336);
+            }
+        });
+
+        /*
         $(".textbox").click(function(){
             $(this).html(function(i,origText){
                 return "<input type='text' value="+origText+"/>";
             });
         });
+        */
 
+        //加载更多
         var counter = 1;
 
         $("#loadMore").click(function(){

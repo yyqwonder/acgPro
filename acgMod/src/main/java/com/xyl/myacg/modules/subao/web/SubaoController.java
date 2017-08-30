@@ -21,7 +21,7 @@ import java.util.UUID;
 @RequestMapping(value = "subao")
 public class SubaoController {
     @Autowired
-    ISubaoService subaoService;
+    private ISubaoService subaoService;
     @RequestMapping(value = "getSubao")
     public String getSubao(){
         return "admin/subao";

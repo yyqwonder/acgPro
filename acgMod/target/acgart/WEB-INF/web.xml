@@ -27,7 +27,7 @@
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
-  <!-- 防止Spring内存溢出监听器 -->
+  <!-- 防止Spring内存溢出监听器.  不要也罢-->
   <listener>
     <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
   </listener>
@@ -51,7 +51,7 @@
   <welcome-file-list>
     <welcome-file>/WEB-INF/jsp/user/index.jsp</welcome-file>
   </welcome-file-list>
-  <!-- 配置SESSION超时，单位是分钟 -->
+  <!-- 配置SESSION超时，单位是分钟 ，不要也罢-->
   <session-config>
     <session-timeout>15</session-timeout>
   </session-config>

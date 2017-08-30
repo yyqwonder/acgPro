@@ -22,12 +22,15 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping(value = "mainPic")
 public class MainPicController {
     @Autowired
-    IMainPicService mainPicService;
+    private IMainPicService mainPicService;
 
     @ModelAttribute
     public MainPic get(@RequestParam(required = false) String id) {
+        //@ModelAttribute和form里的ModelAttribute对应，编辑就有值了,添加是空值
+        //@RequestParam(required = false) String id添加的时候，id为null，所以@RequestParam(required = false)
         MainPic entity = null;
         if (StringUtils.isNotBlank(id)) {
+            //有whitespace就不行
             entity = mainPicService.get(id);
         }
         if (entity == null) {
@@ -36,6 +39,7 @@ public class MainPicController {
         return entity;
     }
 
+    //到了这个页面，页面通过ajax加载数据
     @RequestMapping(value = "getMainPic")
     public String getMainPic(){
         return "admin/mainPic";
@@ -57,8 +61,9 @@ public class MainPicController {
     @ResponseBody
     public String getMainPicAja(MainPic mainPic, HttpServletRequest request){
 
-
-
+        //mainPic,只加载数据null；查找时肯定里面有属性不为空
+        //new Page<MainPic>(request)构造函数初始化
+        //controller的HttpServletRequest request
         Page<MainPic> page = mainPicService.findPage(new Page<MainPic>(request),mainPic);
 
         String jsonString = JsonMapper.toJsonString(page.getList());
@@ -66,6 +71,7 @@ public class MainPicController {
         return jsonString;
     }
 
+    //点击添加或编辑，带着id来到这里；从这里再去表单网页
     @RequestMapping(value = "form")
     public String form(MainPic mainPic, Model model) {
         model.addAttribute("mainPic", mainPic);
@@ -76,5 +82,6 @@ public class MainPicController {
     public String save(MainPic mainPic, HttpServletRequest request) {
         mainPicService.saveMainPic(mainPic,request);
         return "admin/mainPic";
+        //这个要redirect，否则刷新会重复提交表单
     }
 }

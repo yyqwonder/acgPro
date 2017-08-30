@@ -573,10 +573,17 @@
 
                                 <div class="col-sm-9">
                                     <form:select path="classification"  class="col-xs-10 col-sm-5">
-                                        <form:option value="科技">科技</form:option>
-                                        <form:option value="文学">文学</form:option>
-                                        <form:option value="考试">考试</form:option>
-                                        <form:option value="休闲">休闲</form:option>
+                                        <form:option value="战斗">战斗</form:option>
+                                        <form:option value="治愈">治愈</form:option>
+                                        <form:option value="励志">励志</form:option>
+                                        <form:option value="后宫">后宫</form:option>
+                                        <form:option value="搞笑">搞笑</form:option>
+                                        <form:option value="奇幻">奇幻</form:option>
+                                        <form:option value="惊悚">惊悚</form:option>
+                                        <form:option value="日常">日常</form:option>
+                                        <form:option value="冒险">冒险</form:option>
+                                        <form:option value="烧脑">烧脑</form:option>
+                                        <form:option value="竞技">竞技</form:option>
                                     </form:select>
 
                                 </div>
@@ -1150,5 +1157,15 @@
 
     });
 </script>
+
+<%--编辑时是否更换了图片--%>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#file").change(function() {
+            $("#isChange").val("true");
+        });
+    });
+</script>
+
 </body>
 </html>

@@ -569,10 +569,17 @@
                                     分类：
                                     <select id="classification" >
                                         <option value="">请选择</option>
-                                        <option value="科技">科技</option>
-                                        <option value="文学">文学</option>
-                                        <option value="考试">考试</option>
-                                        <option value="休闲">休闲</option>
+                                        <option value="战斗">战斗</option>
+                                        <option value="治愈">治愈</option>
+                                        <option value="励志">励志</option>
+                                        <option value="后宫">后宫</option>
+                                        <option value="搞笑">搞笑</option>
+                                        <option value="奇幻">奇幻</option>
+                                        <option value="惊悚">惊悚</option>
+                                        <option value="日常">日常</option>
+                                        <option value="冒险">冒险</option>
+                                        <option value="烧脑">烧脑</option>
+                                        <option value="竞技">竞技</option>
                                     </select>
                                 </div>
                                 <div class="col-xs-3">
@@ -1000,7 +1007,7 @@
 
 
         jQuery("#find_btn").click(function(){
-            //此处可以添加对查询数据的合法验证
+            //查询
             var content = $("#content").val();
             var author = $("#author").val();
             var classification = $("#classification").val();
@@ -1013,7 +1020,7 @@
         });
 
         jQuery("#edit_btn").click(function(){
-            //此处可以添加对查询数据的合法验证
+            //编辑，有id的
             var id = jQuery(grid_selector).jqGrid('getGridParam','selrow');
             if(id==null){
                 alert('请选择一行记录');
@@ -1023,10 +1030,11 @@
         });
 
         jQuery("#add_btn").click(function(){
-            //此处可以添加对查询数据的合法验证
+            //添加,没id的
             window.location.href="${ctxPath}/mainPic/form";
         });
 
+        //colmodal图片字段要返回的方法
         function showPicture(cellvalue, options, rowObject){
 
             return "<img src='" +cellvalue + "' height='50' width='50' />";
@@ -1035,6 +1043,7 @@
     });
 </script>
 
+    <%--bootstrap时间插件下面初始化必须写--%>
     <script type="text/javascript">
         $('.date-picker').datepicker({
             autoclose: true,

@@ -18,8 +18,8 @@ public class Page<T> {
     private List<T> list = new ArrayList<T>();
 
     public Page(HttpServletRequest request){
-        page = request.getParameter("page");
-        rows = request.getParameter("rows");
+        page = request.getParameter("page");//jqgrid带给我们的参数，代表第几页
+        rows = request.getParameter("rows");//jqgrid带给我们的参数，代表每页有几条
     }
 
     public String getPage() {
@@ -89,10 +89,10 @@ public class Page<T> {
     public void initial(){
         pageSize = Integer.parseInt(rows);
 
-        totalRecords = list.size();
+        totalRecords = list.size();//总记录
 
-        begin = (Integer.parseInt(page) - 1) * Integer.parseInt(rows); // 开始记录数
-        end = (begin+pageSize)>=totalRecords?totalRecords:(begin+pageSize);
+        begin = (Integer.parseInt(page) - 1) * Integer.parseInt(rows); // 某页开始记录数
+        end = (begin+pageSize)>=totalRecords?totalRecords:(begin+pageSize); // 某页结束记录数
 
 
 
