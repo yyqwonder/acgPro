@@ -87,11 +87,11 @@
             height: 220px;
         }
 
-        .logo-png {
+        /*.logo-png {
             position: absolute;
             top: 40%;
             margin-left: -30px;
-        }
+        }*/
 
         .logo-gif {
             position: absolute;
@@ -129,7 +129,7 @@
         #temperature {
             position: absolute;
             bottom: 28px;
-            left: 6px;
+            left: 7px;
             width: 5px;
             height: 336px;
             background-color: #F9F;
@@ -195,6 +195,29 @@
             color: #ff84bb;
             position: absolute;
             left: 20px;
+        }
+
+        #loadMore{
+           position: relative;
+            width:100%;
+            height:52px;
+
+        }
+        #loadMore a{
+            display: block;
+            position: absolute;
+            margin: auto;
+            left:0px;
+            right:0px;
+            bottom:0px;
+            top:0px;
+            width:100px;
+            height:100%;
+            background: url(/static/pic/loader-btn.png) no-repeat;
+        }
+
+        #loadMore a:hover{
+            background: url(/static/pic/loader-btn-hover.png) no-repeat;
         }
 
         .activity-content p {
@@ -276,7 +299,7 @@
                 <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav first-nav">.first-nav >li>ul>li>a:hover
+            <ul class="nav navbar-nav first-nav">
                 <li><a href="#">yyq首页 </a></li>
                 <li class="dropdown nav_178"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                                 aria-haspopup="true" aria-expanded="false">导航</a>
@@ -296,8 +319,9 @@
 <div class="myWrapper">
     <div class="container">
         <div class="row">
-            <div class="col-lg-5 logo"><img class="logo-png" src="${ctxStatic}/pic/head-logo.png"> <img class="logo-gif"
-                                                                                                        src="${ctxStatic}/pic/head-logo.gif">
+            <div class="col-lg-5 logo">
+                <%--<img class="logo-png" src="${ctxStatic}/pic/head-logo.png"> --%>
+                <img class="logo-gif" src="${ctxStatic}/pic/head-logo.gif">
             </div>
         </div>
     </div>
@@ -382,62 +406,64 @@
                 <div class="row">
                     <div class="col-xs-10 sideimggroup">
                         <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0"  class="active"><img
-                                    class="sideimg" src="${ctxStatic}/pic/1.jpg"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="0"><img class="sideimg"
+                                                                                               src="${ctxStatic}/pic/qnzl.jpg">
+                            </li>
+
                             <li data-target="#carousel-example-generic" data-slide-to="1"><img class="sideimg"
-                                                                                               src="${ctxStatic}/pic/2.jpg">
+                                                                                               src="${ctxStatic}/pic/tytp.jpg">
                             </li>
                             <li data-target="#carousel-example-generic" data-slide-to="2"><img class="sideimg"
-                                                                                               src="${ctxStatic}/pic/3.jpg">
+                                                                                               src="${ctxStatic}/pic/jlshz.jpg">
                             </li>
-                            <li data-target="#carousel-example-generic" data-slide-to="3"><img class="sideimg"
-                                                                                               src="${ctxStatic}/pic/4.jpg">
-                            </li>
+                            <li data-target="#carousel-example-generic" data-slide-to="3"  class="active"><img
+                                    class="sideimg" src="${ctxStatic}/pic/gl.jpg"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="4"><img class="sideimg"
-                                                                                               src="${ctxStatic}/pic/5.jpg">
+                                                                                               src="${ctxStatic}/pic/lyh.jpg">
                             </li>
                         </ol>
                     </div>
                     <div class="col-xs-2 sidetemperature">
-                        <div id="temperature"><span></span></div>
+                        <div id="temperature"></div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-7 maincontent">
                 <div>
                     <div class="carousel-inner" role="listbox">
-                        <div class="item active"><img src="${ctxStatic}/pic/1.jpg" style="height:400px;">
+                        <%--<div class="item active">active,首先是它展现--%>
+                        <div class="item active"><img src="${ctxStatic}/pic/qnzl.jpg" style="height:400px;">
                             <div class="carousel-caption">
                                 <div style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
-                                    花圃和美少女 彩/画皮手办：这种成人的把戏玩法~让人忍不住想prprprpr....
+                                    奇诺之旅，人生之旅
                                 </div>
                             </div>
                         </div>
-                        <div class="item"><img src="${ctxStatic}/pic/2.jpg" style="height:400px;">
+                        <div class="item"><img src="${ctxStatic}/pic/tytp.jpg" style="height:400px;">
                             <div class="carousel-caption">
                                 <div style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
-                                    7月新番追哪些？快来看小编们的2017年7月新番推荐（づ￣3￣）づ╭❤～
+                                    天元突破最爱谁？看我优子当教师❤
                                 </div>
                             </div>
                         </div>
-                        <div class="item"><img src="${ctxStatic}/pic/3.jpg" style="height:400px;">
+                        <div class="item"><img src="${ctxStatic}/pic/jlshz.jpg" style="height:400px;">
                             <div class="carousel-caption">
                                 <div style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
-                                    请问您今（光）天（棍）节要来点兔子吗？？新作OVA动画Dear My Sister将上映！
+                                    精灵守护者，纳吉之歌
                                 </div>
                             </div>
                         </div>
-                        <div class="item"><img src="${ctxStatic}/pic/4.jpg" style="height:400px;">
+                        <div class="item"><img src="${ctxStatic}/pic/gl.jpg" style="height:400px;">
                             <div class="carousel-caption">
                                 <div style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
-                                    国欠妹~2017春季动画各项排名公开，「埃罗芒阿老师」全面制霸！
+                                    钢之炼金术师：等价交换是世界的法则
                                 </div>
                             </div>
                         </div>
-                        <div class="item"><img src="${ctxStatic}/pic/5.jpg" style="height:400px;">
+                        <div class="item"><img src="${ctxStatic}/pic/lyh.jpg" style="height:400px;">
                             <div class="carousel-caption">
                                 <div style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
-                                    芳文大法好！！！漫画「Comic Girls」（こみっくがーるず）TV动画化决定！
+                                    龙与虎~~我是实乃梨党！
                                 </div>
                             </div>
                         </div>
@@ -475,7 +501,9 @@
                         </div>
                     </c:forEach>
                 </div>
-                <a><span id="loadMore">加载更多</span></a>
+                <div id="loadMore">
+                    <a></a>
+                </div>
             </div>
 
             <!--边栏-->
@@ -509,7 +537,7 @@
                     </div>
                 </div>
                 <!--专题-->
-                <div class="zhuanti">
+                <div class="zhuanti" style="height:315px;">
                     <div class="title"><img src="${ctxStatic}/pic/zt.png"> <span
                             style="font-size:18px;font-weight:700;">专题</span></div>
                     <div class="zhuanti-content" style="padding:0 10px;">
@@ -518,8 +546,8 @@
                                 <div class="dtzt"
                                      style="height:120px;position:relative;overflow:hidden;margin-bottom:10px;"><a> <img
                                         src="${ctxStatic}/pic/ctlw.jpg"
-                                        style="width:100%;height:100px;position:relative;top:0px;">
-                                    <p style="position:absolute;top:100px;white-space:nowrap; text-overflow:ellipsis;">
+                                        style="width:100%;height:100px;position:absolute;top:0px;">
+                                    <p style="position:absolute;bottom:-10px;white-space:nowrap; text-overflow:ellipsis;">
                                         浅析成田良悟：走钢丝的黑色幽默轻小说~</p></a>
                                 </div>
                             </li>
@@ -527,8 +555,8 @@
                                 <div class="dtzt"
                                      style="height:20px;position:relative;overflow:hidden;margin-bottom:10px;"><a> <img
                                         src="${ctxStatic}/pic/xhc.jpg"
-                                        style="width:100%;height:100px;position:relative;top:-100px;">
-                                    <p style="position:absolute;top:0px;white-space:nowrap; text-overflow:ellipsis;">
+                                        style="width:100%;height:100px;position:absolute;top:-100px;">
+                                    <p style="position:absolute;bottom:-10px;white-space:nowrap; text-overflow:ellipsis;">
                                         【人物专题】你了解新海诚吗？</p></a>
                                 </div>
                             </li>
@@ -536,8 +564,8 @@
                                 <div class="dtzt"
                                      style="height:20px;position:relative;overflow:hidden;margin-bottom:10px;"><a> <img
                                         src="${ctxStatic}/pic/xf.jpg"
-                                        style="width:100%;height:100px;position:relative;top:-100px;">
-                                    <p style="position:absolute;top:0px;white-space:nowrap; text-overflow:ellipsis;">
+                                        style="width:100%;height:100px;position:absolute;top:-100px;">
+                                    <p style="position:absolute;bottom:-10px;white-space:nowrap; text-overflow:ellipsis;">
                                         你已经决定要追哪几部新番了吗？</p></a>
                                 </div>
                             </li>
@@ -545,17 +573,17 @@
                                 <div class="dtzt"
                                      style="height:20px;position:relative;overflow:hidden;margin-bottom:10px;"><a> <img
                                         src="${ctxStatic}/pic/kjj.jpg"
-                                        style="width:100%;height:100px;position:relative;top:-100px;">
-                                    <p style="position:absolute;top:0px;white-space:nowrap;text-overflow:ellipsis;">
+                                        style="width:100%;height:100px;position:absolute;top:-100px;">
+                                    <p style="position:absolute;bottom:-10px;white-space:nowrap;text-overflow:ellipsis;">
                                         讲真，你想喝喝谁的「口嚼酒」啊？？？</p></a>
                                 </div>
                             </li>
                             <li>
                                 <div class="dtzt"
-                                     style="height:20px;height:100px;position:relative;overflow:hidden;margin-bottom:10px;">
+                                     style="height:20px;position:relative;overflow:hidden;margin-bottom:10px;">
                                     <a> <img src="${ctxStatic}/pic/dadang.jpg"
-                                             style="width:100%;height:100px;position:relative;top:-100px;">
-                                    <p style="position:absolute;top:0px;white-space:nowrap;text-overflow:ellipsis;">
+                                             style="width:100%;height:100px;position:absolute;top:-100px;">
+                                    <p style="position:absolute;bottom:-10px;white-space:nowrap;text-overflow:ellipsis;">
                                         你愿意选谁作为你的异次元搭档呢？？</p></a>
                                 </div>
                             </li>
@@ -634,14 +662,22 @@
 <script src="${ctxStatic}/js/bootstrap.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $(".dtzt").click(function () {
+        /*$(".dtzt").hover(function () {
             $(this).animate({height: '120px'});
             $(this).find("img").animate({top: '0px'});
-            $(this).find("p").animate({top: '100px'});
+            $(this).find("p").animate({top: '100px'},function(){
+                $(this).parent().siblings().find(".dtzt").height(20);
+                $(this).parent().siblings().find(".dtzt").find("img").css("top", "-100px");
+                $(this).parent().siblings().find(".dtzt").find("p").css("top", "0px");
+            });
+         });*/
+        $(".dtzt").hover(function () {
             $(this).parent().siblings().find(".dtzt").height(20);
             $(this).parent().siblings().find(".dtzt").find("img").css("top", "-100px");
-            $(this).parent().siblings().find(".dtzt").find("p").css("top", "0px");
-
+            $(this).find("img").css("top", "0px");
+            $(this).animate({height: '120px'},function(){
+                
+            });
         });
 
         $('.carousel').carousel({
@@ -663,11 +699,10 @@
 
 
 
-        $('#carousel-example-generic').on('slide.bs.carousel', function () {
+        $('#carousel-example-generic').on('slid.bs.carousel', function () {
             //this就是#carousel-example-generic
-            //var ii = parseInt($(this).find('.carousel-indicators').find('.active').attr("data-slide-to"));
-            var ii = parseInt(relatedTarget.attr("data-slide-to"));
-            $("#temperature").height(336 - 83*ii);
+            var ii = parseInt($(this).find('.carousel-indicators').find('.active').attr("data-slide-to"));
+           $("#temperature").height(336 - 83*ii);
 
             var height = $("#temperature").height();
 
@@ -675,6 +710,8 @@
                 $("#temperature").height(336);
             }
         });
+
+
 
         /*
         $(".textbox").click(function(){
@@ -692,7 +729,7 @@
             $.post("${ctxPath}/client/mainPicMoreAja",
                     {
                         page:counter,
-                        rows:"6"
+                        rows:"12"
                     },
                     function(data,status){
                         var result= '';

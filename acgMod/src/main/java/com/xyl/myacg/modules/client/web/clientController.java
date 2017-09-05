@@ -34,7 +34,7 @@ public class clientController {
 //            String path = mainPicList.get(i).getPath();
 //            mainPicList.get(i).setPath(path.replaceAll("upload","pic"));
 //        }
-        for(int i=0;i<6;i++){
+        for(int i=0;i<12;i++){
             mainPicInitList.add(mainPicList.get(i));
         }
         List<Subao> subaoList = subaoService.findList(subao);
