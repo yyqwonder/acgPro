@@ -24,7 +24,7 @@
         FROM main_pic a
         <where>
             a.del_flag = #{DEL_FLAG_NORMAL}
-            <if test="content != null and content != ''">
+            <!--<if test="content != null and content != ''">
                 AND a.content like CONCAT(CONCAT('%', #{content}), '%')
             </if>
             <if test="author != null and author != ''">
@@ -35,9 +35,20 @@
             </if>
             <if test="time != null and time != ''">
                 AND a.time = #{time}
-            </if>
+            </if>-->
         </where>
-        ORDER BY a.time DESC
+        <choose>
+            <when test="time != null and time != ''">
+                ORDER BY ${time}
+            </when>
+            <when test="classification != null and classification != ''">
+                ORDER BY ${classification}
+            </when>
+            <otherwise>
+                ORDER BY a.content
+            </otherwise>
+        </choose>
+
     </select>
 
     <insert id="insert">

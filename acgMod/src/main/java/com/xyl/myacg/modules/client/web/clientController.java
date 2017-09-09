@@ -26,6 +26,8 @@ public class clientController {
     IMainPicService mainPicService;
     @Autowired
     ISubaoService subaoService;
+
+    //这个暂时用不上了
     @RequestMapping(value = "showWeb")
     public String showWeb(MainPic mainPic , Subao subao,Model model){
         List<MainPic> mainPicList = mainPicService.findList(mainPic);
@@ -42,6 +44,8 @@ public class clientController {
         model.addAttribute("subaoList",subaoList);
         return "user/index";
     }
+
+    //ajax方法获得主要图片
     @RequestMapping(value = "mainPicMoreAja")
     @ResponseBody
     public String getMainPicAja(MainPic mainPic, HttpServletRequest request){

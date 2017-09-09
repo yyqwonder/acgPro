@@ -17,7 +17,7 @@
         a:hover {
             text-decoration: none;
             cursor: pointer;
-            color: #F6F
+            color: #F6F;
         }
 
         .navbar {
@@ -218,6 +218,19 @@
 
         #loadMore a:hover{
             background: url(${ctxStatic}/pic/loader-btn-hover.png) no-repeat;
+        }
+
+        #xuanxiangka a{
+            font-size: 14px;
+        }
+
+        .green{
+            color:#8ac024;
+        }
+
+        .blue
+        {
+            color:blue;
         }
 
         .activity-content p {
@@ -486,6 +499,19 @@
         </div>
     </div>
 
+    <%--选项卡--%>
+    <div class="container" style="margin-top:18px;">
+        <div class="row">
+            <div class="col-lg-12" >
+                <ul id="xuanxiangka" style="display:block;padding: 0px;">
+                    <li style="list-style: none;float: left;width: 140px;"><a><span class="green">按内容排序</span></a></li>
+                    <li style="list-style: none;float: left;width: 140px;"><a><span class="blue">按时间排序</span></a></li>
+                    <li style="list-style: none;float: left;width: 140px;"><a><span class="blue">按类型排序</span></a></li>
+                </ul>
+             </div>
+         </div>
+    </div>
+
     <!--主要内容和边栏 -->
     <div class="container" style="margin-top:18px;">
         <div class="row">
@@ -730,7 +756,8 @@
             $.post("${ctxPath}/client/mainPicMoreAja",
                     {
                         page:counter,
-                        rows:"12"
+                        rows:"12",
+                        classification:"classification"
                     },
                     function(data,status){
                         var result= '';
@@ -752,14 +779,29 @@
                         //alert(result);
                     });
         });
+
         iniMainPic();
+
+        //选项卡颜色变化
+        $('#xuanxiangka span').hover(function(){
+            $(this).addClass('green');
+            $(this).removeClass('blue');
+            //parent()是找直接父元素
+            $(this).parents("li").siblings().each(
+                    function () {
+                        $(this).find('span').addClass('blue');
+                        $(this).find('span').removeClass('green');//children()是找直接子元素
+                    }
+            )
+         });
      });
     //初始化主要内容的页面
     function iniMainPic(){
         $.post("${ctxPath}/client/mainPicMoreAja",
                 {
                     page:1,
-                    rows:"12"
+                    rows:"12",
+                    classification:"classification"
                 },
                 function(data,status){
                     var result= '';
