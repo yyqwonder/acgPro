@@ -109,7 +109,7 @@
         }
 
         .sidecontent {
-            background: url(/static/pic/mc-line.png) 164px top no-repeat;
+            background: url(${ctxStatic}/pic/mc-line.png) 164px top no-repeat;
             height: 400px;
         }
 
@@ -129,7 +129,7 @@
         #temperature {
             position: absolute;
             bottom: 28px;
-            left: 7px;
+            left: 7.3px;
             width: 5px;
             height: 336px;
             background-color: #F9F;
@@ -198,7 +198,7 @@
         }
 
         #loadMore{
-           position: relative;
+            position: relative;
             width:100%;
             height:52px;
 
@@ -213,11 +213,11 @@
             top:0px;
             width:100px;
             height:100%;
-            background: url(/static/pic/loader-btn.png) no-repeat;
+            background: url(${ctxStatic}/pic/loader-btn.png) no-repeat;
         }
 
         #loadMore a:hover{
-            background: url(/static/pic/loader-btn-hover.png) no-repeat;
+            background: url(${ctxStatic}/pic/loader-btn-hover.png) no-repeat;
         }
 
         .activity-content p {
@@ -492,14 +492,15 @@
             <!--主要内容-->
             <div class="col-lg-9 allcontent">
                 <div class="row">
-                    <c:forEach items="${mainPicInitList}" var="p">
+                    <%--<c:forEach items="${mainPicInitList}" var="p">
                         <div class="col-md-4">
-                            <div class="eachcontent"><img src="${ctxPath}${p.path}">
+                            <div class="eachcontent">
+                                <img src="${ctxPath}${p.path}">-
                                 <p class="textbox">${p.content}</p>
                                 <p class="labelbox"><span>${p.classification}</span>${p.author}</p>
                             </div>
                         </div>
-                    </c:forEach>
+                    </c:forEach>--%>
                 </div>
                 <div id="loadMore">
                     <a></a>
@@ -751,8 +752,34 @@
                         //alert(result);
                     });
         });
+        iniMainPic();
+     });
+    //初始化主要内容的页面
+    function iniMainPic(){
+        $.post("${ctxPath}/client/mainPicMoreAja",
+                {
+                    page:1,
+                    rows:"12"
+                },
+                function(data,status){
+                    var result= '';
+                    var jsonReturn = JSON.parse(data).rows;
+                    for(var i=0;i<jsonReturn.length;i++){
+                        result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                jsonReturn[i]["author"]+'</p></div></div>';
 
-    });
+                        <%--<div class="col-md-4">--%>
+                        <%--<div class="eachcontent"><img src="${ctxStatic}${p.path}">--%>
+                        <%--<p class="textbox">${p.content}</p>--%>
+                        <%--<p class="labelbox"><span>${p.classification}</span>${p.author}</p>--%>
+                        <%--</div>--%>
+                        <%--</div>--%>
+
+                    }
+                    $('.allcontent .row').append(result);
+                    //alert(result);
+                });
+    }
 </script>
 </body>
 </html>
