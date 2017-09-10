@@ -39,13 +39,13 @@
         </where>
         <choose>
             <when test="time != null and time != ''">
-                ORDER BY ${time}
+                ORDER BY ${time} asc
             </when>
             <when test="classification != null and classification != ''">
-                ORDER BY ${classification}
+                ORDER BY ${classification} asc
             </when>
             <otherwise>
-                ORDER BY a.content
+                ORDER BY a.content asc
             </otherwise>
         </choose>
 

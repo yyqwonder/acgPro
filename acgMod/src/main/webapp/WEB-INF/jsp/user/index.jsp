@@ -504,7 +504,7 @@
         <div class="row">
             <div class="col-lg-12" >
                 <ul id="xuanxiangka" style="display:block;padding: 0px;">
-                    <li style="list-style: none;float: left;width: 140px;"><a><span class="green">按内容排序</span></a></li>
+                    <li style="list-style: none;float: left;width: 140px;"><a><span class="green">按标题排序</span></a></li>
                     <li style="list-style: none;float: left;width: 140px;"><a><span class="blue">按时间排序</span></a></li>
                     <li style="list-style: none;float: left;width: 140px;"><a><span class="blue">按类型排序</span></a></li>
                 </ul>
@@ -517,7 +517,7 @@
         <div class="row">
             <!--主要内容-->
             <div class="col-lg-9 allcontent">
-                <div class="row">
+                <div class="row" id="mainPic">
                     <%--<c:forEach items="${mainPicInitList}" var="p">
                         <div class="col-md-4">
                             <div class="eachcontent">
@@ -748,16 +748,16 @@
         });
         */
 
+
         //加载更多
         var counter = 1;
-
         $("#loadMore").click(function(){
             counter++;
             $.post("${ctxPath}/client/mainPicMoreAja",
                     {
                         page:counter,
                         rows:"12",
-                        classification:"classification"
+                        content:"content"
                     },
                     function(data,status){
                         var result= '';
@@ -766,33 +766,148 @@
                             //alert(jsonReturn[i]["author"]);
                             result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
                                     jsonReturn[i]["author"]+'</p></div></div>';
-
-                            <%--<div class="col-md-4">--%>
-                                    <%--<div class="eachcontent"><img src="${ctxStatic}${p.path}">--%>
-                                    <%--<p class="textbox">${p.content}</p>--%>
-                                    <%--<p class="labelbox"><span>${p.classification}</span>${p.author}</p>--%>
-                                    <%--</div>--%>
-                                    <%--</div>--%>
-
                         }
                         $('.allcontent .row').append(result);
                         //alert(result);
                     });
         });
 
+        //初始化主要内容的页面
         iniMainPic();
 
+
         //选项卡颜色变化
-        $('#xuanxiangka span').hover(function(){
+        $('#xuanxiangka span').click(function(){
             $(this).addClass('green');
             $(this).removeClass('blue');
-            //parent()是找直接父元素
+            //parent()是找直接父元素4\5\
             $(this).parents("li").siblings().each(
                     function () {
                         $(this).find('span').addClass('blue');
                         $(this).find('span').removeClass('green');//children()是找直接子元素
                     }
-            )
+            );
+            if($(this).text()=='按标题排序'){
+                //var counter = 1;错了
+                counter = 1
+                $.post("${ctxPath}/client/mainPicMoreAja",
+                        {
+                            page:1,
+                            rows:"12",
+                            content:"content"
+                        },
+                        function(data,status){
+                            var result= '';
+                            var jsonReturn = JSON.parse(data).rows;
+                            for(var i=0;i<jsonReturn.length;i++){
+                                result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                        jsonReturn[i]["author"]+'</p></div></div>';
+                            }
+                            //div间清空内容下面2种都可以
+                            $("#mainPic").html("");
+                            //$("#mainPic").empty();
+                            $('.allcontent .row').append(result);
+                        });
+                $("#loadMore").click(function(){
+                    counter++;
+                    $.post("${ctxPath}/client/mainPicMoreAja",
+                            {
+                                page:counter,
+                                rows:"12",
+                                content:"content"
+                            },
+                            function(data,status){
+                                var result= '';
+                                var jsonReturn = JSON.parse(data).rows;
+                                for(var i=0;i<jsonReturn.length;i++){
+                                    //alert(jsonReturn[i]["author"]);
+                                    result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                            jsonReturn[i]["author"]+'</p></div></div>';
+                                }
+                                $('.allcontent .row').append(result);
+                            });
+                });
+            }
+            if($(this).text()=='按时间排序'){
+                counter = 1;
+                $.post("${ctxPath}/client/mainPicMoreAja",
+                        {
+                            page:1,
+                            rows:"12",
+                            time:"time"
+                        },
+                        function(data,status){
+                            var result= '';
+                            var jsonReturn = JSON.parse(data).rows;
+                            for(var i=0;i<jsonReturn.length;i++){
+                                result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                        jsonReturn[i]["author"]+'</p></div></div>';
+                            }
+                            //div间清空内容下面2种都可以
+                            $("#mainPic").html("");
+                            //$("#mainPic").empty();
+                            $('.allcontent .row').append(result);
+                        });
+                $("#loadMore").click(function(){
+                    counter++;
+                    $.post("${ctxPath}/client/mainPicMoreAja",
+                            {
+                                page:counter,
+                                rows:"12",
+                                time:"time"
+                            },
+                            function(data,status){
+                                var result= '';
+                                var jsonReturn = JSON.parse(data).rows;
+                                for(var i=0;i<jsonReturn.length;i++){
+                                    //alert(jsonReturn[i]["author"]);
+                                    result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                            jsonReturn[i]["author"]+'</p></div></div>';
+                                }
+                                $('.allcontent .row').append(result);
+                            });
+                });
+            }
+            if($(this).text()=='按类型排序'){
+                counter = 1;
+                $.post("${ctxPath}/client/mainPicMoreAja",
+                        {
+                            page:1,
+                            rows:"12",
+                            classification:"classification"
+                        },
+                        function(data,status){
+                            var result= '';
+                            var jsonReturn = JSON.parse(data).rows;
+                            for(var i=0;i<jsonReturn.length;i++){
+                                result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                        jsonReturn[i]["author"]+'</p></div></div>';
+                            }
+                            //div间清空内容下面2种都可以
+                            $("#mainPic").html("");
+                            //$("#mainPic").empty();
+                            $('.allcontent .row').append(result);
+                        });
+
+                $("#loadMore").click(function(){
+                    counter++;
+                    $.post("${ctxPath}/client/mainPicMoreAja",
+                            {
+                                page:counter,
+                                rows:"12",
+                                classification:"classification"
+                            },
+                            function(data,status){
+                                var result= '';
+                                var jsonReturn = JSON.parse(data).rows;
+                                for(var i=0;i<jsonReturn.length;i++){
+                                    result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                            jsonReturn[i]["author"]+'</p></div></div>';
+                                }
+                                $('.allcontent .row').append(result);
+                            });
+                });
+            }
          });
      });
     //初始化主要内容的页面
@@ -801,7 +916,7 @@
                 {
                     page:1,
                     rows:"12",
-                    classification:"classification"
+                    content:"content"
                 },
                 function(data,status){
                     var result= '';
@@ -809,17 +924,8 @@
                     for(var i=0;i<jsonReturn.length;i++){
                         result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
                                 jsonReturn[i]["author"]+'</p></div></div>';
-
-                        <%--<div class="col-md-4">--%>
-                        <%--<div class="eachcontent"><img src="${ctxStatic}${p.path}">--%>
-                        <%--<p class="textbox">${p.content}</p>--%>
-                        <%--<p class="labelbox"><span>${p.classification}</span>${p.author}</p>--%>
-                        <%--</div>--%>
-                        <%--</div>--%>
-
-                    }
+                     }
                     $('.allcontent .row').append(result);
-                    //alert(result);
                 });
     }
 </script>
