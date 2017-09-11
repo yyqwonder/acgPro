@@ -142,18 +142,22 @@
             right: 0%;
         }
 
-        .latestcontent {
+        .tuijiancontent {
             height: 400px;
         }
 
-        .subao, .activity-info, .zhuanti, .cosplay, .tcb {
+        .tuijian, .activity-info, .zhuanti, .cosplay, .tcb {
             border: 1px solid #e2e2e2;
             border-radius: 3px;
         }
 
-        .latesticon {
+        #tuijian li{
+            margin-bottom: 3px;
+        }
+
+        .tuijianicon {
             position: relative;
-            top: -4px;
+            top: -1px;
             background: #ff84bb;
             width: 6px;
             height: 6px;
@@ -230,7 +234,7 @@
 
         .blue
         {
-            color:blue;
+            color:#3A5FCD;
         }
 
         .activity-content p {
@@ -483,15 +487,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 latestcontent">
-                <div class="subao">
+            <div class="col-lg-3 tuijiancontent">
+                <div class="tuijian">
                     <div class="title"><img src="${ctxStatic}/pic/zxsb.png"> <span
                             style="font-size:18px;font-weight:700;">推荐</span></div>
-                    <div class="pre-scrollable" style="height:359px;">
+                    <div id="tuijian" class="pre-scrollable" style="height:359px">
                         <ul style="padding:0px;list-style:none;">
-                            <c:forEach items="${subaoList}" var="p">
-                                <li><a> <i class="latesticon"></i> ${p.content} </a></li>
-                            </c:forEach>
+                            <%--<c:forEach items="${tuijianList}" var="p">
+                                <li><a> <i class="tuijianicon"></i> ${p.content} </a></li>
+                            </c:forEach>--%>
                         </ul>
                     </div>
                 </div>
@@ -516,7 +520,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
-                <div style="height:2px;background:blue;"></div>
+                <div style="height:2px;background:#3A5FCD;"></div>
             </div>
         </div>
     </div>
@@ -834,11 +838,11 @@
         iniMainPic();
 
 
-        //选项卡颜色变化
+        //选项卡颜色变化 和 切换排序时初始化主要图片内容
         $('#xuanxiangka span').click(function(){
             $(this).addClass('green');
             $(this).removeClass('blue');
-            //parent()是找直接父元素4\5\
+            //parent()是找直接父元素
             $(this).parents("li").siblings().each(
                     function () {
                         $(this).find('span').addClass('blue');
@@ -911,8 +915,9 @@
             }
          });
      });
-    //初始化主要内容的页面
+    //初始化主要内容的首页页面
     function iniMainPic(){
+        //主要图片
         $.post("${ctxPath}/client/mainPicMoreAja",
                 {
                     page:1,
@@ -925,9 +930,26 @@
                     for(var i=0;i<jsonReturn.length;i++){
                         result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
                                 jsonReturn[i]["author"]+'</p></div></div>';
-                     }
+                    }
                     $('.allcontent .row').append(result);
                 });
+
+        //推荐
+        $.post("${ctxPath}/client/tuijianAja",
+                {
+                    page:1,
+                    rows:"5",
+                },
+                function(data,status){
+                    var result= '';
+                    var jsonReturn = JSON.parse(data).rows;
+                    for(var i=0;i<jsonReturn.length;i++){
+                        result += '<li><a> <i class="tuijianicon"></i>'+ jsonReturn[i]["content"] +'</a></li>';
+                    }
+                    $('#tuijian ul').append(result);
+                });
+
+
     }
 </script>
 </body>

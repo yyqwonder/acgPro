@@ -3,9 +3,11 @@ package com.xyl.myacg.modules.client.web;
 import com.xyl.myacg.common.mapper.JsonMapper;
 import com.xyl.myacg.common.persistence.Page;
 import com.xyl.myacg.modules.mainPic.entity.MainPic;
-import com.xyl.myacg.modules.subao.entity.Subao;
 import com.xyl.myacg.modules.mainPic.service.IMainPicService;
+import com.xyl.myacg.modules.subao.entity.Subao;
 import com.xyl.myacg.modules.subao.service.ISubaoService;
+import com.xyl.myacg.modules.tuijian.entity.Tuijian;
+import com.xyl.myacg.modules.tuijian.service.ITuijianService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +28,8 @@ public class clientController {
     IMainPicService mainPicService;
     @Autowired
     ISubaoService subaoService;
+    @Autowired
+    ITuijianService tuijianService;
 
     //这个暂时用不上了
     @RequestMapping(value = "showWeb")
@@ -55,10 +59,22 @@ public class clientController {
 //            page.getList().get(i).setPath(path.replaceAll("upload","pic"));
 //        }
 
+        String jsonString = JsonMapper.toJsonString(page.getList());
+        jsonString = "{\"total\":"+page.getTotalPages()+", \"page \":" + page.getPage() + ",\"records\": " + page.getTotalRecords() + ",\"rows\":"+jsonString+"}";
+        return jsonString;
+    }
+
+    @RequestMapping(value = "tuijianAja")
+    @ResponseBody
+    public String getTuijianAja(Tuijian tuijian, HttpServletRequest request){
+        Page<Tuijian> page = tuijianService.findPage(new Page<Tuijian>(request),tuijian);
+//        for(int i=0;i<page.getList().size();i++){
+//            String path = page.getList().get(i).getPath();
+//            page.getList().get(i).setPath(path.replaceAll("upload","pic"));
+//        }
 
         String jsonString = JsonMapper.toJsonString(page.getList());
         jsonString = "{\"total\":"+page.getTotalPages()+", \"page \":" + page.getPage() + ",\"records\": " + page.getTotalRecords() + ",\"rows\":"+jsonString+"}";
         return jsonString;
-
     }
 }
