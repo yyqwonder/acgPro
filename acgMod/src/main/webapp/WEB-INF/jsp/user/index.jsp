@@ -220,8 +220,8 @@
             background: url(${ctxStatic}/pic/loader-btn-hover.png) no-repeat;
         }
 
-        #xuanxiangka a{
-            font-size: 14px;
+        #xuanxiangka span{
+            font-size: 18px;
         }
 
         .green{
@@ -486,7 +486,7 @@
             <div class="col-lg-3 latestcontent">
                 <div class="subao">
                     <div class="title"><img src="${ctxStatic}/pic/zxsb.png"> <span
-                            style="font-size:18px;font-weight:700;">速报</span></div>
+                            style="font-size:18px;font-weight:700;">推荐</span></div>
                     <div class="pre-scrollable" style="height:359px;">
                         <ul style="padding:0px;list-style:none;">
                             <c:forEach items="${subaoList}" var="p">
@@ -500,7 +500,7 @@
     </div>
 
     <%--选项卡--%>
-    <div class="container" style="margin-top:18px;">
+    <div class="container" style="margin-top:23px;">
         <div class="row">
             <div class="col-lg-12" >
                 <ul id="xuanxiangka" style="display:block;padding: 0px;">
@@ -512,8 +512,17 @@
          </div>
     </div>
 
+    <%--横线--%>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div style="height:2px;background:blue;"></div>
+            </div>
+        </div>
+    </div>
+
     <!--主要内容和边栏 -->
-    <div class="container" style="margin-top:18px;">
+    <div class="container" style="margin-top:8px;">
         <div class="row">
             <!--主要内容-->
             <div class="col-lg-9 allcontent">
@@ -750,26 +759,75 @@
 
 
         //加载更多
-        var counter = 1;
+        var counterContent = 1;
+        var counterTime = 1;
+        var counterClassification = 1;
         $("#loadMore").click(function(){
-            counter++;
-            $.post("${ctxPath}/client/mainPicMoreAja",
-                    {
-                        page:counter,
-                        rows:"12",
-                        content:"content"
-                    },
-                    function(data,status){
-                        var result= '';
-                        var jsonReturn = JSON.parse(data).rows;
-                        for(var i=0;i<jsonReturn.length;i++){
-                            //alert(jsonReturn[i]["author"]);
-                            result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
-                                    jsonReturn[i]["author"]+'</p></div></div>';
-                        }
-                        $('.allcontent .row').append(result);
-                        //alert(result);
-                    });
+
+            if($("#xuanxiangka .green").text()=="按标题排序"){
+                counterTime = 1;
+                counterClassification = 1;
+                counterContent++;
+                $.post("${ctxPath}/client/mainPicMoreAja",
+                        {
+                            page:counterContent,
+                            rows:"12",
+                            content:"content"
+                        },
+                        function(data,status){
+                            var result= '';
+                            var jsonReturn = JSON.parse(data).rows;
+                            for(var i=0;i<jsonReturn.length;i++){
+                                //alert(jsonReturn[i]["author"]);
+                                result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                        jsonReturn[i]["author"]+'</p></div></div>';
+                            }
+                            $('.allcontent .row').append(result);
+                        });
+            }
+            if($("#xuanxiangka .green").text()=="按时间排序"){
+                counterContent = 1;
+                counterClassification = 1;
+                counterTime++;
+                $.post("${ctxPath}/client/mainPicMoreAja",
+                        {
+                            page:counterTime,
+                            rows:"12",
+                            time:"time"
+                        },
+                        function(data,status){
+                            var result= '';
+                            var jsonReturn = JSON.parse(data).rows;
+                            for(var i=0;i<jsonReturn.length;i++){
+                                //alert(jsonReturn[i]["author"]);
+                                result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                        jsonReturn[i]["author"]+'</p></div></div>';
+                            }
+                            $('.allcontent .row').append(result);
+                        });
+            }
+            if($("#xuanxiangka .green").text()=="按类型排序"){
+                counterContent = 1;
+                counterTime = 1;
+                counterClassification++;
+                $.post("${ctxPath}/client/mainPicMoreAja",
+                        {
+                            page:counterClassification,
+                            rows:"12",
+                            classification:"classification"
+                        },
+                        function(data,status){
+                            var result= '';
+                            var jsonReturn = JSON.parse(data).rows;
+                            for(var i=0;i<jsonReturn.length;i++){
+                                //alert(jsonReturn[i]["author"]);
+                                result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                        jsonReturn[i]["author"]+'</p></div></div>';
+                            }
+                            $('.allcontent .row').append(result);
+                        });
+            }
+
         });
 
         //初始化主要内容的页面
@@ -808,25 +866,6 @@
                             //$("#mainPic").empty();
                             $('.allcontent .row').append(result);
                         });
-                $("#loadMore").click(function(){
-                    counter++;
-                    $.post("${ctxPath}/client/mainPicMoreAja",
-                            {
-                                page:counter,
-                                rows:"12",
-                                content:"content"
-                            },
-                            function(data,status){
-                                var result= '';
-                                var jsonReturn = JSON.parse(data).rows;
-                                for(var i=0;i<jsonReturn.length;i++){
-                                    //alert(jsonReturn[i]["author"]);
-                                    result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
-                                            jsonReturn[i]["author"]+'</p></div></div>';
-                                }
-                                $('.allcontent .row').append(result);
-                            });
-                });
             }
             if($(this).text()=='按时间排序'){
                 counter = 1;
@@ -848,25 +887,6 @@
                             //$("#mainPic").empty();
                             $('.allcontent .row').append(result);
                         });
-                $("#loadMore").click(function(){
-                    counter++;
-                    $.post("${ctxPath}/client/mainPicMoreAja",
-                            {
-                                page:counter,
-                                rows:"12",
-                                time:"time"
-                            },
-                            function(data,status){
-                                var result= '';
-                                var jsonReturn = JSON.parse(data).rows;
-                                for(var i=0;i<jsonReturn.length;i++){
-                                    //alert(jsonReturn[i]["author"]);
-                                    result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
-                                            jsonReturn[i]["author"]+'</p></div></div>';
-                                }
-                                $('.allcontent .row').append(result);
-                            });
-                });
             }
             if($(this).text()=='按类型排序'){
                 counter = 1;
@@ -888,25 +908,6 @@
                             //$("#mainPic").empty();
                             $('.allcontent .row').append(result);
                         });
-
-                $("#loadMore").click(function(){
-                    counter++;
-                    $.post("${ctxPath}/client/mainPicMoreAja",
-                            {
-                                page:counter,
-                                rows:"12",
-                                classification:"classification"
-                            },
-                            function(data,status){
-                                var result= '';
-                                var jsonReturn = JSON.parse(data).rows;
-                                for(var i=0;i<jsonReturn.length;i++){
-                                    result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
-                                            jsonReturn[i]["author"]+'</p></div></div>';
-                                }
-                                $('.allcontent .row').append(result);
-                            });
-                });
             }
          });
      });

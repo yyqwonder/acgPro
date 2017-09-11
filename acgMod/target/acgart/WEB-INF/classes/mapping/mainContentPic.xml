@@ -45,7 +45,7 @@
                 ORDER BY ${classification} asc
             </when>
             <otherwise>
-                ORDER BY a.content asc
+                ORDER BY convert(a.content using gbk)  asc
             </otherwise>
         </choose>
 
