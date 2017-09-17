@@ -49,6 +49,11 @@ public class clientController {
         return "user/index";
     }
 
+    @RequestMapping(value = "showMusic")
+    public String showMusic(){
+        return "user/song";
+    }
+
     //ajax方法获得主要图片
     @RequestMapping(value = "mainPicMoreAja")
     @ResponseBody

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>yyq_bootstrp</title>
+    <title>ACG动画</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="${ctxStatic}/css/bootstrap.min.css"/>
     <style type="text/css">
@@ -317,7 +317,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav first-nav">
-                <li><a href="#">yyq首页 </a></li>
+                <li><a href="#">首页 </a></li>
                 <li class="dropdown nav_178"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                                 aria-haspopup="true" aria-expanded="false">导航</a>
                     <ul class="dropdown-menu">
@@ -357,8 +357,8 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                                 <ul class="nav navbar-nav second-nav">
-                                    <li class="item"><a href="http://acg.178.com" target="_blank">首页 </a></li>
-                                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                    <li class="item"><a href="#">看过的动画 </a></li>
+                                    <%--<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"
                                                             role="button" aria-haspopup="true" aria-expanded="false">动漫情报 </a>
                                         <ul class="dropdown-menu ">
                                             <li><a href="#">国产动画/漫画</a></li>
@@ -367,12 +367,12 @@
                                             <li><a href="#">广播剧/轻小说/杂志</a></li>
                                             <li><a href="#">音乐/OP/ED/OST</a></li>
                                         </ul>
-                                    </li>
+                                    </li>--%>
                                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                                                            role="button" aria-haspopup="true" aria-expanded="false">展会活动</a>
+                                                            role="button" aria-haspopup="true" aria-expanded="false">动漫歌曲</a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#">国内</a></li>
-                                            <li><a href="#">国外</a></li>
+                                            <li><a href="${ctxPath}/client/showMusic">歌曲</a></li>
+                                            <li><a href="#">配乐</a></li>
                                         </ul>
                                     </li>
                                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"
@@ -701,8 +701,8 @@
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script src="${ctxStatic}/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        /*$(".dtzt").hover(function () {
+
+        $(document).ready(function () {    /*$(".dtzt").hover(function () {
             $(this).animate({height: '120px'});
             $(this).find("img").animate({top: '0px'});
             $(this).find("p").animate({top: '100px'},function(){
