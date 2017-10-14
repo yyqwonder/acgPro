@@ -24,28 +24,33 @@
         FROM main_pic a
         <where>
             a.del_flag = #{DEL_FLAG_NORMAL}
-            <!--<if test="content != null and content != ''">
+            <if test="content != null and content != '' and content != 'content'">
                 AND a.content like CONCAT(CONCAT('%', #{content}), '%')
             </if>
-            <if test="author != null and author != ''">
+            <if test="author != null and author != '' and author != 'author'">
                 AND a.author like CONCAT(CONCAT('%', #{author}), '%')
             </if>
-            <if test="classification != null and classification != ''">
+            <if test="classification != null and classification != '' and classification != 'classification'">
                 AND a.classification like CONCAT(CONCAT('%', #{classification}), '%')
             </if>
-            <if test="time != null and time != ''">
+            <if test="time != null and time != '' and time != 'time'">
                 AND a.time = #{time}
-            </if>-->
+            </if>
         </where>
         <choose>
-            <when test="time != null and time != ''">
-                ORDER BY ${time} asc
-            </when>
-            <when test="classification != null and classification != ''">
+            <when test="classification == 'classification'">
                 ORDER BY ${classification} asc
             </when>
+
+            <when test="time == 'time'">
+                ORDER BY ${time} asc
+            </when>
+
+            <!--<when test="content = 'content'">
+                ORDER BY convert(a.content using gbk) asc
+            </when>-->
             <otherwise>
-                ORDER BY convert(a.content using gbk)  asc
+                ORDER BY convert(a.content using gbk) asc
             </otherwise>
         </choose>
 

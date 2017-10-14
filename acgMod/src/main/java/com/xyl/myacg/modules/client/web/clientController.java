@@ -49,6 +49,11 @@ public class clientController {
         return "user/index";
     }
 
+    @RequestMapping(value = "showAnimation")
+    public String showAnimation(){
+        return "user/index";
+    }
+
     @RequestMapping(value = "showMusic")
     public String showMusic(){
         return "user/song";

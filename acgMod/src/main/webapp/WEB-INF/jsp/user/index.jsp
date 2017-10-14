@@ -317,7 +317,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav first-nav">
-                <li><a href="#">首页 </a></li>
+                <%--<li><a href="#">首页 </a></li>
                 <li class="dropdown nav_178"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                                 aria-haspopup="true" aria-expanded="false">导航</a>
                     <ul class="dropdown-menu">
@@ -326,9 +326,31 @@
                         <li><a href="#">游戏</a></li>
                         <li><a href="#">社区</a></li>
                     </ul>
+                </li>--%>
+                <li class="wechat dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                               role="button" aria-haspopup="true"
+                                               aria-expanded="false">我的QQ</a>
+                    <ul class="dropdown-menu">
+                        <li><img src="${ctxStatic}/pic/qq2.jpg"></li>
+
+                    </ul>
                 </li>
-                <li class="weibo"><a href="#">新浪微博</a></li>
-                <li class="wechat"><a href="#">关注微信</a></li>
+                <li class="wechat dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                        role="button" aria-haspopup="true"
+                                        aria-expanded="false">我的微信</a>
+                    <ul class="dropdown-menu">
+                        <li><img src="${ctxStatic}/pic/wechat2.jpg"></li>
+
+                    </ul>
+                </li>
+                <li class="wechat dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                               role="button" aria-haspopup="true"
+                                               aria-expanded="false">我的BiliBili</a>
+                    <ul class="dropdown-menu">
+                        <li><img src="${ctxStatic}/pic/bilibili2.jpg"></li>
+
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
