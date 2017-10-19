@@ -14,11 +14,33 @@
             padding-top: 40px;
         }
 
+        .panel a{
+            color: #141A1B;
+        }
+        /*这个必须在a:hover上面,hover才有效果。。。*/
+
         a:hover {
             text-decoration: none;
             cursor: pointer;
             color: #F6F;
         }
+
+
+
+        .panel .sequence{
+            display: inline-block;
+            line-height: 14px;
+            background:#ff84bb;
+            font-style: italic;
+            border-radius: 4px;
+            margin-right: 10px;
+            color: #fff;
+            width:16px;
+            height:14px;
+            text-align: center;
+        }
+
+
 
         .navbar {
             min-height: 40px;
@@ -599,13 +621,14 @@
                     </div>
                 </div>
                 <!--专题-->
-                <div class="zhuanti" style="height:315px;">
+                <div class="zhuanti">
                     <div class="title"><img src="${ctxStatic}/pic/zt.png"> <span
                             style="font-size:18px;font-weight:700;">专题</span></div>
                     <div class="zhuanti-content" style="padding:0 10px;">
-                        <ul style="padding:0px;list-style:none;">
+
+                        <%--<ul style="padding:0px;list-style:none;">
                             <li>
-                                <div class="dtzt"
+                                <div id="dtzt1" class="dtzt"
                                      style="height:120px;position:relative;overflow:hidden;margin-bottom:10px;"><a> <img
                                         src="${ctxStatic}/pic/ctlw.jpg"
                                         style="width:100%;height:100px;position:absolute;top:0px;">
@@ -614,7 +637,7 @@
                                 </div>
                             </li>
                             <li>
-                                <div class="dtzt"
+                                <div id="dtzt2" class="dtzt"
                                      style="height:20px;position:relative;overflow:hidden;margin-bottom:10px;"><a> <img
                                         src="${ctxStatic}/pic/xhc.jpg"
                                         style="width:100%;height:100px;position:absolute;top:-100px;">
@@ -623,7 +646,7 @@
                                 </div>
                             </li>
                             <li>
-                                <div class="dtzt"
+                                <div id="dtzt3" class="dtzt"
                                      style="height:20px;position:relative;overflow:hidden;margin-bottom:10px;"><a> <img
                                         src="${ctxStatic}/pic/xf.jpg"
                                         style="width:100%;height:100px;position:absolute;top:-100px;">
@@ -632,7 +655,7 @@
                                 </div>
                             </li>
                             <li>
-                                <div class="dtzt"
+                                <div id="dtzt4" class="dtzt"
                                      style="height:20px;position:relative;overflow:hidden;margin-bottom:10px;"><a> <img
                                         src="${ctxStatic}/pic/kjj.jpg"
                                         style="width:100%;height:100px;position:absolute;top:-100px;">
@@ -641,15 +664,106 @@
                                 </div>
                             </li>
                             <li>
-                                <div class="dtzt"
+                                <div id="dtzt5" class="dtzt"
                                      style="height:20px;position:relative;overflow:hidden;margin-bottom:10px;">
                                     <a> <img src="${ctxStatic}/pic/dadang.jpg"
                                              style="width:100%;height:100px;position:absolute;top:-100px;">
-                                    <p style="position:absolute;bottom:-10px;white-space:nowrap;text-overflow:ellipsis;">
-                                        你愿意选谁作为你的异次元搭档呢？？</p></a>
+                                        <p style="position:absolute;bottom:-10px;white-space:nowrap;text-overflow:ellipsis;">
+                                            你愿意选谁作为你的异次元搭档呢？？</p></a>
                                 </div>
                             </li>
-                        </ul>
+                        </ul>--%>
+
+
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel">
+                                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                    <div >
+                                        <a>
+                                            <img
+                                                src="${ctxStatic}/pic/ctlw.jpg"
+                                                style="width:100%;height:100px;">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div  role="tab" id="headingOne">
+                                    <span class="sequence">1</span>
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="text-decoration:none;">
+                                         浅析成田良悟：走钢丝的黑色幽默轻小说~
+                                    </a>
+
+                                </div>
+                            </div>
+                            <div class="panel">
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                    <div >
+                                        <a>
+                                            <img
+                                                src="${ctxStatic}/pic/xhc.jpg"
+                                                style="width:100%;height:100px;">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div  role="tab" id="headingTwo">
+                                    <span class="sequence">2</span>
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            【人物专题】你了解新海诚吗？
+                                        </a>
+
+                                </div>
+                            </div>
+                            <div class="panel">
+                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                    <div>
+                                        <a>
+                                            <img
+                                                src="${ctxStatic}/pic/xf.jpg"
+                                                style="width:100%;height:100px;">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div role="tab" id="headingThree">
+                                    <span class="sequence">3</span>
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="text-decoration:none;">
+                                            你已经决定要追哪几部新番了吗？
+                                        </a>
+                                 </div>
+                            </div>
+                            <div class="panel">
+                                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                    <div>
+                                        <a>
+                                            <img
+                                                src="${ctxStatic}/pic/kjj.jpg"
+                                                style="width:100%;height:100px;">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div role="tab" id="headingFour">
+                                    <span class="sequence">4</span>
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree" style="text-decoration:none;">
+                                            讲真，你想喝喝谁的「口嚼酒」啊？？？
+                                        </a>
+                                 </div>
+                            </div>
+                            <div class="panel">
+                                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                                    <div>
+                                        <a>
+                                            <img
+                                                src="${ctxStatic}/pic/dadang.jpg"
+                                                style="width:100%;height:100px;">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div role="tab" id="headingFive">
+                                    <span class="sequence">5</span>
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseThree" style="text-decoration:none;">
+                                            你愿意选谁作为你的异次元搭档呢？？
+                                        </a>
+                                    </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -733,14 +847,63 @@
                 $(this).parent().siblings().find(".dtzt").find("p").css("top", "0px");
             });
          });*/
-        $(".dtzt").hover(function () {
-            $(this).parent().siblings().find(".dtzt").height(20);
-            $(this).parent().siblings().find(".dtzt").find("img").css("top", "-100px");
-            $(this).find("img").css("top", "0px");
-            $(this).animate({height: '120px'},function(){
-                
+
+
+            $("#headingOne").on("mouseover", function() {
+                $("#collapseOne").collapse("show");
+
+                $("#collapseTwo").collapse("hide");
+                $("#collapseThree").collapse("hide");
+                $("#collapseFour").collapse("hide");
+                $("#collapseFive").collapse("hide");
+
+
             });
-        });
+
+            $("#headingTwo").on("mouseover", function() {
+                $("#collapseTwo").collapse("show");
+
+                $("#collapseOne").collapse("hide");
+                $("#collapseThree").collapse("hide");
+                $("#collapseFour").collapse("hide");
+                $("#collapseFive").collapse("hide");
+
+
+            });
+
+            $("#headingThree").on("mouseover", function() {
+                $("#collapseThree").collapse("show");
+
+                $("#collapseOne").collapse("hide");
+                $("#collapseTwo").collapse("hide");
+                $("#collapseFour").collapse("hide");
+                $("#collapseFive").collapse("hide");
+
+
+            });
+
+            $("#headingFour").on("mouseover", function() {
+                $("#collapseFour").collapse("show");
+
+                $("#collapseOne").collapse("hide");
+                $("#collapseTwo").collapse("hide");
+                $("#collapseThree").collapse("hide");
+                $("#collapseFive").collapse("hide");
+
+
+            });
+
+            $("#headingFive").on("mouseover", function() {
+                $("#collapseFive").collapse("show");
+
+                $("#collapseOne").collapse("hide");
+                $("#collapseTwo").collapse("hide");
+                $("#collapseThree").collapse("hide");
+                $("#collapseFour").collapse("hide");
+
+
+            });
+
 
         $('.carousel').carousel({
             interval: 5000,
