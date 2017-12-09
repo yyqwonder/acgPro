@@ -35,7 +35,7 @@
 
 <!--注解驱动-->
 	<mvc:annotation-driven >
-		<!-- 消息转换器。@responsebody到页面的中文utf-8 -->
+		<!-- 消息转换器。@responsebody到页面的中文utf-8 解决乱码-->
 		<mvc:message-converters register-defaults="true">
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 				<property name="supportedMediaTypes" value="text/html;charset=UTF-8"/>

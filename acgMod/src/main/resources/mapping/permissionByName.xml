@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyl.myacg.modules.shiro.permissionByName.dao.IPermissionByNameDao">
+
+<!--
+    <resultMap id="subao" type="com.xyl.myacg.modules.subao.entity.Subao">
+        <result column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+    </resultMap>
+-->
+
+
+
+
+
+
+    <select id="findList" resultType="com.xyl.myacg.modules.shiro.permissionByName.entity.PermissionByName">
+        select u.userName,p.url from user u LEFT JOIN  user_role ur on u.id=ur.userId LEFT JOIN permission p on p.roleId=ur.roleId
+        <where>
+
+        u.userName=#{userName}
+        </where>
+
+    </select>
+
+
+
+</mapper>

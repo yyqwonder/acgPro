@@ -414,9 +414,9 @@
 
 
             <li class="">
-                <a href="${ctxPath}/subao/getSubao">
+                <a href="${ctxPath}/tuijian/getTuijian">
                     <i class="menu-icon fa fa-picture-o"></i>
-                    <span class="menu-text"> 速报 </span>
+                    <span class="menu-text"> 推荐 </span>
                 </a>
 
                 <b class="arrow"></b>
@@ -1007,7 +1007,7 @@
 
 
         jQuery("#find_btn").click(function(){
-            //查询
+            //2
             var content = $("#content").val();
             var author = $("#author").val();
             var classification = $("#classification").val();
