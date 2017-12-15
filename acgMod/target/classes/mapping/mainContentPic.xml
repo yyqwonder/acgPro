@@ -8,7 +8,8 @@
         a.author AS "author",
         a.classification AS "classification",
         a.time AS "time",
-        a.content AS "content"
+        a.content AS "content",
+        a.url AS "url"
     </sql>
 
     <select id="get" resultType="com.xyl.myacg.modules.mainPic.entity.MainPic">

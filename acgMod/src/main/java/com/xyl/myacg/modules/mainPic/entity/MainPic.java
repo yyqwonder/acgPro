@@ -13,6 +13,7 @@ public class MainPic extends BaseEntity<MainPic> {
     String time;
     String content;
     MultipartFile file;
+    String url;
 
     public String getId() {
         return id;
@@ -68,5 +69,13 @@ public class MainPic extends BaseEntity<MainPic> {
 
     public void setFile(MultipartFile file) {
         this.file = file;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

@@ -971,8 +971,13 @@
                             var jsonReturn = JSON.parse(data).rows;
                             for(var i=0;i<jsonReturn.length;i++){
                                 //alert(jsonReturn[i]["author"]);
-                                result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
-                                        jsonReturn[i]["author"]+'</p></div></div>';
+                                if(jsonReturn[i]["url"]!=""){
+                                    result += '<div class="col-md-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                            jsonReturn[i]["author"]+'</p></div></div>';
+                                }else{
+                                    result += '<div class="col-md-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                            jsonReturn[i]["author"]+'</p></div></div>';
+                                }
                             }
                             $('.allcontent .row').append(result);
                         });
@@ -992,8 +997,13 @@
                             var jsonReturn = JSON.parse(data).rows;
                             for(var i=0;i<jsonReturn.length;i++){
                                 //alert(jsonReturn[i]["author"]);
-                                result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
-                                        jsonReturn[i]["author"]+'</p></div></div>';
+                                if(jsonReturn[i]["url"]!=""){
+                                    result += '<div class="col-md-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                            jsonReturn[i]["author"]+'</p></div></div>';
+                                }else{
+                                    result += '<div class="col-md-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                            jsonReturn[i]["author"]+'</p></div></div>';
+                                }
                             }
                             $('.allcontent .row').append(result);
                         });
@@ -1013,8 +1023,13 @@
                             var jsonReturn = JSON.parse(data).rows;
                             for(var i=0;i<jsonReturn.length;i++){
                                 //alert(jsonReturn[i]["author"]);
-                                result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
-                                        jsonReturn[i]["author"]+'</p></div></div>';
+                                if(jsonReturn[i]["url"]!=""){
+                                    result += '<div class="col-md-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                            jsonReturn[i]["author"]+'</p></div></div>';
+                                }else{
+                                    result += '<div class="col-md-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                            jsonReturn[i]["author"]+'</p></div></div>';
+                                }
                             }
                             $('.allcontent .row').append(result);
                         });
@@ -1050,8 +1065,13 @@
                             var result= '';
                             var jsonReturn = JSON.parse(data).rows;
                             for(var i=0;i<jsonReturn.length;i++){
-                                result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
-                                        jsonReturn[i]["author"]+'</p></div></div>';
+                                if(jsonReturn[i]["url"]!=""){
+                                    result += '<div class="col-md-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                            jsonReturn[i]["author"]+'</p></div></div>';
+                                }else{
+                                    result += '<div class="col-md-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                            jsonReturn[i]["author"]+'</p></div></div>';
+                                }
                             }
                             //div间清空内容下面2种都可以
                             $("#mainPic").html("");
@@ -1071,8 +1091,13 @@
                             var result= '';
                             var jsonReturn = JSON.parse(data).rows;
                             for(var i=0;i<jsonReturn.length;i++){
-                                result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
-                                        jsonReturn[i]["author"]+'</p></div></div>';
+                                if(jsonReturn[i]["url"]!=""){
+                                    result += '<div class="col-md-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                            jsonReturn[i]["author"]+'</p></div></div>';
+                                }else{
+                                    result += '<div class="col-md-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                            jsonReturn[i]["author"]+'</p></div></div>';
+                                }
                             }
                             //div间清空内容下面2种都可以
                             $("#mainPic").html("");
@@ -1092,8 +1117,13 @@
                             var result= '';
                             var jsonReturn = JSON.parse(data).rows;
                             for(var i=0;i<jsonReturn.length;i++){
-                                result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
-                                        jsonReturn[i]["author"]+'</p></div></div>';
+                                if(jsonReturn[i]["url"]!=""){
+                                    result += '<div class="col-md-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                            jsonReturn[i]["author"]+'</p></div></div>';
+                                }else{
+                                    result += '<div class="col-md-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                            jsonReturn[i]["author"]+'</p></div></div>';
+                                }
                             }
                             //div间清空内容下面2种都可以
                             $("#mainPic").html("");
@@ -1116,8 +1146,13 @@
                     var result= '';
                     var jsonReturn = JSON.parse(data).rows;
                     for(var i=0;i<jsonReturn.length;i++){
-                        result += '<div class="col-md-4"><div class="eachcontent"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
-                                jsonReturn[i]["author"]+'</p></div></div>';
+                        if(jsonReturn[i]["url"]!=""){
+                            result += '<div class="col-md-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                    jsonReturn[i]["author"]+'</p></div></div>';
+                        }else{
+                            result += '<div class="col-md-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                    jsonReturn[i]["author"]+'</p></div></div>';
+                        }
                     }
                     $('.allcontent .row').append(result);
                 });
