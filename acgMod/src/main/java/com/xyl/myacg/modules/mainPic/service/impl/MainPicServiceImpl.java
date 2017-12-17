@@ -51,7 +51,7 @@ public class MainPicServiceImpl implements IMainPicService {
 
     public int saveMainPic(MainPic mainPic, HttpServletRequest request){
         String isChange = request.getParameter("isChange");
-        //编辑
+        //编辑 图片位置 F:\\acgPro\\acgMod\\target\\acgArt\\upload
         if(null!=mainPic.getId()&&!mainPic.getId().equals("")) {
             if("false".equals(isChange)){
                 mainPic.setPath(mainPic.getPath());

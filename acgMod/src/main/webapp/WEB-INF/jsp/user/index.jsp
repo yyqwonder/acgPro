@@ -16,8 +16,19 @@
 
         .panel a{
             color: #141A1B;
+        }  /*这个必须在a:hover上面,hover才有效果。。。*/
+
+        a:link {
+            text-decoration: none;
+            cursor: pointer;
+            color: #000;
         }
-        /*这个必须在a:hover上面,hover才有效果。。。*/
+
+        a:visited {
+            text-decoration: none;
+            cursor: pointer;
+            color: #000;
+        }
 
         a:hover {
             text-decoration: none;
@@ -25,7 +36,11 @@
             color: #F6F;
         }
 
-
+        a:active {
+            text-decoration: none;
+            cursor: pointer;
+            color: #000;
+        }
 
         .panel .sequence{
             display: inline-block;
@@ -295,6 +310,7 @@
         li a {
             color: #000;
         }
+
 
         .carousel-indicators {
             position: relative;
@@ -1167,7 +1183,7 @@
                     var result= '';
                     var jsonReturn = JSON.parse(data).rows;
                     for(var i=0;i<jsonReturn.length;i++){
-                        result += '<li><a> <i class="tuijianicon"></i>'+ jsonReturn[i]["content"] +'</a></li>';
+                        result += '<li><a href="'+jsonReturn[i]["url"]+'" target="_blank"> <i class="tuijianicon"></i>'+ jsonReturn[i]["content"] +'</a></li>';
                     }
                     $('#tuijian ul').append(result);
                 });

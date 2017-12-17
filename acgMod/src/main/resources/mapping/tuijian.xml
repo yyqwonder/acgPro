@@ -12,7 +12,8 @@
 
     <sql id="tuijianColumns">
         a.id AS "id",
-        a.content AS "content"
+        a.content AS "content",
+        a.url AS "url"
     </sql>
 
 
