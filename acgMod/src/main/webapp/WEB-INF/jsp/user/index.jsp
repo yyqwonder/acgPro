@@ -67,6 +67,18 @@
             padding-bottom: 10px;
         }
 
+        #guanli {
+            float: right;
+            margin-top: -30px;
+            margin-right: 10px
+        }
+        #guanli a {
+            color: #9d9d9d;
+        }
+        #guanli a:hover {
+            color: #fff;
+        }
+
         .navbar-toggle {
             margin-top: 4px;
             margin-bottom: 4px;
@@ -391,7 +403,9 @@
                 </li>
             </ul>
         </div>
+
     </div>
+    <div id="guanli"><a href="#" >管理</a></div>
 </nav>
 <div class="myWrapper">
     <div class="container">
