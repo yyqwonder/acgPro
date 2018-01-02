@@ -15,8 +15,9 @@
 
 		<property name="filterChainDefinitions">
 			<value>
-				/tuijian/getTuijian = authc <!-- authc 表示需要认证才能访问的页面 -->
-				/client/showMusic = authc, perms[/client/showMusic]  <!-- perms 表示需要该权限才能访问的页面 -->
+				<!--/tuijian/getTuijian = authc &lt;!&ndash; authc 表示需要认证才能访问的页面 &ndash;&gt;-->
+				/mainPic/getMainPic = authc, perms[/mainPic/getMainPic]
+				/tuijian/getTuijian = authc, perms[/tuijian/getTuijian]  <!-- perms 表示需要该权限才能访问的页面 -->
 			</value>
 		</property>
 	</bean>

@@ -405,7 +405,7 @@
         </div>
 
     </div>
-    <div id="guanli"><a href="#" >管理</a></div>
+    <div id="guanli"><a href="${ctxPath}/mainPic/getMainPic" >管理</a></div>
 </nav>
 <div class="myWrapper">
     <div class="container">
@@ -502,13 +502,17 @@
                             </li>
 
                             <li data-target="#carousel-example-generic" data-slide-to="1"><img class="sideimg"
+                                                                                               src="${ctxStatic}/pic/gl.jpg">
+                            </li>
+
+                            <li data-target="#carousel-example-generic" data-slide-to="2"><img class="sideimg"
                                                                                                src="${ctxStatic}/pic/tytp.jpg">
                             </li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"><img class="sideimg"
-                                                                                               src="${ctxStatic}/pic/jlshz.jpg">
-                            </li>
+
                             <li data-target="#carousel-example-generic" data-slide-to="3"  class="active"><img
-                                    class="sideimg" src="${ctxStatic}/pic/gl.jpg"></li>
+                                    class="sideimg" src="${ctxStatic}/pic/jlshz.jpg">
+                            </li>
+
                             <li data-target="#carousel-example-generic" data-slide-to="4"><img class="sideimg"
                                                                                                src="${ctxStatic}/pic/lyh.jpg">
                             </li>
@@ -523,35 +527,35 @@
                 <div>
                     <div class="carousel-inner" role="listbox">
                         <%--<div class="item active">active,首先是它展现--%>
-                        <div class="item active"><img src="${ctxStatic}/pic/qnzl.jpg" style="height:400px;">
+                        <div class="item active"><a href="" target="_blank" id="a0"><img src="${ctxStatic}/pic/qnzl.jpg" style="height:400px;"></a>
                             <div class="carousel-caption">
                                 <div style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
                                     奇诺之旅，人生之旅
                                 </div>
                             </div>
                         </div>
-                        <div class="item"><img src="${ctxStatic}/pic/tytp.jpg" style="height:400px;">
+                        <div class="item"><a href="" target="_blank" id="a1"><img src="${ctxStatic}/pic/gl.jpg" style="height:400px;"></a>
+                            <div class="carousel-caption">
+                                 <div style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
+                                     钢之炼金术师：等价交换是世界的法则
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="item"><a href="" target="_blank" id="a2"><img src="${ctxStatic}/pic/tytp.jpg" style="height:400px;"></a>
                             <div class="carousel-caption">
                                 <div style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
                                     天元突破最爱谁？看我优子当教师❤
                                 </div>
                             </div>
                         </div>
-                        <div class="item"><img src="${ctxStatic}/pic/jlshz.jpg" style="height:400px;">
+                        <div class="item"><a href="" target="_blank" id="a3"><img src="${ctxStatic}/pic/jlshz.jpg" style="height:400px;"></a>
                             <div class="carousel-caption">
                                 <div style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
                                     精灵守护者，纳吉之歌
                                 </div>
                             </div>
                         </div>
-                        <div class="item"><img src="${ctxStatic}/pic/gl.jpg" style="height:400px;">
-                            <div class="carousel-caption">
-                                <div style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
-                                    钢之炼金术师：等价交换是世界的法则
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item"><img src="${ctxStatic}/pic/lyh.jpg" style="height:400px;">
+                        <div class="item"><a href="" target="_blank" id="a4"><img src="${ctxStatic}/pic/lyh.jpg" style="height:400px;"></a>
                             <div class="carousel-caption">
                                 <div style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
                                     龙与虎~~我是实乃梨党！
@@ -1200,6 +1204,12 @@
                         result += '<li><a href="'+jsonReturn[i]["url"]+'" target="_blank"> <i class="tuijianicon"></i>'+ jsonReturn[i]["content"] +'</a></li>';
                     }
                     $('#tuijian ul').append(result);
+
+                    $("#a0").attr("href",jsonReturn[0]["url"]);
+                    $("#a1").attr("href",jsonReturn[1]["url"]);
+                    $("#a2").attr("href",jsonReturn[2]["url"]);
+                    $("#a3").attr("href",jsonReturn[3]["url"]);
+                    $("#a4").attr("href",jsonReturn[4]["url"]);
                 });
 
 

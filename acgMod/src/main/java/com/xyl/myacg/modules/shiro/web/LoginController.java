@@ -33,7 +33,7 @@ public class LoginController {
     public ModelAndView Login(User user) {
         ModelAndView mav = new ModelAndView();
         List<User> list= userService.findList(user);
-        if (list.get(0) == null) {
+        if (list.size()==0) {
             mav.setViewName("shiro/login");
             mav.addObject("msg", "用户不存在");
             return mav;
@@ -49,7 +49,7 @@ public class LoginController {
         Subject subject = SecurityUtils.getSubject();
         subject.login(token);
         // 登录成功后会跳转到successUrl配置的链接，不用管下面返回的链接。
-        mav.setViewName("redirect:/");
+        mav.setViewName("admin/tuijian");
         return mav;
     }
 
