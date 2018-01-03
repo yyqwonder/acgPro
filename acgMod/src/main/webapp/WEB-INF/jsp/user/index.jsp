@@ -227,9 +227,9 @@
         }
 
         .allcontent .textbox {
-            padding: 27px 20px 20px;
+            padding: 27px 20px 0px;
             width: 100%;
-            height: 95px;
+            height: 75px;
         }
 
         .allcontent .labelbox {
@@ -527,38 +527,43 @@
                 <div>
                     <div class="carousel-inner" role="listbox">
                         <%--<div class="item active">active,首先是它展现--%>
-                        <div class="item active"><a href="" target="_blank" id="a0"><img src="${ctxStatic}/pic/qnzl.jpg" style="height:400px;"></a>
+                        <div class="item active">
+                            <a href="" target="_blank"><img src="${ctxStatic}/pic/qnzl.jpg" style="height:400px;"></a>
                             <div class="carousel-caption">
-                                <div style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
-                                    奇诺之旅，人生之旅
+                                <div class="c" style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
+                                    <%--奇诺之旅，人生之旅（不需要了）--%>
                                 </div>
                             </div>
                         </div>
-                        <div class="item"><a href="" target="_blank" id="a1"><img src="${ctxStatic}/pic/gl.jpg" style="height:400px;"></a>
+                        <div class="item">
+                            <a href="" target="_blank"><img src="${ctxStatic}/pic/gl.jpg" style="height:400px;"></a>
                             <div class="carousel-caption">
-                                 <div style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
-                                     钢之炼金术师：等价交换是世界的法则
+                                 <div class="c" style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
+                                     <%--钢之炼金术师：等价交换是世界的法则--%>
                                  </div>
                             </div>
                         </div>
-                        <div class="item"><a href="" target="_blank" id="a2"><img src="${ctxStatic}/pic/tytp.jpg" style="height:400px;"></a>
+                        <div class="item">
+                            <a href="" target="_blank"><img src="${ctxStatic}/pic/tytp.jpg" style="height:400px;"></a>
                             <div class="carousel-caption">
-                                <div style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
-                                    天元突破最爱谁？看我优子当教师❤
+                                <div class="c" style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
+                                    <%--天元突破最爱谁？看我优子当教师❤--%>
                                 </div>
                             </div>
                         </div>
-                        <div class="item"><a href="" target="_blank" id="a3"><img src="${ctxStatic}/pic/jlshz.jpg" style="height:400px;"></a>
+                        <div class="item">
+                            <a href="" target="_blank"><img src="${ctxStatic}/pic/jlshz.jpg" style="height:400px;"></a>
                             <div class="carousel-caption">
-                                <div style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
-                                    精灵守护者，纳吉之歌
+                                <div class="c" style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
+                                    <%--精灵守护者，纳吉之歌--%>
                                 </div>
                             </div>
                         </div>
-                        <div class="item"><a href="" target="_blank" id="a4"><img src="${ctxStatic}/pic/lyh.jpg" style="height:400px;"></a>
+                        <div class="item">
+                            <a href="" target="_blank"><img src="${ctxStatic}/pic/lyh.jpg" style="height:400px;"></a>
                             <div class="carousel-caption">
-                                <div style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
-                                    龙与虎~~我是实乃梨党！
+                                <div class="c" style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
+                                    <%--龙与虎~~我是实乃梨党！--%>
                                 </div>
                             </div>
                         </div>
@@ -1205,11 +1210,12 @@
                     }
                     $('#tuijian ul').append(result);
 
-                    $("#a0").attr("href",jsonReturn[0]["url"]);
-                    $("#a1").attr("href",jsonReturn[1]["url"]);
-                    $("#a2").attr("href",jsonReturn[2]["url"]);
-                    $("#a3").attr("href",jsonReturn[3]["url"]);
-                    $("#a4").attr("href",jsonReturn[4]["url"]);
+                    //图片链接和图片下面的看法
+                    var arr = $(".maincontent .item");
+                    for( var j=0;j<arr.length;j++){
+                        $(arr[j]).find("a").attr("href",jsonReturn[j]["url"]);
+                        $(arr[j]).find(".c").text(jsonReturn[j]["comment"]);
+                    }
                 });
 
 

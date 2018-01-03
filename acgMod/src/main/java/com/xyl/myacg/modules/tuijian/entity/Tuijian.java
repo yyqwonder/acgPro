@@ -10,6 +10,8 @@ public class Tuijian extends BaseEntity<Tuijian> {
 
     String url;
 
+    String comment;
+
     public String getContent() {
         return content;
     }
@@ -24,5 +26,13 @@ public class Tuijian extends BaseEntity<Tuijian> {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }
