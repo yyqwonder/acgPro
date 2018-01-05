@@ -34,7 +34,9 @@
 
     <update id="update">
         UPDATE tuijian SET
-        content = #{content}
+        content = #{content},
+        url = #{url},
+        comment = #{comment}
         WHERE id = #{id}
     </update>
 
@@ -45,15 +47,15 @@
     </update>
 
     <insert id="insert">
-        insert into tuijian(id,content,del_flag) VALUES
-        (#{id},#{content},#{delFlag})
+        insert into tuijian(id,content,url,comment,del_flag) VALUES
+        (#{id},#{content},#{url},#{comment},#{delFlag})
     </insert>
 
 
     <select id="findPage" resultType="com.xyl.myacg.modules.tuijian.entity.Tuijian">
-        select id,content from
+        select id,content,url,comment from
 
-        <![CDATA[(select id,content,rownum rn from tuijian where del_flag='0' and rownum <= #{end}) temp
+        <![CDATA[(select id,content,url,comment,rownum rn from tuijian where del_flag='0' and rownum <= #{end}) temp
         where temp.rn > #{begin}]]>
     </select>
 

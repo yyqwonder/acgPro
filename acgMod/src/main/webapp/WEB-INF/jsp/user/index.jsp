@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ACG动画</title>
+    <title>补番吧</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="${ctxStatic}/css/bootstrap.min.css"/>
     <style type="text/css">
@@ -635,10 +635,10 @@
             <!--边栏-->
             <div class="col-lg-3">
                 <!--戳我-->
-                <a style="height:75px;margin-bottom:5px;display:block;"> <img src="${ctxStatic}/pic/chuowo.png"
-                                                                              style="width:100%;"> </a>
+                <%--<a style="height:75px;margin-bottom:5px;display:block;"> <img src="${ctxStatic}/pic/chuowo.png"
+                                                                              style="width:100%;"> </a>--%>
                 <!--活动信息-->
-                <div class="activity-info" style="margin-bottom:15px;">
+                <%--<div class="activity-info" style="margin-bottom:15px;">
                     <div class="title"><img src="${ctxStatic}/pic/huodong.png"> <span
                             style="font-size:18px;font-weight:700;">活动信息</span></div>
                     <div class="activity-content" style="padding:0 10px;">
@@ -661,11 +661,11 @@
                             </a></li>
                         </ul>
                     </div>
-                </div>
-                <!--专题-->
+                </div>--%>
+                <!--新番-->
                 <div class="zhuanti">
                     <div class="title"><img src="${ctxStatic}/pic/zt.png"> <span
-                            style="font-size:18px;font-weight:700;">专题</span></div>
+                            style="font-size:18px;font-weight:700;">一月新番</span></div>
                     <div class="zhuanti-content" style="padding:0 10px;">
 
                         <%--<ul style="padding:0px;list-style:none;">
@@ -721,17 +721,17 @@
                             <div class="panel">
                                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                     <div >
-                                        <a>
+                                        <a href="" target="_blank">
                                             <img
-                                                src="${ctxStatic}/pic/ctlw.jpg"
+                                                src="${ctxStatic}/pic/subao/qdz2.jpg"
                                                 style="width:100%;height:100px;">
                                         </a>
                                     </div>
                                 </div>
-                                <div  role="tab" id="headingOne">
+                                <div  role="tab" id="headingOne" class="c">
                                     <span class="sequence">1</span>
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="text-decoration:none;">
-                                         浅析成田良悟：走钢丝的黑色幽默轻小说~
+                                        <%--Fate/Extella：红saber很帅有木有~--%>
                                     </a>
 
                                 </div>
@@ -739,17 +739,17 @@
                             <div class="panel">
                                 <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                     <div >
-                                        <a>
+                                        <a href="" target="_blank">
                                             <img
-                                                src="${ctxStatic}/pic/xhc.jpg"
+                                                src="${ctxStatic}/pic/subao/jz.jpg"
                                                 style="width:100%;height:100px;">
                                         </a>
                                     </div>
                                 </div>
-                                <div  role="tab" id="headingTwo">
+                                <div  role="tab" id="headingTwo" class="c">
                                     <span class="sequence">2</span>
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            【人物专题】你了解新海诚吗？
+                                            <%--紫罗兰永恒花园：别被奶死啊--%>
                                         </a>
 
                                 </div>
@@ -757,51 +757,51 @@
                             <div class="panel">
                                 <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                                     <div>
-                                        <a>
+                                        <a href="" target="_blank">
                                             <img
-                                                src="${ctxStatic}/pic/xf.jpg"
+                                                src="${ctxStatic}/pic/subao/ol2.jpg"
                                                 style="width:100%;height:100px;">
                                         </a>
                                     </div>
                                 </div>
-                                <div role="tab" id="headingThree">
+                                <div role="tab" id="headingThree" class="c">
                                     <span class="sequence">3</span>
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="text-decoration:none;">
-                                            你已经决定要追哪几部新番了吗？
+                                            <%--Over Lord2：我最期待的新番--%>
                                         </a>
                                  </div>
                             </div>
                             <div class="panel">
                                 <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
                                     <div>
-                                        <a>
+                                        <a href="" target="_blank">
                                             <img
-                                                src="${ctxStatic}/pic/kjj.jpg"
+                                                src="${ctxStatic}/pic/subao/qm2.jpg"
                                                 style="width:100%;height:100px;">
                                         </a>
                                     </div>
                                 </div>
-                                <div role="tab" id="headingFour">
+                                <div role="tab" id="headingFour" class="c">
                                     <span class="sequence">4</span>
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree" style="text-decoration:none;">
-                                            讲真，你想喝喝谁的「口嚼酒」啊？？？
+                                            <%--七大罪2：居然没被禁？--%>
                                         </a>
                                  </div>
                             </div>
                             <div class="panel">
                                 <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
                                     <div>
-                                        <a>
+                                        <a href="" target="_blank">
                                             <img
-                                                src="${ctxStatic}/pic/dadang.jpg"
+                                                src="${ctxStatic}/pic/subao/fe.jpg"
                                                 style="width:100%;height:100px;">
                                         </a>
                                     </div>
                                 </div>
-                                <div role="tab" id="headingFive">
+                                <div role="tab" id="headingFive" class="c">
                                     <span class="sequence">5</span>
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseThree" style="text-decoration:none;">
-                                            你愿意选谁作为你的异次元搭档呢？？
+                                            <%--齐木楠雄的灾难2：哦呼~--%>
                                         </a>
                                     </div>
                             </div>
@@ -810,7 +810,7 @@
                 </div>
 
                 <!--cosplay-->
-                <div class="cosplay" style="margin-top:15px;">
+                <%--<div class="cosplay" style="margin-top:15px;">
                     <div class="title"><img src="${ctxStatic}/pic/huodong.png"> <span
                             style="font-size:18px;font-weight:700;">cosplay</span></div>
                     <div id="carousel-example-generic1" class="carousel slide" data-ride="carousel">
@@ -852,12 +852,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--%>
 
                 <!--吐槽榜-->
                 <div class="tcb" style="margin-top:15px;">
                     <div class="title"><img src="${ctxStatic}/pic/tcb.png"> <span
-                            style="font-size:18px;font-weight:700;">吐槽榜</span></div>
+                            style="font-size:18px;font-weight:700;">追番榜</span></div>
                     <ul style="padding:10px;list-style:none;">
                         <li><span class="rank">1</span><a title="伪娘X女大学生，「裙下有野兽」接档「秃驴走肾不走心」 ">
                             伪娘X女大学生，「裙下有野兽」接档「秃驴走肾不走心」</a></li>
@@ -1200,7 +1200,7 @@
         $.post("${ctxPath}/client/tuijianAja",
                 {
                     page:1,
-                    rows:"5",
+                    rows:"5"
                 },
                 function(data,status){
                     var result= '';
@@ -1215,10 +1215,24 @@
                     for( var j=0;j<arr.length;j++){
                         $(arr[j]).find("a").attr("href",jsonReturn[j]["url"]);
                         $(arr[j]).find(".c").text(jsonReturn[j]["comment"]);
-                    }
+                    }i
                 });
 
-
+        //速报
+        $.post("${ctxPath}/client/subaoAja",
+                {
+                    page:1,
+                    rows:"5"
+                },
+                function(data,status){
+                    var jsonReturn = JSON.parse(data).rows;
+                    //图片链接和图片下面的看法
+                    var arr = $(".zhuanti-content .panel");
+                    for( var j=0;j<arr.length;j++){
+                        $(arr[j]).find(".panel-collapse").find("a").attr("href",jsonReturn[j]["url"]);
+                        $(arr[j]).find(".c").find("a").text(jsonReturn[j]["content"]);
+                    }i
+                });
     }
 </script>
 </body>

@@ -432,7 +432,14 @@
             </li>
 
 
+            <li class="">
+                <a href="${ctxPath}/subao/getSubao">
+                    <i class="menu-icon fa fa-picture-o"></i>
+                    <span class="menu-text"> 速报 </span>
+                </a>
 
+                <b class="arrow"></b>
+            </li>
 
 
 

@@ -87,4 +87,18 @@ public class clientController {
         jsonString = "{\"total\":"+page.getTotalPages()+", \"page \":" + page.getPage() + ",\"records\": " + page.getTotalRecords() + ",\"rows\":"+jsonString+"}";
         return jsonString;
     }
+
+    @RequestMapping(value = "subaoAja")
+    @ResponseBody
+    public String getSubaoAja(Subao subao, HttpServletRequest request){
+        Page<Subao> page = subaoService.findPage(new Page<Subao>(request),subao);
+//        for(int i=0;i<page.getList().size();i++){
+//            String path = page.getList().get(i).getPath();
+//            page.getList().get(i).setPath(path.replaceAll("upload","pic"));
+//        }
+
+        String jsonString = JsonMapper.toJsonString(page.getList());
+        jsonString = "{\"total\":"+page.getTotalPages()+", \"page \":" + page.getPage() + ",\"records\": " + page.getTotalRecords() + ",\"rows\":"+jsonString+"}";
+        return jsonString;
+    }
 }

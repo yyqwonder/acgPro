@@ -12,7 +12,8 @@
 
     <sql id="subaoColumns">
         a.id AS "id",
-        a.content AS "content"
+        a.content AS "content",
+        a.url AS "url"
     </sql>
 
 
@@ -32,7 +33,8 @@
 
     <update id="update">
         UPDATE subao SET
-        content = #{content}
+        content = #{content},
+        url = #{url}
         WHERE id = #{id}
     </update>
 
@@ -43,15 +45,15 @@
     </update>
 
     <insert id="insert">
-        insert into subao(id,content,del_flag) VALUES
-        (#{id},#{content},#{delFlag})
+        insert into subao(id,content,url,del_flag) VALUES
+        (#{id},#{content},#{url},#{delFlag})
     </insert>
 
 
     <select id="findPage" resultType="com.xyl.myacg.modules.subao.entity.Subao">
-        select id,content from
+        select id,content,url from
 
-        <![CDATA[(select id,content,rownum rn from subao where del_flag='0' and rownum <= #{end}) temp
+        <![CDATA[(select id,content,url,rownum rn from subao where del_flag='0' and rownum <= #{end}) temp
         where temp.rn > #{begin}]]>
     </select>
 
