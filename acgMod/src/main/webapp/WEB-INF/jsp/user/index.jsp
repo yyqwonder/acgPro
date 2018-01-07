@@ -1006,7 +1006,7 @@
                 counterTime = 1;
                 counterClassification = 1;
                 counterContent++;
-                $.post("${ctxPath}/client/mainPicMoreAja",
+                $.post("${ctxPath}/mainPic/mainPicAja",
                         {
                             page:counterContent,
                             rows:"12",
@@ -1032,7 +1032,7 @@
                 counterContent = 1;
                 counterClassification = 1;
                 counterTime++;
-                $.post("${ctxPath}/client/mainPicMoreAja",
+                $.post("${ctxPath}/mainPic/mainPicAja",
                         {
                             page:counterTime,
                             rows:"12",
@@ -1058,7 +1058,7 @@
                 counterContent = 1;
                 counterTime = 1;
                 counterClassification++;
-                $.post("${ctxPath}/client/mainPicMoreAja",
+                $.post("${ctxPath}/mainPic/mainPicAja",
                         {
                             page:counterClassification,
                             rows:"12",
@@ -1101,7 +1101,7 @@
             if($(this).text()=='按标题排序'){
                 //var counter = 1;错了
                 counter = 1
-                $.post("${ctxPath}/client/mainPicMoreAja",
+                $.post("${ctxPath}/mainPic/mainPicAja",
                         {
                             page:1,
                             rows:"12",
@@ -1127,7 +1127,7 @@
             }
             if($(this).text()=='按时间排序'){
                 counter = 1;
-                $.post("${ctxPath}/client/mainPicMoreAja",
+                $.post("${ctxPath}/mainPic/mainPicAja",
                         {
                             page:1,
                             rows:"12",
@@ -1153,7 +1153,7 @@
             }
             if($(this).text()=='按类型排序'){
                 counter = 1;
-                $.post("${ctxPath}/client/mainPicMoreAja",
+                $.post("${ctxPath}/mainPic/mainPicAja",
                         {
                             page:1,
                             rows:"12",
@@ -1182,7 +1182,7 @@
     //初始化主要内容的首页页面
     function iniMainPic(){
         //主要图片
-        $.post("${ctxPath}/client/mainPicMoreAja",
+        $.post("${ctxPath}/mainPic/mainPicAja",
                 {
                     page:1,
                     rows:"12",
@@ -1204,7 +1204,7 @@
                 });
 
         //推荐
-        $.post("${ctxPath}/client/tuijianAja",
+        $.post("${ctxPath}/tuijian/tuijianAja",
                 {
                     page:1,
                     rows:"5"
@@ -1226,7 +1226,7 @@
                 });
 
         //速报
-        $.post("${ctxPath}/client/subaoAja",
+        $.post("${ctxPath}/subao/subaoAja",
                 {
                     page:1,
                     rows:"5"
@@ -1287,10 +1287,10 @@
                 });
 
         //补番
-        $.post("${ctxPath}/client/bufanAja",
+        $.post("${ctxPath}/bufan/bufanAja",
                 {
                     page:1,
-                    rows:"5"
+                    rows:"10"
                 },
                 function(data,status){
                     var result= '';
