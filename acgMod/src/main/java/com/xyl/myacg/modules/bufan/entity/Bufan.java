@@ -1,17 +1,17 @@
-package com.xyl.myacg.modules.subao.entity;
+package com.xyl.myacg.modules.bufan.entity;
 
 import com.xyl.myacg.common.persistence.BaseEntity;
 
 /**
- * Created by yyq on 2017/7/22.
+ * Created by yyq on 2018/1/5.
  */
-public class Subao extends BaseEntity<Subao> {
+public class Bufan extends BaseEntity<Bufan> {
+
 
     String content;
-
     String url;
 
-    String path;
+
 
     public String getContent() {
         return content;
@@ -27,13 +27,5 @@ public class Subao extends BaseEntity<Subao> {
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
     }
 }

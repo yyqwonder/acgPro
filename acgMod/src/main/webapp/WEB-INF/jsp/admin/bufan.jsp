@@ -19,8 +19,6 @@
     <link rel="stylesheet" href="${ctxStatic}/css/bootstrap-datepicker3.min.css" />
     <link rel="stylesheet" href="${ctxStatic}/css/ui.jqgrid.min.css" />
 
-
-
     <!-- text fonts -->
     <link rel="stylesheet" href="${ctxStatic}/css/fonts.googleapis.com.css" />
 
@@ -413,6 +411,8 @@
         <ul class="nav nav-list">
 
 
+
+
             <li class="">
                 <a href="${ctxPath}/tuijian/getTuijian">
                     <i class="menu-icon fa fa-picture-o"></i>
@@ -571,43 +571,18 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
-
-                            <div class="row alert alert-info">
-                                <div class="col-xs-3">
-                                    内容：<input type="text" id="content"/>
-                                </div>
-                                <div class="col-xs-3">
-                                    作者 ：<input type="text" id="author"/>
-                                </div>
-                                <div class="col-xs-3">
-                                    分类：
-                                    <select id="classification" >
-                                        <option value="">请选择</option>
-                                        <option value="战斗">战斗</option>
-                                        <option value="治愈">治愈</option>
-                                        <option value="励志">励志</option>
-                                        <option value="后宫">后宫</option>
-                                        <option value="搞笑">搞笑</option>
-                                        <option value="奇幻">奇幻</option>
-                                        <option value="惊悚">惊悚</option>
-                                        <option value="日常">日常</option>
-                                        <option value="冒险">冒险</option>
-                                        <option value="烧脑">烧脑</option>
-                                        <option value="竞技">竞技</option>
-                                    </select>
-                                </div>
-                                <div class="col-xs-3">
-                                    时间：<input type="text" id="time" class="date-picker" data-date-format="yyyy-mm-dd"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="button" id="find_btn" value="查 询" />
-                                </div>
-                            </div>
+                        <div class="alert alert-info">
                             <div>
-                                <input type="button" id="edit_btn" value="编 辑" />
+                                内容：<input type="text" id="content"/>&nbsp;
+                                <input type="submit" id="find_btn" value="查 询" />
                             </div>
 
-                            <div>
-                                <input type="button" id="add_btn" value="添 加" />
-                            </div>
+
+                        </div>
+
+
+
+
 
                         <table id="grid-table"></table>
 
@@ -671,9 +646,6 @@
 <script src="${ctxStatic}/js/jquery.jqGrid.min.js"></script>
 <script src="${ctxStatic}/js/grid.locale-en.js"></script>
 
-
-
-
 <!-- ace scripts -->
 <script src="${ctxStatic}/js/ace-elements.min.js"></script>
 <script src="${ctxStatic}/js/ace.min.js"></script>
@@ -724,27 +696,68 @@
 
 
         jQuery(grid_selector).jqGrid({
-            url : '${ctxPath}/mainPic/mainPicAja',
+            //direction: "rtl",
+
+            //subgrid options
+            /*
+             subGrid : false,
+             subGridModel: [{ name : ['No','Item Name','Qty'], width : [55,200,80] }],
+             datatype: "xml",
+             subGridOptions : {
+             plusicon : "ace-icon fa fa-plus center bigger-110 blue",
+             minusicon  : "ace-icon fa fa-minus center bigger-110 blue",
+             openicon : "ace-icon fa fa-chevron-right center orange"
+             },
+             */
+            //for this example we are using local data
+            /*
+             subGridRowExpanded: function (subgridDivId, rowId) {
+             var subgridTableId = subgridDivId + "_t";
+             $("#" + subgridDivId).html("<table id='" + subgridTableId + "'></table>");
+             $("#" + subgridTableId).jqGrid({
+             datatype: 'local',
+             data: subgrid_data,
+             colNames: ['No','Item Name','Qty'],
+             colModel: [
+             { name: 'id', width: 50 },
+             { name: 'name', width: 150 },
+             { name: 'qty', width: 50 }
+             ]
+             });
+             },
+             */
+
+
+            url : '${ctxPath}/bufan/bufanAja',
             datatype: "json",
             height: 250,
             mtype:"POST",
-            colNames:['序号','','作者','分类','时间','内容'],
+            colNames:[' ', '序号','内容','链接'],
             colModel:[
-                {name:'id',index:'id', hidedlg:true,hidden:true},
-                {name:'path',index:'path', width:25,formatter : showPicture},
-                {name:'author',index:'author',editable: true},
-                {name:'classification',index:'classification',editable: true},
-                {name:'time',index:'time', editable: true},
-                {name:'content',index:'content', editable: true}
+                {name:'myac',index:'',width:80,fixed:true, sortable:false, resize:false,
+                    formatter:'actions',
+                    formatoptions:{
+                        keys:true,
+                        //delbutton: false,//disable delete button
+                        delOptions:{recreateForm: true, beforeShowForm:beforeDeleteCallback},
+                        //editformbutton:true, editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
+                    }
+                },
+                {name:'id',index:'id',width:80,hidedlg:true,hidden:true,editable: true},
+                {name:'content',index:'content',width:540,editable: true,editoptions:{size:"70",maxlength:"70"}},
+                {name:'url',index:'url',width:540,editable: true,editoptions:{size:"70",maxlength:"70"}}
             ],
 
-            jqModal:false,
+
             viewrecords : true,
             rowNum:10,
             rowList:[10,20,30],
             pager : pager_selector,
             altRows: true,
+            //toppager: true,
+
             multiselect: true,
+            //multikey: "ctrlKey",
             multiboxonly: true,
 
             loadComplete : function() {
@@ -758,7 +771,7 @@
                 }, 0);
             },
 
-            editurl: '${ctxPath}/mainPic/operation',//nothing is saved
+            editurl: '${ctxPath}/bufan/operation',//nothing is saved
             caption: "jqGrid with inline editing"
 
             //,autowidth: true,
@@ -806,9 +819,9 @@
         //navButtons
         jQuery(grid_selector).jqGrid('navGrid',pager_selector,
                 { 	//navbar options
-                    edit: false,
+                    edit: true,
                     editicon : 'ace-icon fa fa-pencil blue',
-                    add: false,
+                    add: true,
                     addicon : 'ace-icon fa fa-plus-circle purple',
                     del: true,
                     delicon : 'ace-icon fa fa-trash-o red',
@@ -822,18 +835,17 @@
                 {
                     //edit record form
                     closeAfterEdit: true,
-                    width: 600,
+                    //width: 700,
                     recreateForm: true,
                     beforeShowForm : function(e) {
                         var form = $(e[0]);
-                        //form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
+                        form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
                         style_edit_form(form);
                     }
                 },
                 {
                     //new record form
                     //width: 700,
-                    width: 600,
                     closeAfterAdd: true,
                     recreateForm: true,
                     viewPagerButtons: false,
@@ -901,12 +913,12 @@
 
             //update buttons classes
             var buttons = form.next().find('.EditButton .fm-button');
-            //buttons.addClass('btn btn-sm').find('[class*="-icon"]').hide();//ui-icon, s-icon
-            //buttons.eq(0).addClass('btn-primary').prepend('<i class="ace-icon fa fa-check"></i>');
-            //buttons.eq(1).prepend('<i class="ace-icon fa fa-times"></i>')
+            buttons.addClass('btn btn-sm').find('[class*="-icon"]').hide();//ui-icon, s-icon
+            buttons.eq(0).addClass('btn-primary').prepend('<i class="ace-icon fa fa-check"></i>');
+            buttons.eq(1).prepend('<i class="ace-icon fa fa-times"></i>')
 
             buttons = form.next().find('.navButton a');
-            //buttons.find('.ui-icon').hide();
+            buttons.find('.ui-icon').hide();
             //buttons.eq(0).append('<i class="ace-icon fa fa-chevron-left"></i>');
             //buttons.eq(1).append('<i class="ace-icon fa fa-chevron-right"></i>');
         }
@@ -1021,48 +1033,23 @@
 
 
         jQuery("#find_btn").click(function(){
-            //2
+            //此处可以添加对查询数据的合法验证
             var content = $("#content").val();
-            var author = $("#author").val();
-            var classification = $("#classification").val();
-            var time = $("#time").val();
             jQuery(grid_selector).jqGrid('setGridParam',{
                 datatype:'json',
-                postData:{'content':content,'author':author,'classification':classification,'time':time},
+                postData:{'content':content},
                 page:1
             }).trigger("reloadGrid");
         });
 
-        jQuery("#edit_btn").click(function(){
-            //编辑，有id的
-            var id = jQuery(grid_selector).jqGrid('getGridParam','selrow');
-            if(id==null){
-                alert('请选择一行记录');
-                return;
-            }
-            window.location.href="${ctxPath}/mainPic/form?id="+id;
-        });
 
-        jQuery("#add_btn").click(function(){
-            //添加,没id的
-            window.location.href="${ctxPath}/mainPic/form";
-        });
 
-        //colmodal图片字段要返回的方法
-        function showPicture(cellvalue, options, rowObject){
 
-            return "<img src='" +cellvalue + "' height='50' width='50' />";
-        }
 
     });
 </script>
 
-    <%--bootstrap时间插件下面初始化必须写--%>
-    <script type="text/javascript">
-        $('.date-picker').datepicker({
-            autoclose: true,
-            todayHighlight: true
-        })
-    </script>
+
+
 </body>
 </html>

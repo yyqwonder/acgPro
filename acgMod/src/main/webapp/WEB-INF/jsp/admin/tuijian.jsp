@@ -439,7 +439,14 @@
             </li>
 
 
+            <li class="">
+                <a href="${ctxPath}/bufan/getBufan">
+                    <i class="menu-icon fa fa-picture-o"></i>
+                    <span class="menu-text"> 补番 </span>
+                </a>
 
+                <b class="arrow"></b>
+            </li>
 
 
 

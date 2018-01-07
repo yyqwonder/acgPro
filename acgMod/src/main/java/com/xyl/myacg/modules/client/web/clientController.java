@@ -2,6 +2,8 @@ package com.xyl.myacg.modules.client.web;
 
 import com.xyl.myacg.common.mapper.JsonMapper;
 import com.xyl.myacg.common.persistence.Page;
+import com.xyl.myacg.modules.bufan.entity.Bufan;
+import com.xyl.myacg.modules.bufan.service.IBufanService;
 import com.xyl.myacg.modules.mainPic.entity.MainPic;
 import com.xyl.myacg.modules.mainPic.service.IMainPicService;
 import com.xyl.myacg.modules.subao.entity.Subao;
@@ -30,6 +32,8 @@ public class clientController {
     ISubaoService subaoService;
     @Autowired
     ITuijianService tuijianService;
+    @Autowired
+    IBufanService bufanService;
 
     //这个暂时用不上了
     @RequestMapping(value = "showWeb")
@@ -92,6 +96,20 @@ public class clientController {
     @ResponseBody
     public String getSubaoAja(Subao subao, HttpServletRequest request){
         Page<Subao> page = subaoService.findPage(new Page<Subao>(request),subao);
+//        for(int i=0;i<page.getList().size();i++){
+//            String path = page.getList().get(i).getPath();
+//            page.getList().get(i).setPath(path.replaceAll("upload","pic"));
+//        }
+
+        String jsonString = JsonMapper.toJsonString(page.getList());
+        jsonString = "{\"total\":"+page.getTotalPages()+", \"page \":" + page.getPage() + ",\"records\": " + page.getTotalRecords() + ",\"rows\":"+jsonString+"}";
+        return jsonString;
+    }
+
+    @RequestMapping(value = "bufanAja")
+    @ResponseBody
+    public String getBufanAja(Bufan bufan, HttpServletRequest request){
+        Page<Bufan> page = bufanService.findPage(new Page<Bufan>(request),bufan);
 //        for(int i=0;i<page.getList().size();i++){
 //            String path = page.getList().get(i).getPath();
 //            page.getList().get(i).setPath(path.replaceAll("upload","pic"));

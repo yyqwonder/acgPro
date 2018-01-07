@@ -442,7 +442,14 @@
             </li>
 
 
+            <li class="">
+                <a href="${ctxPath}/bufan/getBufan">
+                    <i class="menu-icon fa fa-picture-o"></i>
+                    <span class="menu-text"> 补番 </span>
+                </a>
 
+                <b class="arrow"></b>
+            </li>
 
 
 
@@ -725,7 +732,7 @@
             datatype: "json",
             height: 250,
             mtype:"POST",
-            colNames:[' ', '序号','内容','链接'],
+            colNames:[' ', '序号','内容','链接','路径'],
             colModel:[
                 {name:'myac',index:'',width:80,fixed:true, sortable:false, resize:false,
                     formatter:'actions',
@@ -738,7 +745,8 @@
                 },
                 {name:'id',index:'id',width:80,hidedlg:true,hidden:true,editable: true},
                 {name:'content',index:'content',width:540,editable: true,editoptions:{size:"70",maxlength:"70"}},
-                {name:'url',index:'url',width:540,editable: true,editoptions:{size:"70",maxlength:"70"}}
+                {name:'url',index:'url',width:540,editable: true,editoptions:{size:"70",maxlength:"70"}},
+                {name:'path',index:'path',width:540,editable: true,editoptions:{size:"70",maxlength:"70"}}
             ],
 
 

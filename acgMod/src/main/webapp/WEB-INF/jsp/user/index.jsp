@@ -195,7 +195,7 @@
             height: 400px;
         }
 
-        .tuijian, .activity-info, .zhuanti, .cosplay, .tcb {
+        .tuijian, .activity-info, .subao, .cosplay, .bfb {
             border: 1px solid #e2e2e2;
             border-radius: 3px;
         }
@@ -302,7 +302,7 @@
             margin: 10px;
         }
 
-        .tcb .rank {
+        .bfb .rank {
             height: 15px;
             width: 15px;
             border-radius: 10px;
@@ -311,7 +311,7 @@
             color: #000;
         }
 
-        .tcb li {
+        .bfb li {
             line-height: 30px;
             height: 30px;
             overflow: hidden;
@@ -663,10 +663,10 @@
                     </div>
                 </div>--%>
                 <!--新番-->
-                <div class="zhuanti">
+                <div class="subao">
                     <div class="title"><img src="${ctxStatic}/pic/zt.png"> <span
                             style="font-size:18px;font-weight:700;">一月新番</span></div>
-                    <div class="zhuanti-content" style="padding:0 10px;">
+                    <div class="subao-content" style="padding:0 10px;">
 
                         <%--<ul style="padding:0px;list-style:none;">
                             <li>
@@ -718,7 +718,7 @@
 
 
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                            <div class="panel">
+                            <%--<div class="panel">
                                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                     <div >
                                         <a href="" target="_blank">
@@ -731,7 +731,7 @@
                                 <div  role="tab" id="headingOne" class="c">
                                     <span class="sequence">1</span>
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="text-decoration:none;">
-                                        <%--Fate/Extella：红saber很帅有木有~--%>
+                                        &lt;%&ndash;Fate/Extella：红saber很帅有木有~&ndash;%&gt;
                                     </a>
 
                                 </div>
@@ -749,7 +749,7 @@
                                 <div  role="tab" id="headingTwo" class="c">
                                     <span class="sequence">2</span>
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            <%--紫罗兰永恒花园：别被奶死啊--%>
+                                            &lt;%&ndash;紫罗兰永恒花园：别被奶死啊&ndash;%&gt;
                                         </a>
 
                                 </div>
@@ -767,7 +767,7 @@
                                 <div role="tab" id="headingThree" class="c">
                                     <span class="sequence">3</span>
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="text-decoration:none;">
-                                            <%--Over Lord2：我最期待的新番--%>
+                                            &lt;%&ndash;Over Lord2：我最期待的新番&ndash;%&gt;
                                         </a>
                                  </div>
                             </div>
@@ -784,7 +784,7 @@
                                 <div role="tab" id="headingFour" class="c">
                                     <span class="sequence">4</span>
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree" style="text-decoration:none;">
-                                            <%--七大罪2：居然没被禁？--%>
+                                            &lt;%&ndash;七大罪2：居然没被禁？&ndash;%&gt;
                                         </a>
                                  </div>
                             </div>
@@ -801,10 +801,10 @@
                                 <div role="tab" id="headingFive" class="c">
                                     <span class="sequence">5</span>
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseThree" style="text-decoration:none;">
-                                            <%--齐木楠雄的灾难2：哦呼~--%>
+                                            &lt;%&ndash;齐木楠雄的灾难2：哦呼~&ndash;%&gt;
                                         </a>
-                                    </div>
-                            </div>
+                                </div>
+                            </div>--%>
                         </div>
                     </div>
                 </div>
@@ -854,12 +854,12 @@
                     </div>
                 </div>--%>
 
-                <!--吐槽榜-->
-                <div class="tcb" style="margin-top:15px;">
+                <!--补番榜-->
+                <div class="bfb" style="margin-top:15px;">
                     <div class="title"><img src="${ctxStatic}/pic/tcb.png"> <span
-                            style="font-size:18px;font-weight:700;">追番榜</span></div>
+                            style="font-size:18px;font-weight:700;">补番榜</span></div>
                     <ul style="padding:10px;list-style:none;">
-                        <li><span class="rank">1</span><a title="伪娘X女大学生，「裙下有野兽」接档「秃驴走肾不走心」 ">
+                        <%--<li><span class="rank">1</span><a title="伪娘X女大学生，「裙下有野兽」接档「秃驴走肾不走心」 ">
                             伪娘X女大学生，「裙下有野兽」接档「秃驴走肾不走心」</a></li>
                         <li><span class="rank">2</span><a> 美版「黑色小本本」电影预告公开惹~ ，L全程黑脸！！！ </a></li>
                         <li><span class="rank">3</span><a> 《擅长捉弄的高木同学》作者·山本崇一郎画了不夜城的assassin？？？ </a></li>
@@ -869,15 +869,17 @@
                         <li><span class="rank">7</span><a> 请问您今天要来点兔子吗？完全新作OVA动画确定将在今年光棍节上映！！！s </a></li>
                         <li><span class="rank">8</span><a> Production I.G制作的漫改动画「寻找身体」将于7月31日配信。 </a></li>
                         <li><span class="rank">9</span><a> 『舞动青春』第4弹视觉图，7月8日开播~ </a></li>
-                        <li><span class="rank">10</span><a> 「食戟之灵」第三季制作决定 </a></li>
+                        <li><span class="rank">10</span><a> 「食戟之灵」第三季制作决定 </a></li>--%>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script src="${ctxStatic}/js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
 
         $(document).ready(function () {    /*$(".dtzt").hover(function () {
@@ -945,6 +947,11 @@
 
 
             });
+
+
+
+
+
 
 
         $('.carousel').carousel({
@@ -1215,7 +1222,7 @@
                     for( var j=0;j<arr.length;j++){
                         $(arr[j]).find("a").attr("href",jsonReturn[j]["url"]);
                         $(arr[j]).find(".c").text(jsonReturn[j]["comment"]);
-                    }i
+                    }
                 });
 
         //速报
@@ -1225,15 +1232,78 @@
                     rows:"5"
                 },
                 function(data,status){
+                    var result= '';
+                    var temp = '';
+                    var in1 = '';
+                    var collapsed = '';
+                    var aria_expanded='';
                     var jsonReturn = JSON.parse(data).rows;
-                    //图片链接和图片下面的看法
-                    var arr = $(".zhuanti-content .panel");
-                    for( var j=0;j<arr.length;j++){
-                        $(arr[j]).find(".panel-collapse").find("a").attr("href",jsonReturn[j]["url"]);
-                        $(arr[j]).find(".c").find("a").text(jsonReturn[j]["content"]);
-                    }i
+
+                    for(var i=0;i<jsonReturn.length;i++){
+                        if(i==0){    //我曹  写成了i=0 下面也是  结果只能显示最后一项
+                            temp='One';
+                            in1='in';
+                            collapsed='';
+                            aria_expanded='true';
+                        }
+                        if(i==1){
+                            temp='Two';
+                            in1='';
+                            collapsed = 'class="collapsed"';
+                            aria_expanded='false';
+                        }
+                        if(i==2){
+                            temp='Three';
+                            in1='';
+                            collapsed = 'class="collapsed"';
+                            aria_expanded='false';
+                        }
+                        if(i==3){
+                            temp='Four';
+                            in1='';
+                            collapsed = 'class="collapsed"';
+                            aria_expanded='false';
+                        }
+                        if(i==4){
+                            temp='Five';
+                            in1='';
+                            collapsed = 'class="collapsed"';
+                            aria_expanded='false';
+                        }
+
+                        result += '<div class="panel"><div id="collapse'+temp+'" class="panel-collapse collapse '+in1+'" role="tabpanel" aria-labelledby="heading'+temp+'"><div ><a href="'+
+                                jsonReturn[i]["url"]+
+                                '" target="_blank"><img src="'+
+                                jsonReturn[i]["path"]+
+                                '" style="width:100%;height:100px;"></a></div></div><div  role="tab" id="heading'+temp+'"><span class="sequence">'+
+                                (1+i)+
+                                '</span><a '+collapsed+' role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse'+temp+'" aria-expanded="'+aria_expanded+'" aria-controls="collapse'+temp+'" style="text-decoration:none;">'+
+                                jsonReturn[i]["content"]+
+                                '</a></div></div>';
+
+                    }
+                    $('#accordion').append(result);
+
+                });
+
+        //补番
+        $.post("${ctxPath}/client/bufanAja",
+                {
+                    page:1,
+                    rows:"5"
+                },
+                function(data,status){
+                    var result= '';
+                    var jsonReturn = JSON.parse(data).rows;
+                    for(var i=0;i<jsonReturn.length;i++){
+                        //<li><span class="rank">2</span><a href="" target="_blank"> 美版「黑色小本本」电影预告公开惹~ ，L全程黑脸！！！ </a></li>
+                        result += '<li><span class="rank">'+(i+1)+'</span><a href="'+ jsonReturn[i]["url"]+'" target="_blank" title="'+jsonReturn[i]["content"]+'">'+jsonReturn[i]["content"]+'</a></li>';
+                    }
+                    $('.bfb ul').append(result);
                 });
     }
+
 </script>
+
 </body>
 </html>
