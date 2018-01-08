@@ -14,10 +14,11 @@
             padding-top: 40px;
         }
 
-        .panel a{
+        /*.panel a{
             color: #141A1B;
-        }  /*这个必须在a:hover上面,hover才有效果。。。*/
+        }*/  /*这个必须在a:hover上面,hover才有效果。。。*/
 
+        /*a标签的一些设置*/
         a:link {
             text-decoration: none;
             cursor: pointer;
@@ -42,13 +43,16 @@
             color: #000;
         }
 
+        /*新番1 2 3 4 5...*/
         .panel .sequence{
+            /*没inline的话,序号和文字分成2行;没block的话,width:16px无效.参考有道云笔记《块级元素和行内元素》*/
             display: inline-block;
             line-height: 14px;
             background:#ff84bb;
             font-style: italic;
             border-radius: 4px;
             margin-right: 10px;
+            /*<span>中文字的颜色*/
             color: #fff;
             width:16px;
             height:14px;
@@ -67,6 +71,7 @@
             padding-bottom: 10px;
         }
 
+        /*管理*/
         #guanli {
             float: right;
             margin-top: -30px;
@@ -181,6 +186,7 @@
             left: 7.3px;
             width: 5px;
             height: 336px;
+            /*background: #F9F一样的*/
             background-color: #F9F;
         }
 
@@ -191,26 +197,27 @@
             right: 0%;
         }
 
-        .tuijiancontent {
-            height: 400px;
-        }
 
+
+        /*推荐 新番 补番的框*/
         .tuijian, .activity-info, .subao, .cosplay, .bfb {
             border: 1px solid #e2e2e2;
             border-radius: 3px;
         }
 
-        #tuijian li{
+        #tuijianC li{
             margin-bottom: 3px;
         }
 
+        /*推荐每条前的圆点*/
         .tuijianicon {
+            /*没inline会分行*/
+            display: inline-block;
             position: relative;
             top: -1px;
             background: #ff84bb;
             width: 6px;
             height: 6px;
-            display: inline-block;
             border-radius: 50%;
         }
 
@@ -250,15 +257,19 @@
             left: 20px;
         }
 
+        /*加载更多*/
         #loadMore{
+            /*要让子元素a定位，必须加上position: relative.见有道云笔记css position absolute 加不加的区别*/
             position: relative;
             width:100%;
             height:52px;
-
         }
+
         #loadMore a{
+            /*为了让它定位.见有道云笔记块级元素和行内元素*/
             display: block;
             position: absolute;
+            /*下面五行实现居中*/
             margin: auto;
             left:0px;
             right:0px;
@@ -273,10 +284,24 @@
             background: url(${ctxStatic}/pic/loader-btn-hover.png) no-repeat;
         }
 
+        /*按标题 时间 类型排序*/
+        #xuanxiangka{
+            display:block;
+            padding: 0px;
+        }
+
+        #xuanxiangka li{
+            list-style: none;
+            /*否则按标题 时间 类型排序这3个会垂直排列*/
+            float: left;
+            width: 140px;
+        }
+
         #xuanxiangka span{
             font-size: 18px;
         }
 
+        /*<span class="green">按标题排序</span>,配合点击后颜色的变化*/
         .green{
             color:#8ac024;
         }
@@ -298,10 +323,12 @@
             height: 30px;
         }
 
+        /*推荐 新番 补番*/
         .title {
             margin: 10px;
         }
 
+        /*补番1 2 3 4 ...*/
         .bfb .rank {
             height: 15px;
             width: 15px;
@@ -311,10 +338,13 @@
             color: #000;
         }
 
+        /*补番文字部分*/
         .bfb li {
+            /*设置行间的距离*/
             line-height: 30px;
             height: 30px;
             overflow: hidden;
+            /*文字...*/
             text-overflow: ellipsis;
             white-space: nowrap;
         }
@@ -570,11 +600,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 tuijiancontent">
+            <div class="col-lg-3 ">
                 <div class="tuijian">
                     <div class="title"><img src="${ctxStatic}/pic/zxsb.png"> <span
                             style="font-size:18px;font-weight:700;">推荐</span></div>
-                    <div id="tuijian" class="pre-scrollable" style="height:359px">
+                    <div id="tuijianC" >
                         <ul style="padding:0px;list-style:none;">
                             <%--<c:forEach items="${tuijianList}" var="p">
                                 <li><a> <i class="tuijianicon"></i> ${p.content} </a></li>
@@ -590,10 +620,10 @@
     <div class="container" style="margin-top:23px;">
         <div class="row">
             <div class="col-lg-12" >
-                <ul id="xuanxiangka" style="display:block;padding: 0px;">
-                    <li style="list-style: none;float: left;width: 140px;"><a><span class="green">按标题排序</span></a></li>
-                    <li style="list-style: none;float: left;width: 140px;"><a><span class="blue">按时间排序</span></a></li>
-                    <li style="list-style: none;float: left;width: 140px;"><a><span class="blue">按类型排序</span></a></li>
+                <ul id="xuanxiangka">
+                    <li><a><span class="green">按标题排序</span></a></li>
+                    <li><a><span class="blue">按时间排序</span></a></li>
+                    <li><a><span class="blue">按类型排序</span></a></li>
                 </ul>
              </div>
          </div>
@@ -1215,7 +1245,7 @@
                     for(var i=0;i<jsonReturn.length;i++){
                         result += '<li><a href="'+jsonReturn[i]["url"]+'" target="_blank"> <i class="tuijianicon"></i>'+ jsonReturn[i]["content"] +'</a></li>';
                     }
-                    $('#tuijian ul').append(result);
+                    $('#tuijianC ul').append(result);
 
                     //图片链接和图片下面的看法
                     var arr = $(".maincontent .item");
