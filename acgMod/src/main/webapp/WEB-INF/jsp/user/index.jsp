@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="${ctxStatic}/css/bootstrap.min.css"/>
     <style type="text/css">
         body {
+            /*<nav class="navbar navbar-inverse navbar-fixed-top"> 导航条挡住了艾米莉亚的小半个头啊*/
+            /*下面设置了nav的height是40px*/
             padding-top: 40px;
         }
 
@@ -62,6 +64,7 @@
 
 
         .navbar {
+            /*所以body的padding-top: 40px;*/
             min-height: 40px;
             height: 40px;
         }
@@ -89,20 +92,11 @@
             margin-bottom: 4px;
         }
 
-        .weibo {
-            background: url(${ctxStatic}/pic/weibo.png) no-repeat;
-            padding-left: 20px;
-        }
-
         .wechat {
             background: url(${ctxStatic}/pic/wechat.png) no-repeat;
             padding-left: 20px;
         }
 
-        .nav_178 {
-            background: url(${ctxStatic}/pic/nav.png) no-repeat;
-            padding-left: 20px;
-        }
 
         #bs-example-navbar-collapse-2 li > a:hover {
             text-decoration: none;
@@ -110,56 +104,46 @@
             color: #F6F
         }
 
-        .dropdown{
-           position: relative;
-        }
+
+        /*下拉菜单悬浮时再显示*/
         .dropdown-menu{
-            /*padding: 0;*/
+            /*为了实现hover时展示下拉菜单,先让它不显示下拉菜单*/
             display: none;
+            /*为了给子元素定位*/
             position: absolute;
         }
 
-
         .nav .dropdown:hover .dropdown-menu{
+            /*当hover时,dropdown-menu显示下拉菜单*/
             display: block;
         }
 
         #bs-example-navbar-collapse-2 .second-nav .dropdown-menu a:hover{
             padding-left: 24px;
-            color: #000;
-        }
-
-        .first-nav >li>ul>li>a:hover{
             color: #FF0000;
         }
 
+
+        /*re0的背景*/
         .myWrapper {
             background: url(${ctxStatic}/pic/head-bg-img.jpg) no-repeat center top;
         }
 
+        /*会动的小美女gif*/
         .logo {
             height: 220px;
         }
 
-        /*.logo-png {
-            position: absolute;
-            top: 40%;
-            margin-left: -30px;
-        }*/
-
         .logo-gif {
+            /*col-lg-5 默认position: relative*/
             position: absolute;
             top: 20%;
             margin-left: 116px;
         }
 
+        /*导航栏透明的条*/
         .headline {
             background: url(/static/pic/nav-bg-img.jpg) no-repeat;
-        }
-
-        .navbar-myform {
-            margin-top: 2px;
-            margin-bottom: 2px;
         }
 
         .sidecontent {
@@ -191,12 +175,21 @@
         }
 
         .carousel-caption {
-            width: 100%;
             bottom: 0px;
+            /*宽度跟父元素宽度一样*/
+            width: 100%;
+            /*左边距离父元素为自身宽度0%,右边距离父元素为自身宽度0%,加上跟父元素宽度一样,这样就左右对齐不偏了*/
             left: 0%;
             right: 0%;
         }
 
+        .carousel-caption .c{
+            background-color:black;
+            position:absolute;
+            bottom:0px;
+            left:0px;
+            right:0px;
+        }
 
 
         /*推荐 新番 补番的框*/
@@ -221,33 +214,41 @@
             border-radius: 50%;
         }
 
-        .allcontent img {
-            width: 100%;
-        }
 
+        /*各张图片*/
+        /*每行间距*/
         .allcontent .col-md-4 {
             margin-bottom: 18px;
         }
 
+        /*每个图文边框*/
         .eachcontent {
             border: 1px solid #e6e6e6;
         }
 
+        /*图片*/
+        .allcontent img {
+            width: 100%;
+        }
+
+        /*动漫标题*/
         .allcontent .textbox {
             padding: 27px 20px 0px;
             width: 100%;
             height: 75px;
         }
 
+        /*分类+作者*/
         .allcontent .labelbox {
             font-size: 12px;
+            /*作者在最右边 分类不受此影响*/
             text-align: right;
-            font-size: 12px;
             position: relative;
             padding: 0px 20px;
             bottom: 10px;
         }
 
+        /*分类*/
         .allcontent .labelbox span {
             border: 1px solid #ff84bb;
             border-radius: 9px;
@@ -311,7 +312,8 @@
             color:#3A5FCD;
         }
 
-        .activity-content p {
+        /*活动信息用不上了*/
+        /*.activity-content p {
             padding: 0 18px;
             background-color: black;
             color: white;
@@ -321,7 +323,7 @@
             position: absolute;
             bottom: -10px;
             height: 30px;
-        }
+        }*/
 
         /*推荐 新番 补番*/
         .title {
@@ -397,16 +399,8 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav first-nav">
-                <%--<li><a href="#">首页 </a></li>
-                <li class="dropdown nav_178"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                                aria-haspopup="true" aria-expanded="false">导航</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">新闻资讯保</a></li>
-                        <li><a href="#">动漫频道</a></li>
-                        <li><a href="#">游戏</a></li>
-                        <li><a href="#">社区</a></li>
-                    </ul>
-                </li>--%>
+                <%--<li><a href="#">首页 </a></li>--%>
+
                 <li class="wechat dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"
                                                role="button" aria-haspopup="true"
                                                aria-expanded="false">我的QQ</a>
@@ -441,7 +435,6 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-5 logo">
-                <%--<img class="logo-png" src="${ctxStatic}/pic/head-logo.png"> --%>
                 <img class="logo-gif" src="${ctxStatic}/pic/head-logo.gif">
             </div>
         </div>
@@ -560,7 +553,7 @@
                         <div class="item active">
                             <a href="" target="_blank"><img src="${ctxStatic}/pic/qnzl.jpg" style="height:400px;"></a>
                             <div class="carousel-caption">
-                                <div class="c" style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
+                                <div class="c">
                                     <%--奇诺之旅，人生之旅（不需要了）--%>
                                 </div>
                             </div>
@@ -568,7 +561,7 @@
                         <div class="item">
                             <a href="" target="_blank"><img src="${ctxStatic}/pic/gl.jpg" style="height:400px;"></a>
                             <div class="carousel-caption">
-                                 <div class="c" style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
+                                 <div class="c">
                                      <%--钢之炼金术师：等价交换是世界的法则--%>
                                  </div>
                             </div>
@@ -576,7 +569,7 @@
                         <div class="item">
                             <a href="" target="_blank"><img src="${ctxStatic}/pic/tytp.jpg" style="height:400px;"></a>
                             <div class="carousel-caption">
-                                <div class="c" style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
+                                <div class="c">
                                     <%--天元突破最爱谁？看我优子当教师❤--%>
                                 </div>
                             </div>
@@ -584,7 +577,7 @@
                         <div class="item">
                             <a href="" target="_blank"><img src="${ctxStatic}/pic/jlshz.jpg" style="height:400px;"></a>
                             <div class="carousel-caption">
-                                <div class="c" style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
+                                <div class="c">
                                     <%--精灵守护者，纳吉之歌--%>
                                 </div>
                             </div>
@@ -592,7 +585,7 @@
                         <div class="item">
                             <a href="" target="_blank"><img src="${ctxStatic}/pic/lyh.jpg" style="height:400px;"></a>
                             <div class="carousel-caption">
-                                <div class="c" style="background-color:black;position:absolute;bottom:0px;left:0px;right:0px;">
+                                <div class="c">
                                     <%--龙与虎~~我是实乃梨党！--%>
                                 </div>
                             </div>
