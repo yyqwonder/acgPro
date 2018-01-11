@@ -16,7 +16,8 @@
         body{
             margin-left:auto;
             margin-right:auto;
-            margin-TOP:100PX;
+            margin-top:100px;
+            /*限制了表的宽度*/
             width:20em;
         }
     </style>
@@ -37,15 +38,11 @@
             <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-lock"></span></span>
             <input type="password" name="password" class="form-control" placeholder="密码" aria-describedby="sizing-addon2">
         </div>
-        <br>
-        <!--下面是登陆按钮,包括颜色控制-->
-        <button type="button" class="btn btn-default" style=" margin-left:auto;margin-right:auto;" onclick="submitFun();">登 录</button>
-        <br>
         ${msg}
-
     </form>
-
-
+    <div style="text-align:center; ">
+        <button type="button" class="btn btn-default"  onclick="submitFun();">登 录</button>
+    </div>
     <script type="text/javascript">
         function submitFun(){
             loginForm.submit();

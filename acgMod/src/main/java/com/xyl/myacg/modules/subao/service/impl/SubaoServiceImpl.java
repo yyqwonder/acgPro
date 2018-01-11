@@ -30,7 +30,7 @@ public class SubaoServiceImpl implements ISubaoService{
         return subaoDao.delete(subao);
     }
 
-    public int addSubao(Subao subao){
+    public int insertSubao(Subao subao){
         return subaoDao.insert(subao);
     }
 
@@ -45,7 +45,7 @@ public class SubaoServiceImpl implements ISubaoService{
         return page;
     }
 
-    public List<Subao> findList(Subao subao){
+    /*public List<Subao> findList(Subao subao){
         return subaoDao.findList(subao);
-    }
+    }*/
 }

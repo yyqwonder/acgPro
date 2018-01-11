@@ -44,7 +44,7 @@ public class SubaoController {
 
         if(oper.equals("add")){
             subao.setId(UUID.randomUUID().toString().replaceAll("-", ""));
-            subaoService.addSubao(subao);
+            subaoService.insertSubao(subao);
         }
         return "admin/subao";
 

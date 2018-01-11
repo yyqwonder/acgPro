@@ -26,7 +26,7 @@ public class TuijianServiceImpl implements ITuijianService {
         return tuijianDao.delete(tuijian);
     }
 
-    public int addTuijian(Tuijian tuijian){
+    public int insertTuijian(Tuijian tuijian){
         return tuijianDao.insert(tuijian);
     }
 
@@ -41,7 +41,7 @@ public class TuijianServiceImpl implements ITuijianService {
         return page;
     }
 
-    public List<Tuijian> findList(Tuijian tuijian){
+    /*public List<Tuijian> findList(Tuijian tuijian){
         return tuijianDao.findList(tuijian);
-    }
+    }*/
 }

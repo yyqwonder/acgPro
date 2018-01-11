@@ -26,7 +26,7 @@ public class BufanServiceImpl implements IBufanService{
         return bufanDao.delete(bufan);
     }
 
-    public int addBufan(Bufan bufan){
+    public int insertBufan(Bufan bufan){
         return bufanDao.insert(bufan);
     }
 
@@ -41,7 +41,7 @@ public class BufanServiceImpl implements IBufanService{
         return page;
     }
 
-    public List<Bufan> findList(Bufan bufan){
+   /* public List<Bufan> findList(Bufan bufan){
         return bufanDao.findList(bufan);
-    }
+    }*/
 }

@@ -1,18 +1,12 @@
 package com.xyl.myacg.modules.client.web;
 
 import com.xyl.myacg.modules.bufan.service.IBufanService;
-import com.xyl.myacg.modules.mainPic.entity.MainPic;
 import com.xyl.myacg.modules.mainPic.service.IMainPicService;
-import com.xyl.myacg.modules.subao.entity.Subao;
 import com.xyl.myacg.modules.subao.service.ISubaoService;
 import com.xyl.myacg.modules.tuijian.service.ITuijianService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by yyq on 2017/8/14.
@@ -30,7 +24,7 @@ public class clientController {
     IBufanService bufanService;
 
     //这个暂时用不上了
-    @RequestMapping(value = "showWeb")
+    /*@RequestMapping(value = "showWeb")
     public String showWeb(MainPic mainPic , Subao subao,Model model){
         List<MainPic> mainPicList = mainPicService.findList(mainPic);
         List<MainPic> mainPicInitList = new ArrayList<MainPic>();
@@ -45,7 +39,7 @@ public class clientController {
         model.addAttribute("mainPicInitList",mainPicInitList);
         model.addAttribute("subaoList",subaoList);
         return "user/index";
-    }
+    }*/
 
     @RequestMapping(value = "showAnimation")
     public String showAnimation(){

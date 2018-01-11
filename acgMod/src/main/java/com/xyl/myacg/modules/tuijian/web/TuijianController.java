@@ -43,7 +43,7 @@ public class TuijianController {
 
         if(oper.equals("add")){
             tuijian.setId(UUID.randomUUID().toString().replaceAll("-", ""));
-            tuijianService.addTuijian(tuijian);
+            tuijianService.insertTuijian(tuijian);
         }
         return "admin/tuijian";
 

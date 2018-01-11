@@ -43,7 +43,7 @@ public class BufanController {
 
         if(oper.equals("add")){
             bufan.setId(UUID.randomUUID().toString().replaceAll("-", ""));
-            bufanService.addBufan(bufan);
+            bufanService.insertBufan(bufan);
         }
         return "admin/bufan";
 

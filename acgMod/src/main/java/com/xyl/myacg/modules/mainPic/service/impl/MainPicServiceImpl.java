@@ -21,16 +21,8 @@ public class MainPicServiceImpl implements IMainPicService {
     @Autowired
     private IMainPicDao mainPicDao;
 
-    public int updateMainPic(MainPic mainPic){
-        return mainPicDao.update(mainPic);
-    }
-
     public int deleteMainPic(MainPic mainPic){
         return mainPicDao.delete(mainPic);
-    }
-
-    public int addMainPic(MainPic mainPic){
-        return mainPicDao.insert(mainPic);
     }
 
     public Page<MainPic> findPage(Page<MainPic> page, MainPic mainPic){
@@ -99,8 +91,8 @@ public class MainPicServiceImpl implements IMainPicService {
     }
 
 
-    public List<MainPic> findList(MainPic mainPic){
+    /*public List<MainPic> findList(MainPic mainPic){
         return mainPicDao.findList(mainPic);
-    }
+    }*/
 }
 

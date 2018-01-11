@@ -1320,7 +1320,7 @@
                     var jsonReturn = JSON.parse(data).rows;
                     for(var i=0;i<jsonReturn.length;i++){
                         //<li><span class="rank">2</span><a href="" target="_blank"> 美版「黑色小本本」电影预告公开惹~ ，L全程黑脸！！！ </a></li>
-                        result += '<li><span class="rank">'+(i+1)+'</span><a href="'+ jsonReturn[i]["url"]+'" target="_blank" title="'+jsonReturn[i]["content"]+'">'+jsonReturn[i]["content"]+'</a></li>';
+                        result += '<li><span class="rank">'+(i+1)+'</span><a href="'+ jsonReturn[i]["url"]+'" target="_blank" title="'+jsonReturn[i]["content"]+'"> '+jsonReturn[i]["content"]+'</a></li>';
                     }
                     $('.bfb ul').append(result);
                 });

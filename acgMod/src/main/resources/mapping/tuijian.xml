@@ -29,7 +29,6 @@
                 AND a.content like CONCAT(CONCAT('%', #{content}), '%')
             </if>
         </where>
-
     </select>
 
     <update id="update">

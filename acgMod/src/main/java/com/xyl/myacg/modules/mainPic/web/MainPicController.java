@@ -18,6 +18,15 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Created by yyq on 2017/7/10.
  */
+/**
+ * 添加编辑流程
+ * 1    mainPic.jsp带着参数id进入${ctxPath}/mainPic/form
+ * 2    控制器带着mainPic(除id外别的属性全是空，添加时id为空，编辑时id有值)进入admin/mainPicForm
+ * 3    mainPicForm.jsp里表单有modelAttribute="mainPic" -> 控制器里有带@ModelAttribute的方法get -> 根据之前id的值，返回一个MainPic实体
+ *      -> 具体的一个MainPic进入mainPicForm.jsp的表单，各个属性分别填入各个path
+ * 4    从表单进入${ctxPath}/mainPic/save
+ */
+
 @Controller
 @RequestMapping(value = "mainPic")
 public class MainPicController {
@@ -85,3 +94,5 @@ public class MainPicController {
         //这个要redirect，否则刷新会重复提交表单
     }
 }
+
+
