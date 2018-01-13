@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -88,10 +89,11 @@ public class MainPicController {
     }
 
     @RequestMapping(value = "save")
-    public String save(MainPic mainPic, HttpServletRequest request) {
+    public String save(MainPic mainPic, HttpServletRequest request,RedirectAttributes redirectAttributes) {
         mainPicService.saveMainPic(mainPic,request);
-        return "admin/mainPic";
-        //这个要redirect，否则刷新会重复提交表单
+        //return "admin/mainPic";
+        //这个要redirect，否则按浏览器刷新按钮会要求重复提交表单(注意浏览器地址栏http://localhost/mainPic/save)
+        return "redirect:/mainPic/getMainPic";
     }
 }
 

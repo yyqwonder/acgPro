@@ -14,7 +14,8 @@
         a.id AS "id",
         a.content AS "content",
         a.url AS "url",
-        a.comment AS "comment"
+        a.comment AS "comment",
+        a.path AS "path"
     </sql>
 
 
@@ -35,7 +36,8 @@
         UPDATE tuijian SET
         content = #{content},
         url = #{url},
-        comment = #{comment}
+        comment = #{comment},
+        path = #{path}
         WHERE id = #{id}
     </update>
 
@@ -46,8 +48,8 @@
     </update>
 
     <insert id="insert">
-        insert into tuijian(id,content,url,comment,del_flag) VALUES
-        (#{id},#{content},#{url},#{comment},#{delFlag})
+        insert into tuijian(id,content,url,comment,path,del_flag) VALUES
+        (#{id},#{content},#{url},#{comment},#{path},#{delFlag})
     </insert>
 
 

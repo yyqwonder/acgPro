@@ -414,9 +414,9 @@
 
         <ul class="nav nav-list">
             <li class="">
-                <a href="${ctxPath}/subao/getSubao">
+                <a href="${ctxPath}/tuijian/getTuijian">
                     <i class="menu-icon fa fa-picture-o"></i>
-                    <span class="menu-text"> 速报 </span>
+                    <span class="menu-text"> 推荐 </span>
                 </a>
 
                 <b class="arrow"></b>
@@ -426,6 +426,24 @@
                 <a href="${ctxPath}/mainPic/getMainPic">
                     <i class="menu-icon fa fa-picture-o"></i>
                     <span class="menu-text"> 主要图片 </span>
+                </a>
+
+                <b class="arrow"></b>
+            </li>
+
+            <li class="">
+                <a href="${ctxPath}/subao/getSubao">
+                    <i class="menu-icon fa fa-picture-o"></i>
+                    <span class="menu-text"> 速报 </span>
+                </a>
+
+                <b class="arrow"></b>
+            </li>
+
+            <li class="">
+                <a href="${ctxPath}/bufan/getBufan">
+                    <i class="menu-icon fa fa-picture-o"></i>
+                    <span class="menu-text"> 补番 </span>
                 </a>
 
                 <b class="arrow"></b>

@@ -520,24 +520,24 @@
                 <div class="row">
                     <div class="col-xs-10 sideimggroup">
                         <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0"><img class="sideimg"
-                                                                                               src="${ctxStatic}/pic/qnzl.jpg">
+                            <li data-target="#carousel-example-generic" data-slide-to="0">
+                                <img class="sideimg" src="">
                             </li>
 
-                            <li data-target="#carousel-example-generic" data-slide-to="1"><img class="sideimg"
-                                                                                               src="${ctxStatic}/pic/gl.jpg">
+                            <li data-target="#carousel-example-generic" data-slide-to="1">
+                                <img class="sideimg" src="">
                             </li>
 
-                            <li data-target="#carousel-example-generic" data-slide-to="2"><img class="sideimg"
-                                                                                               src="${ctxStatic}/pic/tytp.jpg">
+                            <li data-target="#carousel-example-generic" data-slide-to="2">
+                                <img class="sideimg" src="">
                             </li>
 
-                            <li data-target="#carousel-example-generic" data-slide-to="3"  class="active"><img
-                                    class="sideimg" src="${ctxStatic}/pic/jlshz.jpg">
+                            <li data-target="#carousel-example-generic" data-slide-to="3"  class="active">
+                                <img class="sideimg" src="">
                             </li>
 
-                            <li data-target="#carousel-example-generic" data-slide-to="4"><img class="sideimg"
-                                                                                               src="${ctxStatic}/pic/lyh.jpg">
+                            <li data-target="#carousel-example-generic" data-slide-to="4">
+                                <img class="sideimg" src="">
                             </li>
                         </ol>
                     </div>
@@ -551,7 +551,7 @@
                     <div class="carousel-inner" role="listbox">
                         <%--<div class="item active">active,首先是它展现--%>
                         <div class="item active">
-                            <a href="" target="_blank"><img src="${ctxStatic}/pic/qnzl.jpg" style="height:400px;"></a>
+                            <a href="" target="_blank"><img src="" style="height:400px;"></a>
                             <div class="carousel-caption">
                                 <div class="c">
                                     <%--奇诺之旅，人生之旅（不需要了）--%>
@@ -559,7 +559,7 @@
                             </div>
                         </div>
                         <div class="item">
-                            <a href="" target="_blank"><img src="${ctxStatic}/pic/gl.jpg" style="height:400px;"></a>
+                            <a href="" target="_blank"><img src="" style="height:400px;"></a>
                             <div class="carousel-caption">
                                  <div class="c">
                                      <%--钢之炼金术师：等价交换是世界的法则--%>
@@ -567,7 +567,7 @@
                             </div>
                         </div>
                         <div class="item">
-                            <a href="" target="_blank"><img src="${ctxStatic}/pic/tytp.jpg" style="height:400px;"></a>
+                            <a href="" target="_blank"><img src="" style="height:400px;"></a>
                             <div class="carousel-caption">
                                 <div class="c">
                                     <%--天元突破最爱谁？看我优子当教师❤--%>
@@ -575,7 +575,7 @@
                             </div>
                         </div>
                         <div class="item">
-                            <a href="" target="_blank"><img src="${ctxStatic}/pic/jlshz.jpg" style="height:400px;"></a>
+                            <a href="" target="_blank"><img src="" style="height:400px;"></a>
                             <div class="carousel-caption">
                                 <div class="c">
                                     <%--精灵守护者，纳吉之歌--%>
@@ -583,7 +583,7 @@
                             </div>
                         </div>
                         <div class="item">
-                            <a href="" target="_blank"><img src="${ctxStatic}/pic/lyh.jpg" style="height:400px;"></a>
+                            <a href="" target="_blank"><img src="" style="height:400px;"></a>
                             <div class="carousel-caption">
                                 <div class="c">
                                     <%--龙与虎~~我是实乃梨党！--%>
@@ -1241,10 +1241,17 @@
                     $('#tuijianC ul').append(result);
 
                     //图片链接和图片下面的看法
-                    var arr = $(".maincontent .item");
-                    for( var j=0;j<arr.length;j++){
-                        $(arr[j]).find("a").attr("href",jsonReturn[j]["url"]);
-                        $(arr[j]).find(".c").text(jsonReturn[j]["comment"]);
+                    //侧栏图片部分 拼接或者jqurey赋值灵活运用吧,有时都可以
+                    var arrS = $(".sideimggroup li");
+                    for( var j=0;j<arrS.length;j++){
+                        $(arrS[j]).find("img").attr("src",jsonReturn[j]["path"]);
+                    }
+                    //主栏图片部分
+                    var arrM = $(".maincontent .item");
+                    for( var j=0;j<arrM.length;j++){
+                        $(arrM[j]).find("a").attr("href",jsonReturn[j]["url"]);
+                        $(arrM[j]).find(".c").text(jsonReturn[j]["comment"]);
+                        $(arrM[j]).find("img").attr("src",jsonReturn[j]["path"]);
                     }
                 });
 

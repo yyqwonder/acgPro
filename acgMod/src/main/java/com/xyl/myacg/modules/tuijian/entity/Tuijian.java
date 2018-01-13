@@ -12,6 +12,8 @@ public class Tuijian extends BaseEntity<Tuijian> {
 
     String comment;
 
+    String path;
+
     public String getContent() {
         return content;
     }
@@ -34,5 +36,13 @@ public class Tuijian extends BaseEntity<Tuijian> {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }
