@@ -718,7 +718,7 @@
             datatype: "json",
             height: 250,
             mtype:"POST",
-            colNames:[' ', '序号','内容','链接','评论','路径'],
+            colNames:[' ', '序号','内容','番剧链接','评论','图片路径'],
             colModel:[
                 {name:'myac',index:'',width:80,fixed:true, sortable:false, resize:false,
                     formatter:'actions',

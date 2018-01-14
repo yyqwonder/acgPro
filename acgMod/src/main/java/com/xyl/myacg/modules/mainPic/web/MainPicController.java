@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 /**
  * Created by yyq on 2017/7/10.
@@ -94,6 +96,32 @@ public class MainPicController {
         //return "admin/mainPic";
         //这个要redirect，否则按浏览器刷新按钮会要求重复提交表单(注意浏览器地址栏http://localhost/mainPic/save)
         return "redirect:/mainPic/getMainPic";
+    }
+
+    //搜索番剧未找到
+    @RequestMapping(value = "getNotFound")
+    public String getNotFound(){
+        return "notFound";
+    }
+
+    //搜索番剧用到
+    @RequestMapping(value = "list")
+    public String findList(MainPic mainPic) {
+        String content = mainPic.getContent();
+        //转码
+        try {
+           content=new String(content.getBytes("ISO-8859-1"),"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        mainPic.setContent(content);
+        List<MainPic> list = mainPicService.findList(mainPic);
+        if(list.size()==0){
+            return "redirect:/mainPic/getNotFound";
+        }else{
+            String url = list.get(0).getUrl();
+            return "redirect:"+url;
+        }
     }
 }
 

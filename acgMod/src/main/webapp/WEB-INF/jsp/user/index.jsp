@@ -612,13 +612,21 @@
     <%--选项卡--%>
     <div class="container" style="margin-top:23px;">
         <div class="row">
-            <div class="col-lg-12" >
+            <div class="col-lg-6" >
                 <ul id="xuanxiangka">
                     <li><a><span class="green">按标题排序</span></a></li>
                     <li><a><span class="blue">按时间排序</span></a></li>
                     <li><a><span class="blue">按类型排序</span></a></li>
                 </ul>
-             </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="input-group">
+                    <input id="fanName" type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button id="fanBtn" class="btn btn-default"  style="padding-bottom: 2.666px;" type="button">Go!</button>
+                    </span>
+                </div><!-- /input-group -->
+            </div>
          </div>
     </div>
 
@@ -905,7 +913,7 @@
 
 <script type="text/javascript">
 
-        $(document).ready(function () {    /*$(".dtzt").hover(function () {
+    $(document).ready(function () {    /*$(".dtzt").hover(function () {
             $(this).animate({height: '120px'});
             $(this).find("img").animate({top: '0px'});
             $(this).find("p").animate({top: '100px'},function(){
@@ -916,66 +924,54 @@
          });*/
 
 
-            $("#headingOne").on("mouseover", function() {
-                $("#collapseOne").collapse("show");
+        $("#headingOne").on("mouseover", function() {
+            $("#collapseOne").collapse("show");
 
-                $("#collapseTwo").collapse("hide");
-                $("#collapseThree").collapse("hide");
-                $("#collapseFour").collapse("hide");
-                $("#collapseFive").collapse("hide");
-
-
-            });
-
-            $("#headingTwo").on("mouseover", function() {
-                $("#collapseTwo").collapse("show");
-
-                $("#collapseOne").collapse("hide");
-                $("#collapseThree").collapse("hide");
-                $("#collapseFour").collapse("hide");
-                $("#collapseFive").collapse("hide");
+            $("#collapseTwo").collapse("hide");
+            $("#collapseThree").collapse("hide");
+            $("#collapseFour").collapse("hide");
+            $("#collapseFive").collapse("hide");
 
 
-            });
+        });
 
-            $("#headingThree").on("mouseover", function() {
-                $("#collapseThree").collapse("show");
+        $("#headingTwo").on("mouseover", function() {
+            $("#collapseTwo").collapse("show");
 
-                $("#collapseOne").collapse("hide");
-                $("#collapseTwo").collapse("hide");
-                $("#collapseFour").collapse("hide");
-                $("#collapseFive").collapse("hide");
-
-
-            });
-
-            $("#headingFour").on("mouseover", function() {
-                $("#collapseFour").collapse("show");
-
-                $("#collapseOne").collapse("hide");
-                $("#collapseTwo").collapse("hide");
-                $("#collapseThree").collapse("hide");
-                $("#collapseFive").collapse("hide");
+            $("#collapseOne").collapse("hide");
+            $("#collapseThree").collapse("hide");
+            $("#collapseFour").collapse("hide");
+            $("#collapseFive").collapse("hide");
 
 
-            });
+        });
 
-            $("#headingFive").on("mouseover", function() {
-                $("#collapseFive").collapse("show");
+        $("#headingThree").on("mouseover", function() {
+            $("#collapseThree").collapse("show");
 
-                $("#collapseOne").collapse("hide");
-                $("#collapseTwo").collapse("hide");
-                $("#collapseThree").collapse("hide");
-                $("#collapseFour").collapse("hide");
+            $("#collapseOne").collapse("hide");
+            $("#collapseTwo").collapse("hide");
+            $("#collapseFour").collapse("hide");
+            $("#collapseFive").collapse("hide");
+        });
 
+        $("#headingFour").on("mouseover", function() {
+            $("#collapseFour").collapse("show");
 
-            });
+            $("#collapseOne").collapse("hide");
+            $("#collapseTwo").collapse("hide");
+            $("#collapseThree").collapse("hide");
+            $("#collapseFive").collapse("hide");
+        });
 
+        $("#headingFive").on("mouseover", function() {
+            $("#collapseFive").collapse("show");
 
-
-
-
-
+            $("#collapseOne").collapse("hide");
+            $("#collapseTwo").collapse("hide");
+            $("#collapseThree").collapse("hide");
+            $("#collapseFour").collapse("hide");
+        });
 
         $('.carousel').carousel({
             interval: 5000,
@@ -1017,6 +1013,15 @@
             });
         });
         */
+
+        //搜索番剧
+        $("#fanBtn").click(function(){
+            var content =  $("#fanName").val();
+            //当前窗口打开
+            //location.href = "/mainPic/list?content="+content;
+            //新窗口打开
+            window.open("/mainPic/list?content="+content);
+        });
 
 
         //加载更多

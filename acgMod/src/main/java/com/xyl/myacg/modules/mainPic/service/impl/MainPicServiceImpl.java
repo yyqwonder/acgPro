@@ -91,8 +91,8 @@ public class MainPicServiceImpl implements IMainPicService {
     }
 
 
-    /*public List<MainPic> findList(MainPic mainPic){
+    public List<MainPic> findList(MainPic mainPic){
         return mainPicDao.findList(mainPic);
-    }*/
+    }
 }
 

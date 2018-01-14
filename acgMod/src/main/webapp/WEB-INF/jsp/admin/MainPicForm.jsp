@@ -628,6 +628,15 @@
                                 </div>
                             </div>
 
+                            <div class="space-4"></div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-3 control-label no-padding-right"> 番剧链接 </label>
+
+                                <div class="col-sm-9">
+                                    <form:input path="url"  class="col-xs-10 col-sm-5" />
+                                </div>
+                            </div>
 
 
                             <div class="space-4"></div>

@@ -736,14 +736,15 @@
             datatype: "json",
             height: 250,
             mtype:"POST",
-            colNames:['序号','','作者','分类','时间','内容'],
+            colNames:['序号','','作者','分类','时间','内容','番剧链接'],
             colModel:[
                 {name:'id',index:'id', hidedlg:true,hidden:true},
                 {name:'path',index:'path', width:25,formatter : showPicture},
                 {name:'author',index:'author',editable: true},
                 {name:'classification',index:'classification',editable: true},
                 {name:'time',index:'time', editable: true},
-                {name:'content',index:'content', editable: true}
+                {name:'content',index:'content', editable: true},
+                {name:'url',index:'url', editable: true},
             ],
 
             jqModal:false,
@@ -1065,8 +1066,8 @@
     });
 </script>
 
-    <%--bootstrap时间插件下面初始化必须写--%>
-    <script type="text/javascript">
+<%--bootstrap时间插件下面初始化必须写--%>
+<script type="text/javascript">
         $('.date-picker').datepicker({
             autoclose: true,
             todayHighlight: true
