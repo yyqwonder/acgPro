@@ -120,7 +120,11 @@ public class MainPicController {
             return "redirect:/mainPic/getNotFound";
         }else{
             String url = list.get(0).getUrl();
-            return "redirect:"+url;
+            if("".equals(url)){
+                return "redirect:/mainPic/getNotFound";
+            }else{
+                return "redirect:"+url;
+            }
         }
     }
 }

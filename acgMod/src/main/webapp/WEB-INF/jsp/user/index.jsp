@@ -75,11 +75,6 @@
         }
 
         /*管理*/
-        #guanli {
-            float: right;
-            margin-top: -30px;
-            margin-right: 10px
-        }
         #guanli a {
             color: #9d9d9d;
         }
@@ -425,11 +420,16 @@
 
                     </ul>
                 </li>
+
+            </ul>
+
+            <ul class="nav navbar-nav" style="float: right;">
+                <li id="guanli"><a href="${ctxPath}/mainPic/getMainPic" >管理</a></li>
             </ul>
         </div>
 
     </div>
-    <div id="guanli"><a href="${ctxPath}/mainPic/getMainPic" >管理</a></div>
+
 </nav>
 <div class="myWrapper">
     <div class="container">
