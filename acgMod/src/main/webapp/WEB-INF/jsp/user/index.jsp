@@ -615,7 +615,7 @@
     </div>
 
     <%--选项卡--%>
-    <div class="container" style="margin-top:23px;">
+    <div class="container" style="margin-top:41px;">
         <div class="row">
             <div class="col-lg-6" >
                 <ul id="xuanxiangka">
@@ -624,13 +624,16 @@
                     <li><a><span class="blue">按类型排序</span></a></li>
                 </ul>
             </div>
-            <div class="col-lg-3">
-                <div class="input-group">
+            <div class="col-lg-3" >
+                <%--<div class="input-group">
                     <input id="fanName" type="text" class="form-control" placeholder="Search for...">
                     <span class="input-group-btn">
                         <button id="fanBtn" class="btn btn-default"  style="padding-bottom: 2.666px;" type="button">Go!</button>
                     </span>
-                </div><!-- /input-group -->
+                </div><!-- /input-group -->--%>
+                <span style="display: block;float: right;">
+                    <input id="fanName" type="text" placeholder="Search for..." style="height: 26px;">
+                </span>
             </div>
          </div>
     </div>

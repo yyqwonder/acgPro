@@ -116,10 +116,12 @@ public class MainPicController {
         }
         mainPic.setContent(content);
         List<MainPic> list = mainPicService.findList(mainPic);
+        //没有这部番剧
         if(list.size()==0){
             return "redirect:/mainPic/getNotFound";
         }else{
             String url = list.get(0).getUrl();
+            //有这部番剧,但是没播放链接
             if("".equals(url)){
                 return "redirect:/mainPic/getNotFound";
             }else{
