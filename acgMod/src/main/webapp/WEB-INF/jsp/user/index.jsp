@@ -193,6 +193,11 @@
             border-radius: 3px;
         }
 
+        /*推荐高度400px 和整个推荐部分一样*/
+        .tuijian{
+            height:400px;
+        }
+
         #tuijianC li{
             margin-bottom: 3px;
         }
@@ -393,7 +398,7 @@
                 <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav first-nav">
+            <ul class="nav navbar-nav">
                 <%--<li><a href="#">首页 </a></li>--%>
 
                 <li class="wechat dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"
@@ -423,7 +428,7 @@
 
             </ul>
 
-            <ul class="nav navbar-nav" style="float: right;">
+            <ul class="nav navbar-nav navbar-right">
                 <li id="guanli"><a href="${ctxPath}/mainPic/getMainPic" >管理</a></li>
             </ul>
         </div>
@@ -594,10 +599,10 @@
                 </div>
             </div>
             <div class="col-lg-3 ">
-                <div class="tuijian">
+                <div class="tuijian ">
                     <div class="title"><img src="${ctxStatic}/pic/zxsb.png"> <span
                             style="font-size:18px;font-weight:700;">推荐</span></div>
-                    <div id="tuijianC" >
+                    <div id="tuijianC" class="pre-scrollable">
                         <ul style="padding:0px;list-style:none;">
                             <%--<c:forEach items="${tuijianList}" var="p">
                                 <li><a> <i class="tuijianicon"></i> ${p.content} </a></li>
