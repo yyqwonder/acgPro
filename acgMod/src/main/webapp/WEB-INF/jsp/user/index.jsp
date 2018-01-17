@@ -49,7 +49,6 @@
         .panel .sequence{
             /*没inline的话,序号和文字分成2行;没block的话,width:16px无效.参考有道云笔记《块级元素和行内元素》*/
             display: inline-block;
-            line-height: 14px;
             background:#ff84bb;
             font-style: italic;
             border-radius: 4px;
@@ -57,7 +56,10 @@
             /*<span>中文字的颜色*/
             color: #fff;
             width:16px;
+            //下面2行垂直居中
             height:14px;
+            line-height: 14px;
+            //水平居中
             text-align: center;
         }
 
@@ -300,6 +302,28 @@
 
         #xuanxiangka span{
             font-size: 18px;
+        }
+
+        /*搜索 */
+        #searchFanju{
+            float: right;
+            position: relative;
+        }
+
+        #fanBtn{
+            display:inline;
+            height: 16px;
+            width:16px;
+            position: absolute;
+            left:4px;
+            top:5px;
+            background: url(${ctxStatic}/pic/search-btn.png) no-repeat;
+            cursor: pointer;
+        }
+
+        #fanName{
+            height: 26px;
+            padding-left: 20px;
         }
 
         /*<span class="green">按标题排序</span>,配合点击后颜色的变化*/
@@ -625,15 +649,10 @@
                 </ul>
             </div>
             <div class="col-lg-3" >
-                <%--<div class="input-group">
-                    <input id="fanName" type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                        <button id="fanBtn" class="btn btn-default"  style="padding-bottom: 2.666px;" type="button">Go!</button>
-                    </span>
-                </div><!-- /input-group -->--%>
-                <span style="display: block;float: right;">
-                    <input id="fanName" type="text" placeholder="Search for..." style="height: 26px;">
-                </span>
+                <div id="searchFanju">
+                    <div id="fanBtn"></div>
+                    <input id="fanName" type="text" placeholder="Search for...">
+                </div>
             </div>
          </div>
     </div>
