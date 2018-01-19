@@ -308,6 +308,7 @@
         #searchFanju{
             float: right;
             position: relative;
+            padding-bottom: 2px;
         }
 
         #fanBtn{
@@ -1302,7 +1303,7 @@
                     var jsonReturn = JSON.parse(data).rows;
 
                     for(var i=0;i<jsonReturn.length;i++){
-                        if(i==0){    //我曹  写成了i=0 下面也是  结果只能显示最后一项
+                        /*if(i==0){    //我曹  写成了i=0 下面也是  结果只能显示最后一项
                             temp='One';
                             in1='in';
                             collapsed='';
@@ -1331,6 +1332,24 @@
                             in1='';
                             collapsed = 'class="collapsed"';
                             aria_expanded='false';
+                        }*/
+                        switch(i){
+                            case 0:temp='One';in1='in';collapsed='';aria_expanded='true';
+                                break;
+                            case 1:temp='Two';in1='';collapsed = 'class="collapsed"';aria_expanded='false';
+                                break;
+                            case 2:temp='Three';in1='';collapsed = 'class="collapsed"';aria_expanded='false';
+                                break;
+                            case 3:temp='Four';in1='';collapsed = 'class="collapsed"';aria_expanded='false';
+                                break;
+                            case 4:temp='Five';in1='';collapsed = 'class="collapsed"';aria_expanded='false';
+                                break;
+                            case 5:temp='Six';in1='';collapsed = 'class="collapsed"';aria_expanded='false';
+                                break;
+                            case 6:temp='Seven';in1='';collapsed = 'class="collapsed"';aria_expanded='false';
+                                break;
+                            case 7:temp='Eight';in1='';collapsed = 'class="collapsed"';aria_expanded='false';
+                                break;
                         }
 
                         result += '<div class="panel"><div id="collapse'+temp+'" class="panel-collapse collapse '+in1+'" role="tabpanel" aria-labelledby="heading'+temp+'"><div ><a href="'+
