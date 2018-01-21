@@ -322,6 +322,10 @@
             cursor: pointer;
         }
 
+        #fanBtn:hover{
+            background: url(${ctxStatic}/pic/search-btn1.png) no-repeat;
+        }
+
         #fanName{
             height: 26px;
             padding-left: 20px;
@@ -1382,6 +1386,16 @@
                     }
                     $('.bfb ul').append(result);
                 });
+
+        /*$("#tuijianC ul").resize(
+                function(){
+                    var maxHeight = 340;
+                    var height = $("#tuijianC ul").height();
+                    if(height>maxHeight){
+                        $("#tuijianC").addClass('pre-scrollable');
+                    }
+                }
+        );*/
     }
 
 </script>

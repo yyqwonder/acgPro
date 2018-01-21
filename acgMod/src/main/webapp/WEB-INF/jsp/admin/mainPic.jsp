@@ -600,15 +600,15 @@
                                     时间：<input type="text" id="time" class="date-picker" data-date-format="yyyy-mm-dd"/>
 
                                 </div>
-                                <div class="row" >
-                                    <div class="col-xs-12">
-                                        <div class="col-xs-3" style="float:right;padding-top: 10px;">
-                                            <input type="button" id="find_btn" value="查 询" />&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <input type="button" id="edit_btn" value="编 辑" />&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <input type="button" id="add_btn" value="添 加" />
-                                        </div>
-                                    </div>
+
+                                <div class="col-xs-2 col-xs-offset-9" style="padding-top: 10px;">
+                                     <div>
+                                          <input type="button" id="find_btn" value="查 询" />&nbsp;&nbsp;&nbsp;&nbsp;
+                                          <input type="button" id="edit_btn" value="编 辑" />&nbsp;&nbsp;&nbsp;&nbsp;
+                                          <input type="button" id="add_btn" value="添 加" />
+                                     </div>
                                 </div>
+
 
                                 <%--<div style="float:right;position:relative;padding-top: 10px;right:10px;">
                                     <input type="button" id="find_btn" value="查 询" />&nbsp;<input type="button" id="edit_btn" value="编 辑" />&nbsp;<input type="button" id="add_btn" value="添 加" />
