@@ -384,7 +384,7 @@
         </div>
     </div>
     <div class="container">
-    <div class="row">
+        <div class="row">
         <div class="col-lg-12">
             <nav class="navbar navbar-default headline">
                 <div class="container-fluid">
@@ -457,7 +457,7 @@
             </nav>
         </div>
     </div>
-</div>
+    </div>
 
     <div id="player">
                     <div class="cover"></div>
@@ -508,73 +508,70 @@
 <script src="${ctxStatic}/js/jquery-ui-1.12.1.min.js"></script>
 <script>
      $(document).ready(function () {
-        var repeat = localStorage.repeat || 0,
-            shuffle = localStorage.shuffle || 'false',
-            autoplay = true,//列表不停循环（repeat=2），设为true;列表只循环一遍（repeat=1），设为false
-            playlist = [
-
-        {
-            title: '创圣のアクエリオン(オープニングテーマ)',
-            artist: 'AKINO',
-            album: '创圣のアクエリオン',
-            cover:'${ctxStatic}/pic/songCover/csddts.jpg',
-            mp3: '${ctxStatic}/music/csddts.mp3'
-        },
-        {
-            title: 'Motherland',
-            artist: 'Crystal Kay',
-            album: '鋼の錬金術師 THE BEST',
-            cover: '${ctxStatic}/pic/songCover/gzljss.jpg',
-            mp3: '${ctxStatic}/music/Motherland.mp3'
-        },
-        {
-            title: 'The Everlasting Guilty Crown',
-            artist: 'EGOIST',
-            album: 'Extra terrestrial Biological Entities',
-            cover: '${ctxStatic}/pic/songCover/zuiewangguan.jpg',
-            mp3: '${ctxStatic}/music/The Everlasting Guilty Crown.mp3'
-         },
-         {
-             title: 'PRIDE',
-             artist: 'HIGH and MIGHTY COLOR',
-             album: 'PRIDE',
-             cover: '${ctxStatic}/pic/songCover/gaodasd.jpg',
-             mp3: '${ctxStatic}/music/PRIDE.mp3'
-          },
-          {
-             title: 'heavenly blue',
-             artist: 'Kalafina',
-             album: 'heavenly blue',
-             cover: '${ctxStatic}/pic/songCover/AldnoahZero.jpg',
-             mp3: '${ctxStatic}/music/heavenly blue.mp3'
-          },
-          {
-              title: 'DAYBREAK’S BELL',
-              artist: 'LArc-en-Ciel',
-              album: '機動戦士ガンダムOO ORIGINAL SOUND TRACK 2',
-              cover: '${ctxStatic}/pic/songCover/gaoda00.jpg',
-              mp3: '${ctxStatic}/music/DAYBREAKS BELL.mp3'
-           },
-           {
-               title: 'つないだ手',
-               artist: 'LilB',
-               album: 'つないだ手',
-               cover: '${ctxStatic}/pic/songCover/gzljss.jpg',
-               mp3: '${ctxStatic}/music/jqds.mp3'
-            },
-            {
-               title: 'I Will',
-               artist: 'Sowelu',
-               album: '鋼の錬金術師 THE BEST',
-               cover: '${ctxStatic}/pic/songCover/gzljss.jpg',
-               mp3: '${ctxStatic}/music/I Will.mp3'
+         //先加载播放列表,再加载loadMusic()
+         var playlist = [
+             {
+                 title: '创圣のアクエリオン(オープニングテーマ)',
+                 artist: 'AKINO',
+                 album: '创圣のアクエリオン',
+                 cover:'${ctxStatic}/pic/songCover/csddts.jpg',
+                 mp3: '${ctxStatic}/music/csddts.mp3'
              },
              {
-                title: '乱舞のメロディ',
-                artist: 'シド',
-                album: 'BLEACH BEST TRAX',
-                cover: '${ctxStatic}/pic/songCover/bleach.jpg',
-                mp3: '${ctxStatic}/music/luanwu.mp3'
+                 title: 'Motherland',
+                 artist: 'Crystal Kay',
+                 album: '鋼の錬金術師 THE BEST',
+                 cover: '${ctxStatic}/pic/songCover/gzljss.jpg',
+                 mp3: '${ctxStatic}/music/Motherland.mp3'
+             },
+             {
+                 title: 'The Everlasting Guilty Crown',
+                 artist: 'EGOIST',
+                 album: 'Extra terrestrial Biological Entities',
+                 cover: '${ctxStatic}/pic/songCover/zuiewangguan.jpg',
+                 mp3: '${ctxStatic}/music/The Everlasting Guilty Crown.mp3'
+             },
+             {
+                 title: 'PRIDE',
+                 artist: 'HIGH and MIGHTY COLOR',
+                 album: 'PRIDE',
+                 cover: '${ctxStatic}/pic/songCover/gaodasd.jpg',
+                 mp3: '${ctxStatic}/music/PRIDE.mp3'
+             },
+             {
+                 title: 'heavenly blue',
+                 artist: 'Kalafina',
+                 album: 'heavenly blue',
+                 cover: '${ctxStatic}/pic/songCover/AldnoahZero.jpg',
+                 mp3: '${ctxStatic}/music/heavenly blue.mp3'
+             },
+             {
+                 title: 'DAYBREAK’S BELL',
+                 artist: 'LArc-en-Ciel',
+                 album: '機動戦士ガンダムOO ORIGINAL SOUND TRACK 2',
+                 cover: '${ctxStatic}/pic/songCover/gaoda00.jpg',
+                 mp3: '${ctxStatic}/music/DAYBREAKS BELL.mp3'
+             },
+             {
+                 title: 'つないだ手',
+                 artist: 'LilB',
+                 album: 'つないだ手',
+                 cover: '${ctxStatic}/pic/songCover/gzljss.jpg',
+                 mp3: '${ctxStatic}/music/jqds.mp3'
+             },
+             {
+                 title: 'I Will',
+                 artist: 'Sowelu',
+                 album: '鋼の錬金術師 THE BEST',
+                 cover: '${ctxStatic}/pic/songCover/gzljss.jpg',
+                 mp3: '${ctxStatic}/music/I Will.mp3'
+             },
+             {
+                 title: '乱舞のメロディ',
+                 artist: 'シド',
+                 album: 'BLEACH BEST TRAX',
+                 cover: '${ctxStatic}/pic/songCover/bleach.jpg',
+                 mp3: '${ctxStatic}/music/luanwu.mp3'
              },
              {
                  title: '桜音',
@@ -603,63 +600,121 @@
                  album: '银魂BEST',
                  cover: '${ctxStatic}/pic/songCover/yinhun.jpg',
                  mp3: '${ctxStatic}/music/Pray.mp3'
-              },
-              {
-                  title: 'ラヴァーズ(火影疾风传op9)',
-                  artist: '7!!',
-                  album: 'ラヴァーズ',
-                  cover:'${ctxStatic}/pic/songCover/huoying.jpg',
-                  mp3:'${ctxStatic}/music/Lovers.mp3'
-               },
-              {
-                  title: 'ウォーアイニー',
-                  artist: '高橋瞳,BEAT CRUSADERS DL',
-                  album: '银魂BEST2',
-                  cover: '${ctxStatic}/pic/songCover/yinhun.jpg',
-                  mp3: '${ctxStatic}/music/yhwan.mp3'
-               },
-               {
-                  title: '今、話したい誰かがいる',
-                  artist: '乃木坂46',
-                  album: '今、話したい誰かがいる',
-                  cover: '${ctxStatic}/pic/songCover/xinyuhuhuan.jpg',
-                  mp3: '${ctxStatic}/music/xzyhxdmrs.mp3'
-               },
-               {
-                   title: 'アンインストール',
-                   artist: '石川智晶',
-                   album: '仆はまだ何も知らない',
-                   cover: '${ctxStatic}/pic/songCover/dqfwsn.jpg',
-                   mp3: '${ctxStatic}/music/xiezai.mp3'
-               },
-               {
-                   title: 'HEART OF SWORD~夜明け前~',
-                   artist: '西川貴教',
-                   album: 'るろうに剣心-明治剣客浪漫谭',
-                   cover: '${ctxStatic}/pic/songCover/langkejianxin.jpg',
-                   mp3: '${ctxStatic}/music/HEART OF SWORD.mp3'
-               }
-        ];
+             },
+             {
+                 title: 'ラヴァーズ(火影疾风传op9)',
+                 artist: '7!!',
+                 album: 'ラヴァーズ',
+                 cover:'${ctxStatic}/pic/songCover/huoying.jpg',
+                 mp3:'${ctxStatic}/music/Lovers.mp3'
+             },
+             {
+                 title: 'ウォーアイニー',
+                 artist: '高橋瞳,BEAT CRUSADERS DL',
+                 album: '银魂BEST2',
+                 cover: '${ctxStatic}/pic/songCover/yinhun.jpg',
+                 mp3: '${ctxStatic}/music/yhwan.mp3'
+             },
+             {
+                 title: '今、話したい誰かがいる',
+                 artist: '乃木坂46',
+                 album: '今、話したい誰かがいる',
+                 cover: '${ctxStatic}/pic/songCover/xinyuhuhuan.jpg',
+                 mp3: '${ctxStatic}/music/xzyhxdmrs.mp3'
+             },
+             {
+                 title: 'アンインストール',
+                 artist: '石川智晶',
+                 album: '仆はまだ何も知らない',
+                 cover: '${ctxStatic}/pic/songCover/dqfwsn.jpg',
+                 mp3: '${ctxStatic}/music/xiezai.mp3'
+             },
+             {
+                 title: 'HEART OF SWORD~夜明け前~',
+                 artist: '西川貴教',
+                 album: 'るろうに剣心-明治剣客浪漫谭',
+                 cover: '${ctxStatic}/pic/songCover/langkejianxin.jpg',
+                 mp3: '${ctxStatic}/music/HEART OF SWORD.mp3'
+             }
+         ],
+        repeat = localStorage.repeat || 0,
+        shuffle = localStorage.shuffle || 'false',
+        time = new Date(),
+        currentTrack = shuffle === 'true' ? time.getTime() % playlist.length : 0,
+        audio,
+        timeout,//播放时进度滑块自动前进有关
+        isPlaying = true,
+        volume = localStorage.volume || 0.5;
+
+
 
         // Load playlist
         for (var i=0; i<playlist.length; i++){
             var item = playlist[i];
             $('#playlist').append('<li>'+item.artist+' - '+item.title+'</li>');
+         }
+
+        // Fire when track ended 如果想开始不播放歌曲,可以把ended beforeLoad afterLoad放到loadMusic()后面
+        var ended = function(){
+            //pause();
+            audio.currentTime = 0;
+            if (repeat == 1){//单首循环
+                play();
+            } else {
+                if (shuffle === 'true'){
+                    shufflePlay();
+                } else {
+                    if (repeat == 2){//一直全部循环
+                         switchTrack(++currentTrack);
+                    } else {//只全部循环一次
+                        if (currentTrack+1 < playlist.length )
+                            switchTrack(++currentTrack);
+                        else
+                            pause();
+                    }
+                }
+            }
         }
 
-        var time = new Date(),
-            currentTrack = shuffle === 'true' ? time.getTime() % playlist.length : 0,
-            audio,
-            timeout,
-            isPlaying = true;
+         //曲子准备我不用管 计算机的事情
+         //曲子准备好之前的事情
+        var beforeLoad = function(){
+            var endVal = this.seekable && this.seekable.length ? this.seekable.end(0) : 0;
+            $('.myProgress .loaded').css('width', (100 / (this.duration || 1) * endVal) +'%');
+        }
+
+         // 曲子准备好了。播放之前做的事
+        var afterLoad = function(){
+            if(isPlaying == true)
+                play();
+            else pause();
+        }
+        // Load track
+        var loadMusic = function(i){
+             var item = playlist[i],
+                     newaudio = $('<audio>').html('<source src="'+item.mp3+'">').appendTo('#player');
+
+             $('.cover').html('<img src="'+item.cover+'" alt="'+item.album+'">');
+             $('.tag').html('<strong>'+item.title+'</strong><span class="artist">'+item.artist+'</span><span class="album">'+item.album+'</span>');
+             $('#playlist li').removeClass('playing').eq(i).addClass('playing');
+             audio = newaudio[0];
+             audio.volume = $('.mute').hasClass('enable') ? 0 : volume;
+             audio.addEventListener('progress', beforeLoad, false);
+             audio.addEventListener('durationchange', beforeLoad, false);
+             audio.addEventListener('canplay', afterLoad, false);
+             audio.addEventListener('ended', ended, false);
+        }
+
+        loadMusic(currentTrack);
+
 
         //按播放键
         var play = function(){
             isPlaying = true;
             audio.play();
             $('.playback').addClass('playing');
-            timeout = setInterval(updateProgress, 500);
-         }
+            timeout = setInterval(updateProgress, 500);//给clearInterval(timeout)用
+        }
 
         //按暂停键
         var pause = function(){
@@ -667,7 +722,7 @@
             audio.pause();
             $('.playback').removeClass('playing');
             clearInterval(updateProgress);
-         }
+        }
 
         //播放进度
         var setProgress = function(value){
@@ -683,7 +738,7 @@
             setProgress(audio.currentTime);
         }
 
-        // Progress slider
+        // 播放滑动条滑动时
         $('.myProgress .slider').slider({step: 0.1, slide: function(event, ui){
             $(this).addClass('enable');
             setProgress(audio.duration * ui.value / 100);
@@ -694,22 +749,24 @@
             timeout = setInterval(updateProgress, 500);
         }});
 
-        // Volume slider
+        // 音量
         var setVolume = function(value){
             audio.volume = localStorage.volume = value;
             $('.volume .pace').css('width', value * 100 + '%');
             $('.volume .slider a').css('left', value * 100 + '%');
         }
 
-        var volume = localStorage.volume || 0.5;
+
+        //音量条滑动时
         $('.volume .slider').slider({max: 1, min: 0, step: 0.01, value: volume, slide: function(event, ui){
             setVolume(ui.value);
             $(this).addClass('enable');
             $('.mute').removeClass('enable');
         }, stop: function(){
             $(this).removeClass('enable');
-        }}).children('.pace').css('width', volume * 100 + '%');
+        }}).children('.pace').css('width', volume * 100 + '%');//刷新网页后.children初始音量
 
+         //静音
         $('.mute').click(function(){
                 if ($(this).hasClass('enable')){
                 setVolume($(this).data('volume'));
@@ -723,129 +780,77 @@
         // 更换曲子
         var switchTrack = function(i){
             if (i < 0){
-                currentTrack = playlist.length - 1;
+                currentTrack = playlist.length - 1;//第一首的前一首,跳到最后一首
             } else if (i >= playlist.length){
                 currentTrack = 0;
             } else {
                 currentTrack = i;
             }
+            //把上一首歌的音量传给下一首歌 不写的话$('audio').remove();就没了
+            volume =audio.volume;
             $('audio').remove();
             loadMusic(currentTrack);
         }
 
-        // Shuffle
+        // 随机
         var shufflePlay = function(){
             var time = new Date(),
             lastTrack = currentTrack;
-            currentTrack = time.getTime() % playlist.length;
-            if (lastTrack == currentTrack) ++currentTrack;
+            currentTrack = time.getTime() % playlist.length;//取余,0到playlist.length-1
+            if (lastTrack == currentTrack) ++currentTrack;//随机到同一首,则选其下一首
             switchTrack(currentTrack);
         }
 
-        // Fire when track ended
-        var ended = function(){
-            //pause();
-            audio.currentTime = 0;
-            if (repeat == 1){
-                autoplay = true;
-                play();
+
+
+
+        //开始播放和暂停
+        $('.playback').on('click', function(){
+            if ($(this).hasClass('playing')){
+                pause();
             } else {
-                if (shuffle === 'true'){
-                    autoplay = true;
-                    shufflePlay();
-                } else {
-                    if (repeat == 2){
-                        autoplay = true;
-                        switchTrack(++currentTrack);
-                    } else {
-                        if (currentTrack+1 < playlist.length )
-                            switchTrack(++currentTrack);
-                        else
-                            pause();
-                    }
-                }
+                play();
             }
-        }
+        });
 
-        var beforeLoad = function(){
-            var endVal = this.seekable && this.seekable.length ? this.seekable.end(0) : 0;
-            $('.myProgress .loaded').css('width', (100 / (this.duration || 1) * endVal) +'%');
-        }
+        //上一首
+        $('.rewind').on('click', function(){
+             if (shuffle === 'true'){
+                 shufflePlay();
+             } else {
+                 switchTrack(--currentTrack);
+             }
+        });
 
-        // 曲子准备好了。播放之前做的事
-        var afterLoad = function(){
-            if (autoplay == true){
-                if(isPlaying == true)
-                    play();
-                else pause();
-            }
-        }
-
-        // Load track
-        var loadMusic = function(i){
-                var item = playlist[i],
-                newaudio = $('<audio>').html('<source src="'+item.mp3+'">').appendTo('#player');
-
-                $('.cover').html('<img src="'+item.cover+'" alt="'+item.album+'">');
-                $('.tag').html('<strong>'+item.title+'</strong><span class="artist">'+item.artist+'</span><span class="album">'+item.album+'</span>');
-                $('#playlist li').removeClass('playing').eq(i).addClass('playing');
-                audio = newaudio[0];
-                audio.volume = $('.mute').hasClass('enable') ? 0 : volume;
-                audio.addEventListener('myProgress', beforeLoad, false);
-                audio.addEventListener('durationchange', beforeLoad, false);
-                audio.addEventListener('canplay', afterLoad, false);
-                audio.addEventListener('ended', ended, false);
-            }
-
-            loadMusic(currentTrack);
-
-            //开始播放和暂停
-            $('.playback').on('click', function(){
-                if ($(this).hasClass('playing')){
-                    pause();
-                } else {
-                    play();
-                }
-            });
-
-            //上一首
-            $('.rewind').on('click', function(){
-                if (shuffle === 'true'){
-                    shufflePlay();
-                } else {
-                    switchTrack(--currentTrack);
-                }
-            });
-
-            //下一首
-            $('.fastforward').on('click', function(){
-                if (shuffle === 'true'){
+        //下一首
+        $('.fastforward').on('click', function(){
+            if (shuffle === 'true'){
                 shufflePlay();
-              } else {
+            } else {
                 switchTrack(++currentTrack);
-              }
-            });
-
-            //点击其中一首
-            $('#playlist li').each(function(i){
-                var _i = i;
-                $(this).on('click', function(){
-                    switchTrack(_i);
-                });
-            });
-
-            //随机的样子
-            if (shuffle === 'true') $('.shuffle').addClass('enable');
-
-             //重复的样子
-            if (repeat == 1){
-                $('.repeat').addClass('once');
-            } else if (repeat == 2){
-                $('.repeat').addClass('all');
             }
+        });
 
-            //点了重复按钮
-            $('.repeat').on('click', function(){
+        //点击其中一首
+        $('#playlist li').each(function(i){
+            var _i = i;
+            $(this).on('click', function(){
+                switchTrack(_i);
+            });
+        });
+
+        //随机的样子 初始用
+        if (shuffle === 'true') $('.shuffle').addClass('enable');
+
+        //重复的样子 初始用
+        if (repeat == 1){
+            $('.repeat').addClass('once');
+        } else if (repeat == 2){
+            $('.repeat').addClass('all');
+        }
+
+        //点了重复按钮
+        $('.repeat').on('click', function(){
             if ($(this).hasClass('once')){
                 repeat = localStorage.repeat = 2;
                 $(this).removeClass('once').addClass('all');
@@ -856,19 +861,19 @@
                 repeat = localStorage.repeat = 1;
                 $(this).addClass('once');
             }
-            });
+        });
 
-            //点了随机按钮
-            $('.shuffle').on('click', function(){
-                if ($(this).hasClass('enable')){
+        //点了随机按钮
+        $('.shuffle').on('click', function(){
+            if ($(this).hasClass('enable')){
                 shuffle = localStorage.shuffle = 'false';
                 $(this).removeClass('enable');
             } else {
                 shuffle = localStorage.shuffle = 'true';
                 $(this).addClass('enable');
             }
-            });
         });
+     });
 </script>
 
 </body>
