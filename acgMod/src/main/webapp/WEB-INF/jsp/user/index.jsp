@@ -132,7 +132,7 @@
         }
 
         .logo-gif {
-            /*col-lg-5 默认position: relative*/
+            /*col-xs-5 默认position: relative*/
             position: absolute;
             top: 20%;
             margin-left: 116px;
@@ -144,11 +144,13 @@
         }
 
         .sidecontent {
-            background: url(${ctxStatic}/pic/mc-line.png) 164px top no-repeat;
+            <%--background: url(${ctxStatic}/pic/mc-line.png) 164px top no-repeat;--%>
             height: 400px;
         }
 
         .sidetemperature {
+            position: relative;
+            background: url(${ctxStatic}/pic/mc-line.png) center top no-repeat;
             height: 400px;
         }
 
@@ -162,11 +164,14 @@
         }
 
         #temperature {
-            position: absolute;
-            bottom: 28px;
-            left: 7.3px;
+            /*relative为了居中*/
+            position: relative;
             width: 5px;
             height: 336px;
+            top:38px;
+            /*居中*/
+            margin-left:auto;
+            margin-right:auto;
             /*background: #F9F一样的*/
             background-color: #F9F;
         }
@@ -219,7 +224,7 @@
 
         /*各张图片*/
         /*每行间距*/
-        .allcontent .col-md-4 {
+        .allcontent .col-xs-4 {
             margin-bottom: 18px;
         }
 
@@ -468,14 +473,14 @@
 <div class="myWrapper">
     <div class="container">
         <div class="row">
-            <div class="col-lg-5 logo">
+            <div class="col-xs-5 logo">
                 <img class="logo-gif" src="${ctxStatic}/pic/head-logo.gif">
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-xs-12">
                 <nav class="navbar navbar-default headline">
                     <div class="container-fluid">
                         <!-- Brand and toggle get grouped for better mobile display -->
@@ -550,7 +555,7 @@
     </div>
     <div class="container">
         <div class="row carousel slide" id="carousel-example-generic" data-ride="carousel">
-            <div class="col-lg-2 sidecontent">
+            <div class="col-xs-2 sidecontent">
                 <div class="row">
                     <div class="col-xs-10 sideimggroup">
                         <ol class="carousel-indicators">
@@ -580,7 +585,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-7 maincontent">
+            <div class="col-xs-7 maincontent">
                 <div>
                     <div class="carousel-inner" role="listbox">
                         <%--<div class="item active">active,首先是它展现--%>
@@ -627,7 +632,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 ">
+            <div class="col-xs-3 ">
                 <div class="tuijian ">
                     <div class="title"><img src="${ctxStatic}/pic/zxsb.png"> <span
                             style="font-size:18px;font-weight:700;">推荐</span></div>
@@ -646,14 +651,14 @@
     <%--选项卡--%>
     <div class="container" style="margin-top:41px;">
         <div class="row">
-            <div class="col-lg-6" >
+            <div class="col-xs-6" >
                 <ul id="xuanxiangka">
                     <li><a><span class="green">按标题排序</span></a></li>
                     <li><a><span class="blue">按时间排序</span></a></li>
                     <li><a><span class="blue">按类型排序</span></a></li>
                 </ul>
             </div>
-            <div class="col-lg-3" >
+            <div class="col-xs-3" >
                 <div id="searchFanju">
                     <div id="fanBtn"></div>
                     <input id="fanName" type="text" placeholder="Search for...">
@@ -665,7 +670,7 @@
     <%--横线--%>
     <div class="container">
         <div class="row">
-            <div class="col-lg-9">
+            <div class="col-xs-9">
                 <div style="height:2px;background:#3A5FCD;"></div>
             </div>
         </div>
@@ -675,10 +680,10 @@
     <div class="container" style="margin-top:8px;">
         <div class="row">
             <!--主要内容-->
-            <div class="col-lg-9 allcontent">
+            <div class="col-xs-9 allcontent">
                 <div class="row" id="mainPic">
                     <%--<c:forEach items="${mainPicInitList}" var="p">
-                        <div class="col-md-4">
+                        <div class="col-xs-4">
                             <div class="eachcontent">
                                 <img src="${ctxPath}${p.path}">-
                                 <p class="textbox">${p.content}</p>
@@ -696,7 +701,7 @@
             </div>
 
             <!--边栏-->
-            <div class="col-lg-3">
+            <div class="col-xs-3">
                 <!--戳我-->
                 <%--<a style="height:75px;margin-bottom:5px;display:block;"> <img src="${ctxStatic}/pic/chuowo.png"
                                                                               style="width:100%;"> </a>--%>
@@ -1027,12 +1032,15 @@
         $('#carousel-example-generic').on('slid.bs.carousel', function () {
             //this就是#carousel-example-generic
             var ii = parseInt($(this).find('.carousel-indicators').find('.active').attr("data-slide-to"));
-           $("#temperature").height(336 - 83*ii);
+
+            $("#temperature").height(336 - 83*ii);
+            $("#temperature").css("top",38+83*ii);
 
             var height = $("#temperature").height();
 
-            if (height == 0) {
+            if (height < 0) {
                 $("#temperature").height(336);
+                $("#temperature").css("top",38);
             }
         });
 
@@ -1078,10 +1086,10 @@
                             for(var i=0;i<jsonReturn.length;i++){
                                 //alert(jsonReturn[i]["author"]);
                                 if(jsonReturn[i]["url"]!=""){
-                                    result += '<div class="col-md-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                    result += '<div class="col-xs-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
                                             jsonReturn[i]["author"]+'</p></div></div>';
                                 }else{
-                                    result += '<div class="col-md-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                    result += '<div class="col-xs-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
                                             jsonReturn[i]["author"]+'</p></div></div>';
                                 }
                             }
@@ -1104,10 +1112,10 @@
                             for(var i=0;i<jsonReturn.length;i++){
                                 //alert(jsonReturn[i]["author"]);
                                 if(jsonReturn[i]["url"]!=""){
-                                    result += '<div class="col-md-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                    result += '<div class="col-xs-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
                                             jsonReturn[i]["author"]+'</p></div></div>';
                                 }else{
-                                    result += '<div class="col-md-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                    result += '<div class="col-xs-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
                                             jsonReturn[i]["author"]+'</p></div></div>';
                                 }
                             }
@@ -1130,10 +1138,10 @@
                             for(var i=0;i<jsonReturn.length;i++){
                                 //alert(jsonReturn[i]["author"]);
                                 if(jsonReturn[i]["url"]!=""){
-                                    result += '<div class="col-md-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                    result += '<div class="col-xs-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
                                             jsonReturn[i]["author"]+'</p></div></div>';
                                 }else{
-                                    result += '<div class="col-md-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                    result += '<div class="col-xs-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
                                             jsonReturn[i]["author"]+'</p></div></div>';
                                 }
                             }
@@ -1172,10 +1180,10 @@
                             var jsonReturn = JSON.parse(data).rows;
                             for(var i=0;i<jsonReturn.length;i++){
                                 if(jsonReturn[i]["url"]!=""){
-                                    result += '<div class="col-md-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                    result += '<div class="col-xs-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
                                             jsonReturn[i]["author"]+'</p></div></div>';
                                 }else{
-                                    result += '<div class="col-md-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                    result += '<div class="col-xs-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
                                             jsonReturn[i]["author"]+'</p></div></div>';
                                 }
                             }
@@ -1198,10 +1206,10 @@
                             var jsonReturn = JSON.parse(data).rows;
                             for(var i=0;i<jsonReturn.length;i++){
                                 if(jsonReturn[i]["url"]!=""){
-                                    result += '<div class="col-md-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                    result += '<div class="col-xs-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
                                             jsonReturn[i]["author"]+'</p></div></div>';
                                 }else{
-                                    result += '<div class="col-md-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                    result += '<div class="col-xs-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
                                             jsonReturn[i]["author"]+'</p></div></div>';
                                 }
                             }
@@ -1224,10 +1232,10 @@
                             var jsonReturn = JSON.parse(data).rows;
                             for(var i=0;i<jsonReturn.length;i++){
                                 if(jsonReturn[i]["url"]!=""){
-                                    result += '<div class="col-md-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                    result += '<div class="col-xs-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
                                             jsonReturn[i]["author"]+'</p></div></div>';
                                 }else{
-                                    result += '<div class="col-md-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                                    result += '<div class="col-xs-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
                                             jsonReturn[i]["author"]+'</p></div></div>';
                                 }
                             }
@@ -1253,10 +1261,10 @@
                     var jsonReturn = JSON.parse(data).rows;
                     for(var i=0;i<jsonReturn.length;i++){
                         if(jsonReturn[i]["url"]!=""){
-                            result += '<div class="col-md-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                            result += '<div class="col-xs-4"><div class="eachcontent"><a href="'+jsonReturn[i]["url"]+'" target="_blank"><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
                                     jsonReturn[i]["author"]+'</p></div></div>';
                         }else{
-                            result += '<div class="col-md-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
+                            result += '<div class="col-xs-4"><div class="eachcontent"><a><img src="${ctxPath}'+jsonReturn[i]["path"]+'"></a> <p class="textbox">'+jsonReturn[i]["content"]+'</p><p class="labelbox"><span>'+jsonReturn[i]["classification"]+'</span>'+
                                     jsonReturn[i]["author"]+'</p></div></div>';
                         }
                     }
