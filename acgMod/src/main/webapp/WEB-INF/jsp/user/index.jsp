@@ -164,7 +164,7 @@
         }
 
         #temperature {
-            /*relative为了居中*/
+            /*position:relative margin-left:auto margin-right:auto再加上width: 5px(要固定宽度)实现了居中*/
             position: relative;
             width: 5px;
             height: 336px;
@@ -185,10 +185,12 @@
             right: 0%;
         }
 
+        /*字数不固定 长度随字数而不固定*/
         .carousel-caption .c{
             background-color:black;
             position:absolute;
             bottom:0px;
+            /*居中*/
             left:0px;
             right:0px;
         }
@@ -950,65 +952,7 @@
 
 <script type="text/javascript">
 
-    $(document).ready(function () {    /*$(".dtzt").hover(function () {
-            $(this).animate({height: '120px'});
-            $(this).find("img").animate({top: '0px'});
-            $(this).find("p").animate({top: '100px'},function(){
-                $(this).parent().siblings().find(".dtzt").height(20);
-                $(this).parent().siblings().find(".dtzt").find("img").css("top", "-100px");
-                $(this).parent().siblings().find(".dtzt").find("p").css("top", "0px");
-            });
-         });*/
-
-
-        $("#headingOne").on("mouseover", function() {
-            $("#collapseOne").collapse("show");
-
-            $("#collapseTwo").collapse("hide");
-            $("#collapseThree").collapse("hide");
-            $("#collapseFour").collapse("hide");
-            $("#collapseFive").collapse("hide");
-
-
-        });
-
-        $("#headingTwo").on("mouseover", function() {
-            $("#collapseTwo").collapse("show");
-
-            $("#collapseOne").collapse("hide");
-            $("#collapseThree").collapse("hide");
-            $("#collapseFour").collapse("hide");
-            $("#collapseFive").collapse("hide");
-
-
-        });
-
-        $("#headingThree").on("mouseover", function() {
-            $("#collapseThree").collapse("show");
-
-            $("#collapseOne").collapse("hide");
-            $("#collapseTwo").collapse("hide");
-            $("#collapseFour").collapse("hide");
-            $("#collapseFive").collapse("hide");
-        });
-
-        $("#headingFour").on("mouseover", function() {
-            $("#collapseFour").collapse("show");
-
-            $("#collapseOne").collapse("hide");
-            $("#collapseTwo").collapse("hide");
-            $("#collapseThree").collapse("hide");
-            $("#collapseFive").collapse("hide");
-        });
-
-        $("#headingFive").on("mouseover", function() {
-            $("#collapseFive").collapse("show");
-
-            $("#collapseOne").collapse("hide");
-            $("#collapseTwo").collapse("hide");
-            $("#collapseThree").collapse("hide");
-            $("#collapseFour").collapse("hide");
-        });
+    $(document).ready(function () {
 
         $('.carousel').carousel({
             interval: 5000,
@@ -1017,18 +961,7 @@
         });
 
 
-        /*setInterval(function () {
-
-                    $("#temperature").height($("#temperature").height() - 83);
-
-                    if ($("#temperature").height() == 0) {
-                        $("#temperature").height(336);
-                    }
-                }, 5000
-        );浏览器选项卡换了后，指示器和内容不同步*/
-
-
-
+        //温度计
         $('#carousel-example-generic').on('slid.bs.carousel', function () {
             //this就是#carousel-example-generic
             var ii = parseInt($(this).find('.carousel-indicators').find('.active').attr("data-slide-to"));
@@ -1044,15 +977,6 @@
             }
         });
 
-
-
-        /*
-        $(".textbox").click(function(){
-            $(this).html(function(i,origText){
-                return "<input type='text' value="+origText+"/>";
-            });
-        });
-        */
 
         //搜索番剧
         $("#fanBtn").click(function(){
@@ -1315,36 +1239,6 @@
                     var jsonReturn = JSON.parse(data).rows;
 
                     for(var i=0;i<jsonReturn.length;i++){
-                        /*if(i==0){    //我曹  写成了i=0 下面也是  结果只能显示最后一项
-                            temp='One';
-                            in1='in';
-                            collapsed='';
-                            aria_expanded='true';
-                        }
-                        if(i==1){
-                            temp='Two';
-                            in1='';
-                            collapsed = 'class="collapsed"';
-                            aria_expanded='false';
-                        }
-                        if(i==2){
-                            temp='Three';
-                            in1='';
-                            collapsed = 'class="collapsed"';
-                            aria_expanded='false';
-                        }
-                        if(i==3){
-                            temp='Four';
-                            in1='';
-                            collapsed = 'class="collapsed"';
-                            aria_expanded='false';
-                        }
-                        if(i==4){
-                            temp='Five';
-                            in1='';
-                            collapsed = 'class="collapsed"';
-                            aria_expanded='false';
-                        }*/
                         switch(i){
                             case 0:temp='One';in1='in';collapsed='';aria_expanded='true';
                                 break;
@@ -1395,15 +1289,7 @@
                     $('.bfb ul').append(result);
                 });
 
-        /*$("#tuijianC ul").resize(
-                function(){
-                    var maxHeight = 340;
-                    var height = $("#tuijianC ul").height();
-                    if(height>maxHeight){
-                        $("#tuijianC").addClass('pre-scrollable');
-                    }
-                }
-        );*/
+
     }
 
 </script>
