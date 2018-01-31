@@ -16,9 +16,6 @@
             padding-top: 40px;
         }
 
-        /*.panel a{
-            color: #141A1B;
-        }*/  /*这个必须在a:hover上面,hover才有效果。。。*/
 
         /*a标签的一些设置*/
         a:link {
@@ -56,13 +53,12 @@
             /*<span>中文字的颜色*/
             color: #fff;
             width:16px;
-            //下面2行垂直居中
+            /*下面2行垂直居中*/
             height:14px;
             line-height: 14px;
-            //水平居中
+            /*水平居中*/
             text-align: center;
         }
-
 
 
         .navbar {
@@ -71,10 +67,7 @@
             height: 40px;
         }
 
-        .navbar-nav > li > a {
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
+
 
         /*管理*/
         #guanli a {
@@ -89,17 +82,14 @@
             margin-bottom: 4px;
         }
 
+        /*padding-left增加块与块之间的距离*/
         .wechat {
             background: url(${ctxStatic}/pic/wechat.png) no-repeat;
             padding-left: 20px;
         }
 
 
-        #bs-example-navbar-collapse-2 li > a:hover {
-            text-decoration: none;
-            cursor: pointer;
-            color: #F6F
-        }
+
 
 
         /*下拉菜单悬浮时再显示*/
@@ -115,6 +105,23 @@
             display: block;
         }
 
+        /*看过的动画 动漫歌曲*/
+        /*可以把内边距当做透明区域用,增加内部(父子块)间隔*/
+        /*.nav > li > a在bootstrap里将a设置了display:block 所以可以设置内边距*/
+        .navbar-nav > li > a {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        #bs-example-navbar-collapse-2 li > a:hover {
+            text-decoration: none;
+            cursor: pointer;
+            color: #F6F
+        }
+
+
+        /*动漫歌曲下的歌曲和配乐*/
+        /*bootstrapa默认padding-left是20px*/
         #bs-example-navbar-collapse-2 .second-nav .dropdown-menu a:hover{
             padding-left: 24px;
             color: #FF0000;
@@ -131,11 +138,13 @@
             height: 220px;
         }
 
+        /*行内容只有margin和padding的左和右会生效*/
         .logo-gif {
             /*col-xs-5 默认position: relative*/
             position: absolute;
             top: 20%;
-            margin-left: 116px;
+            /*也可以用margin-left: 116px;margin看做透明的起到增加间距的作用*/
+            padding-left: 116px;
         }
 
         /*导航栏透明的条*/
@@ -144,7 +153,6 @@
         }
 
         .sidecontent {
-            <%--background: url(${ctxStatic}/pic/mc-line.png) 164px top no-repeat;--%>
             height: 400px;
         }
 
@@ -163,6 +171,7 @@
             height: 72px;
         }
 
+        /*温度计*/
         #temperature {
             /*position:relative margin-left:auto margin-right:auto再加上width: 5px(要固定宽度)实现了居中*/
             position: relative;
@@ -176,6 +185,7 @@
             background-color: #F9F;
         }
 
+        /*精灵守护者,纳吉之歌*/
         .carousel-caption {
             bottom: 0px;
             /*宽度跟父元素宽度一样*/
@@ -207,6 +217,7 @@
             height:400px;
         }
 
+        /*增加各推荐间的距离*/
         #tuijianC li{
             margin-bottom: 3px;
         }
@@ -232,7 +243,7 @@
 
         /*每个图文边框*/
         .eachcontent {
-            border: 1px solid #e6e6e6;
+            border: 1px solid #ded8d8;
         }
 
         /*图片*/
@@ -391,7 +402,7 @@
             color: #000;
         }
 
-
+        /*推荐最左边竖排指示图片,覆盖原来bootstrap的默认样式来满足自己的需要*/
         .carousel-indicators {
             position: relative;
             bottom: 0px;
@@ -947,7 +958,7 @@
     </div>
 </div>
 
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="${ctxStatic}/js/jquery-1.11.3.min.js"></script>
 <script src="${ctxStatic}/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
