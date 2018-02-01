@@ -744,8 +744,8 @@
                     }
                 },
                 {name:'id',index:'id',width:80,hidedlg:true,hidden:true,editable: true},
-                {name:'content',index:'content',width:540,editable: true,editoptions:{size:"70",maxlength:"70"}},
-                {name:'url',index:'url',width:540,editable: true,editoptions:{size:"70",maxlength:"70"}}
+                {name:'content',index:'content',width:540,editable: true,editoptions:{size:"30",maxlength:"70"}},
+                {name:'url',index:'url',width:540,editable: true,editoptions:{size:"30",maxlength:"70"}}
             ],
 
 
