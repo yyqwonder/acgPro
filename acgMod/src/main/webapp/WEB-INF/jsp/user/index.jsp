@@ -30,6 +30,7 @@
             color: #000;
         }
 
+        /*我的QQ 微信 BiliBili悬浮颜色的变化是bootstrap css默认的*/
         a:hover {
             text-decoration: none;
             cursor: pointer;
@@ -307,7 +308,6 @@
 
         /*按标题 时间 类型排序*/
         #xuanxiangka{
-            display:block;
             padding: 0px;
         }
 
@@ -398,9 +398,7 @@
             white-space: nowrap;
         }
 
-        li a {
-            color: #000;
-        }
+
 
         /*推荐最左边竖排指示图片,覆盖原来bootstrap的默认样式来满足自己的需要*/
         .carousel-indicators {
