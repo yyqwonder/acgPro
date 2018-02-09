@@ -1180,6 +1180,8 @@
             }
          });
      });
+
+
     //初始化主要内容的首页页面
     function iniMainPic(){
         //主要图片
@@ -1279,6 +1281,47 @@
 
                     }
                     $('#accordion').append(result);
+
+                    //鼠标滑过效果只能放这里才有效果
+                    /*$("#headingOne").on("mouseover", function() {
+                        $("#collapseOne").collapse("show");
+                        $("#collapseTwo").collapse("hide");
+                        $("#collapseThree").collapse("hide");
+                        $("#collapseFour").collapse("hide");
+                        $("#collapseFive").collapse("hide");
+                    });
+
+                    $("#headingTwo").on("mouseover", function() {
+                        $("#collapseTwo").collapse("show");
+                        $("#collapseOne").collapse("hide");
+                        $("#collapseThree").collapse("hide");
+                        $("#collapseFour").collapse("hide");
+                        $("#collapseFive").collapse("hide");
+                    });
+
+                    $("#headingThree").on("mouseover", function() {
+                        $("#collapseThree").collapse("show");
+                        $("#collapseOne").collapse("hide");
+                        $("#collapseTwo").collapse("hide");
+                        $("#collapseFour").collapse("hide");
+                        $("#collapseFive").collapse("hide");
+                    });
+
+                    $("#headingFour").on("mouseover", function() {
+                        $("#collapseFour").collapse("show");
+                        $("#collapseOne").collapse("hide");
+                        $("#collapseTwo").collapse("hide");
+                        $("#collapseThree").collapse("hide");
+                        $("#collapseFive").collapse("hide");
+                    });
+
+                    $("#headingFive").on("mouseover", function() {
+                        $("#collapseFive").collapse("show");
+                        $("#collapseOne").collapse("hide");
+                        $("#collapseTwo").collapse("hide");
+                        $("#collapseThree").collapse("hide");
+                        $("#collapseFour").collapse("hide");
+                    });*/
 
                 });
 

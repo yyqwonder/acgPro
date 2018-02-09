@@ -2,9 +2,9 @@ package com.xyl.myacg.modules.mainPic.web;
 
 import com.xyl.myacg.common.mapper.JsonMapper;
 import com.xyl.myacg.common.persistence.Page;
-import com.xyl.myacg.common.utils.StringUtils;
 import com.xyl.myacg.modules.mainPic.entity.MainPic;
 import com.xyl.myacg.modules.mainPic.service.IMainPicService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
